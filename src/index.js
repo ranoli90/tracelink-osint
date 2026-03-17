@@ -61,7 +61,18 @@ const bot = createBot();
 if (bot) {
   // Use webhook callback for Express
   app.use('/bot/webhook', bot.webhookCallback('/bot/webhook'));
-  console.log('Telegram bot webhook enabled');
+  console.log('Telegram bot webhook endpoint enabled');
+
+  // Automatically set webhook if external URL is available
+  const externalUrl = process.env.BASE_URL || process.env.RENDER_EXTERNAL_URL || process.env.WEBAPP_URL;
+  if (externalUrl) {
+    const webhookUrl = `${externalUrl}/bot/webhook`;
+    bot.telegram.setWebhook(webhookUrl)
+      .then(() => console.log(`Telegram webhook registered: ${webhookUrl}`))
+      .catch(err => console.error('Error registering Telegram webhook:', err.message));
+  } else {
+    console.warn('Telegram bot started without webhook registration - set BASE_URL or RENDER_EXTERNAL_URL');
+  }
 } else {
   console.log('Telegram bot not initialized - set BOT_TOKEN to enable');
 }

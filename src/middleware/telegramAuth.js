@@ -98,8 +98,30 @@ export function telegramAuthMiddleware(req, res, next) {
 
     // 1. Check Authorization header
     const authHeader = req.headers.authorization;
-    if (authHeader && authHeader.startsWith('tma ')) {
-        initData = authHeader.substring(4);
+    if (authHeader) {
+        if (authHeader.startsWith('tma ')) {
+            initData = authHeader.substring(4);
+        } else if (authHeader.startsWith('Bearer ')) {
+            const token = authHeader.substring(7);
+            if (token === botToken) {
+                // Internal bot authentication
+                const adminIds = process.env.ADMIN_TELEGRAM_IDS || '';
+                const adminIdList = adminIds.split(',').map(id => id.trim()).filter(id => id);
+
+                // Use the first admin ID if available, otherwise use a placeholder
+                const mockAdminId = adminIdList.length > 0 ? BigInt(adminIdList[0]) : 0n;
+
+                req.telegramUser = {
+                    telegramId: mockAdminId,
+                    username: 'Bot',
+                    firstName: 'TraceLink',
+                    isBot: true,
+                    isInternal: true
+                };
+                req.telegramId = mockAdminId;
+                return next();
+            }
+        }
     }
 
     // 2. Check X-Telegram-InitData header
@@ -136,11 +158,22 @@ export function telegramAuthMiddleware(req, res, next) {
 export function requireAdmin(req, res, next) {
     const adminIds = process.env.ADMIN_TELEGRAM_IDS || '';
 
+    // Allow bypass for internal requests (bot)
+    if (req.telegramUser && req.telegramUser.isInternal) {
+        return next();
+    }
+
     if (!adminIds || adminIds.trim() === '') {
         return res.status(403).json({ error: 'Admin access not configured' });
     }
 
-    const adminIdList = adminIds.split(',').map(id => BigInt(id.trim())).filter(id => !isNaN(id));
+    const adminIdList = adminIds.split(',').map(id => {
+        try {
+            return BigInt(id.trim());
+        } catch (e) {
+            return null;
+        }
+    }).filter(id => id !== null);
 
     if (!adminIdList.includes(req.telegramId)) {
         return res.status(403).json({ error: 'Admin access required' });

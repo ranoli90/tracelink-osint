@@ -27,14 +27,14 @@ const MAX_SCAN_AGE = 24 * 60 * 60 * 1000; // 24 hours
 function cleanupOldScanResults() {
     const now = Date.now();
     let cleanedCount = 0;
-    
+
     for (const [scanId, result] of osintResults.entries()) {
         if (now - result.timestamp > MAX_SCAN_AGE) {
             osintResults.delete(scanId);
             cleanedCount++;
         }
     }
-    
+
     if (cleanedCount > 0) {
         console.log(`Cleaned up ${cleanedCount} old OSINT scan results`);
     }
@@ -45,37 +45,37 @@ setInterval(cleanupOldScanResults, CLEANUP_INTERVAL);
 
 // Input validation schemas to prevent command injection
 const targetSchema = z.string()
-  .min(3)
-  .max(255)
-  .regex(/^[a-zA-Z0-9.-]+$/, 'Target can only contain letters, numbers, dots, and hyphens');
+    .min(3)
+    .max(255)
+    .regex(/^[a-zA-Z0-9.@-]+$/, 'Target can only contain letters, numbers, dots, hyphens, and @');
 
 const usernameSchema = z.string()
-  .min(3)
-  .max(50)
-  .regex(/^[a-zA-Z0-9_.-]+$/, 'Username can only contain letters, numbers, underscores, dots, and hyphens');
+    .min(3)
+    .max(50)
+    .regex(/^[a-zA-Z0-9_.-]+$/, 'Username can only contain letters, numbers, underscores, dots, and hyphens');
 
 const emailSchema = z.string()
-  .email()
-  .max(255);
+    .email()
+    .max(255);
 
 const phoneSchema = z.string()
-  .min(10)
-  .max(20)
-  .regex(/^[+0-9-() ]+$/, 'Phone number can only contain digits, plus, and common phone symbols');
+    .min(10)
+    .max(20)
+    .regex(/^[+0-9-() ]+$/, 'Phone number can only contain digits, plus, and common phone symbols');
 
 const scanTypeSchema = z.enum(['all', 'email', 'domain', 'username', 'phone'], {
-  errorMap: (issue, ctx) => {
-    return { message: 'Invalid scan type. Must be one of: all, email, domain, username, phone' };
-  }
+    errorMap: (issue, ctx) => {
+        return { message: 'Invalid scan type. Must be one of: all, email, domain, username, phone' };
+    }
 });
 
 // Rate limiting to prevent abuse
 const osintLimiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 5, // 5 requests per minute per IP
-  message: 'Too many OSINT scans, please try again later',
-  standardHeaders: true,
-  legacyHeaders: false,
+    windowMs: 60 * 1000, // 1 minute
+    max: 5, // 5 requests per minute per IP
+    message: 'Too many OSINT scans, please try again later',
+    standardHeaders: true,
+    legacyHeaders: false,
 });
 
 // Note: OSINT results are returned directly in the response.
@@ -149,34 +149,34 @@ async function checkToolsInstalled() {
     for (const tool of Object.keys(tools)) {
         // Try to get from cache first
         const cached = cache.get(tool);
-        
+
         if (cached !== null) {
             tools[tool] = cached.available;
             cacheHits++;
             await osintLogger.cache('tool_check', tool, cached.available, Date.now() - startTime);
         } else {
             cacheMisses++;
-            
-          // Check if tool is installed using cross-platform detection
-          try {
-            const toolCommand = process.platform === 'win32' ? `where ${tool}` : `which ${tool}`;
-            await execAsync(`${toolCommand} || echo "not found"`);
-            tools[tool] = true;
-            await cache.set(tool, { available: true, lastChecked: Date.now() });
-            await osintLogger.toolCheck(tool, true, Date.now() - startTime);
-          } catch (e) {
-            tools[tool] = false;
-            await cache.set(tool, { available: false, lastChecked: Date.now() });
-            await osintLogger.toolCheck(tool, false, Date.now() - startTime);
-          }
+
+            // Check if tool is installed using cross-platform detection
+            try {
+                const toolCommand = process.platform === 'win32' ? `where ${tool}` : `which ${tool}`;
+                await execAsync(`${toolCommand} || echo "not found"`);
+                tools[tool] = true;
+                await cache.set(tool, { available: true, lastChecked: Date.now() });
+                await osintLogger.toolCheck(tool, true, Date.now() - startTime);
+            } catch (e) {
+                tools[tool] = false;
+                await cache.set(tool, { available: false, lastChecked: Date.now() });
+                await osintLogger.toolCheck(tool, false, Date.now() - startTime);
+            }
         }
     }
 
-    await osintLogger.performance('tool_check_cached', Date.now() - startTime, { 
-      availableTools: Object.values(tools).filter(Boolean).length,
-      totalTools: Object.keys(tools).length,
-      cacheHits,
-      cacheMisses
+    await osintLogger.performance('tool_check_cached', Date.now() - startTime, {
+        availableTools: Object.values(tools).filter(Boolean).length,
+        totalTools: Object.keys(tools).length,
+        cacheHits,
+        cacheMisses
     });
 
     return tools;
@@ -231,7 +231,7 @@ async function runSpiderFoot(target, scanType = 'all') {
 
     try {
         const config = moduleConfigs[scanType] || moduleConfigs['all'];
-        
+
         let moduleList = [];
         if (config.useAll) {
             moduleList = await getSpiderFootModules();
@@ -266,7 +266,7 @@ async function runSpiderFoot(target, scanType = 'all') {
         }
 
         const scanResult = await response.json();
-        
+
         osintResults.set(scanId, {
             scanId,
             tool: 'spiderfoot',
@@ -302,7 +302,7 @@ async function runSpiderFoot(target, scanType = 'all') {
 async function runMaigret(username) {
     // Validate input to prevent command injection
     const validatedUsername = usernameSchema.parse(username);
-    
+
     try {
         const outputFile = path.join(process.cwd(), 'osint-results', `maigret-${Date.now()}.json`);
         await fs.mkdir(path.dirname(outputFile), { recursive: true });
@@ -376,7 +376,7 @@ function parseMaigretOutput(output) {
 async function runSherlock(username) {
     // Validate input to prevent command injection
     const validatedUsername = usernameSchema.parse(username);
-    
+
     try {
         const outputFile = path.join(process.cwd(), 'osint-results', `sherlock-${Date.now()}.txt`);
         await fs.mkdir(path.dirname(outputFile), { recursive: true });
@@ -437,7 +437,7 @@ function parseSherlockOutput(output) {
 async function runHolehe(email) {
     // Validate input to prevent command injection
     const validatedEmail = emailSchema.parse(email);
-    
+
     try {
         const cmd = `holehe ${validatedEmail} --only-used --json 2>&1`;
         const { stdout } = await execAsync(cmd, { timeout: 300000 });
@@ -507,7 +507,7 @@ function parseHoleheOutput(output) {
 async function runPhoneInfoga(phoneNumber) {
     // Validate input to prevent command injection
     const validatedPhoneNumber = phoneSchema.parse(phoneNumber);
-    
+
     try {
         const outputFile = path.join(process.cwd(), 'osint-results', `phone-${Date.now()}.json`);
         await fs.mkdir(path.dirname(outputFile), { recursive: true });
@@ -566,8 +566,8 @@ async function getScanResults(scanId) {
     }
 
     if (result.tool === 'spiderfoot' && result.sfScanId) {
-const spiderFootUrl = process.env.SPIDERFOOT_URL || 'http://localhost:5001';
-        
+        const spiderFootUrl = process.env.SPIDERFOOT_URL || 'http://localhost:5001';
+
         try {
             const response = await fetch(`${spiderFootUrl}/api/scan/${result.sfScanId}/results`);
             if (response.ok) {
@@ -627,13 +627,13 @@ router.get('/health', telegramAuthMiddleware, async (req, res) => {
             const dbStartTime = Date.now();
             await prisma.$queryRaw`SELECT 1 as health_check`;
             const dbLatency = Date.now() - dbStartTime;
-            
+
             healthCheck.database = {
                 status: 'connected',
                 latency: `${dbLatency}ms`,
                 lastCheck: new Date().toISOString()
             };
-            
+
             await osintLogger.database('health_check', { latency: dbLatency }, true);
         } catch (dbError) {
             healthCheck.database = {
@@ -641,7 +641,7 @@ router.get('/health', telegramAuthMiddleware, async (req, res) => {
                 error: dbError.message,
                 lastCheck: new Date().toISOString()
             };
-            
+
             await osintLogger.database('health_check', { error: dbError.message }, false, dbError);
         }
 
@@ -649,7 +649,7 @@ router.get('/health', telegramAuthMiddleware, async (req, res) => {
         const perfStartTime = Date.now();
         const testScan = await checkToolsInstalled();
         const toolCheckLatency = Date.now() - perfStartTime;
-        
+
         healthCheck.performance = {
             toolCheckLatency: `${toolCheckLatency}ms`,
             responseTime: `${Date.now() - perfStartTime}ms`
@@ -662,20 +662,20 @@ router.get('/health', telegramAuthMiddleware, async (req, res) => {
             adminProtection: requireAdmin ? 'enabled' : 'disabled',
             inputValidation: 'enabled'
         };
-        
+
         healthCheck.security = securityChecks;
 
         // Determine overall health status
         const issues = [];
-        
+
         if (healthCheck.tools.available === 0) {
             issues.push('No OSINT tools available');
         }
-        
+
         if (healthCheck.database.status === 'disconnected') {
             issues.push('Database disconnected');
         }
-        
+
         if (healthCheck.performance.toolCheckLatency > 5000) {
             issues.push('Slow tool check performance');
         }
@@ -686,7 +686,7 @@ router.get('/health', telegramAuthMiddleware, async (req, res) => {
         }
 
         res.json(healthCheck);
-        
+
         await osintLogger.performance('health_check', Date.now() - perfStartTime, {
             status: healthCheck.status,
             issues: issues.length,
@@ -700,9 +700,9 @@ router.get('/health', telegramAuthMiddleware, async (req, res) => {
             error: error.message,
             stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
         };
-        
+
         res.status(503).json(errorResponse);
-        
+
         await osintLogger.scanError('health_check', 'system', null, null, error, Date.now());
     }
 });
@@ -715,21 +715,21 @@ router.get('/health/tools', telegramAuthMiddleware, async (req, res) => {
     try {
         const toolHealth = {};
         const tools = ['spiderfoot', 'maigret', 'sherlock', 'holehe', 'phoneinfoga'];
-        
+
         for (const tool of tools) {
             const startTime = Date.now();
-            
+
             try {
                 // Check if tool is installed using cross-platform detection
                 const toolCommand = process.platform === 'win32' ? `where ${tool}` : `which ${tool}`;
                 await execAsync(`${toolCommand} || echo "not found"`, { timeout: 5000 });
                 const isInstalled = true;
                 const latency = Date.now() - startTime;
-                
+
                 // Test basic functionality (if possible)
                 let functional = false;
                 let version = 'unknown';
-                
+
                 try {
                     if (tool === 'spiderfoot') {
                         const { stdout } = await execAsync('spiderfoot --version', { timeout: 10000 });
@@ -747,7 +747,7 @@ router.get('/health/tools', telegramAuthMiddleware, async (req, res) => {
                 } catch (versionError) {
                     functional = false;
                 }
-                
+
                 toolHealth[tool] = {
                     status: 'healthy',
                     installed: isInstalled,
@@ -756,9 +756,9 @@ router.get('/health/tools', telegramAuthMiddleware, async (req, res) => {
                     latency: `${latency}ms`,
                     lastCheck: new Date().toISOString()
                 };
-                
+
                 await osintLogger.toolCheck(tool, true, latency);
-                
+
             } catch (error) {
                 toolHealth[tool] = {
                     status: 'unhealthy',
@@ -769,11 +769,11 @@ router.get('/health/tools', telegramAuthMiddleware, async (req, res) => {
                     latency: `${Date.now() - startTime}ms`,
                     lastCheck: new Date().toISOString()
                 };
-                
+
                 await osintLogger.toolCheck(tool, false, Date.now() - startTime);
             }
         }
-        
+
         const response = {
             timestamp: new Date().toISOString(),
             tools: toolHealth,
@@ -784,9 +784,9 @@ router.get('/health/tools', telegramAuthMiddleware, async (req, res) => {
                 unhealthy: Object.values(toolHealth).filter(t => t.status === 'unhealthy').length
             }
         };
-        
+
         res.json(response);
-        
+
     } catch (error) {
         res.status(500).json({
             error: 'Failed to check tool health',
@@ -809,16 +809,16 @@ router.get('/health/database', telegramAuthMiddleware, async (req, res) => {
             connectionPool: {},
             lastCheck: null
         };
-        
+
         const startTime = Date.now();
-        
+
         try {
             // Basic connectivity test
             await prisma.$queryRaw`SELECT 1 as health_check`;
             dbHealth.status = 'connected';
             dbHealth.latency = `${Date.now() - startTime}ms`;
             dbHealth.lastCheck = new Date().toISOString();
-            
+
             // Connection pool info (if available)
             try {
                 const poolInfo = await prisma.$queryRaw`
@@ -829,26 +829,26 @@ router.get('/health/database', telegramAuthMiddleware, async (req, res) => {
                     FROM pg_stat_activity 
                     WHERE datname = current_database()
                 `;
-                
+
                 dbHealth.connectionPool = poolInfo[0] || {};
             } catch (poolError) {
                 dbHealth.connectionPool = { error: poolError.message };
             }
-            
+
             res.json(dbHealth);
-            
-            await osintLogger.database('health_check', { 
+
+            await osintLogger.database('health_check', {
                 latency: Date.now() - startTime,
                 connections: dbHealth.connectionPool.total_connections || 0
             }, true);
-            
+
         } catch (error) {
             dbHealth.status = 'disconnected';
             dbHealth.error = error.message;
             dbHealth.lastCheck = new Date().toISOString();
-            
+
             res.status(503).json(dbHealth);
-            
+
             await osintLogger.database('health_check', { error: error.message }, false, error);
         }
     } catch (error) {
@@ -901,38 +901,38 @@ router.post('/spiderfoot', osintLimiter, async (req, res) => {
         // Validate input
         const validatedTarget = targetSchema.parse(target);
         const validatedScanType = scanTypeSchema.parse(scanType);
-        
+
         // Run SpiderFoot scan
         const result = await runSpiderFoot(validatedTarget, validatedScanType);
-        
+
         // Save scan result to database
         await saveScanResult(result.scanId, telegramId, 'spiderfoot', validatedTarget, result, result.status);
-        
+
         // Return standardized response
         const response = createStandardResponse(
-            result.scanId, 
-            'spiderfoot', 
-            validatedTarget, 
-            result.status, 
-            false, 
-            0, 
-            [], 
+            result.scanId,
+            'spiderfoot',
+            validatedTarget,
+            result.status,
+            false,
+            0,
+            [],
             result.message
         );
-        
+
         res.json(response);
-        
+
     } catch (error) {
         const friendlyError = createFriendlyError(error, {
             endpoint: '/osint/spiderfoot',
             method: 'POST',
             userId: telegramId
         });
-        
+
         // Save error to database
         const scanId = generateScanId();
         await saveScanResult(scanId, telegramId, 'spiderfoot', target, null, 'error', error.message);
-        
+
         res.status(400).json(friendlyError);
     }
 });
@@ -954,10 +954,10 @@ router.post('/maigret', osintLimiter, requireAdmin, async (req, res) => {
 
         const result = await runMaigret(validatedUsername);
         const scanId = generateScanId();
-        
+
         // Add scanId to standardized response
         const responseWithId = { ...result, scanId };
-        
+
         osintResults.set(scanId, {
             ...responseWithId,
             timestamp: Date.now()
@@ -997,10 +997,10 @@ router.post('/sherlock', osintLimiter, requireAdmin, async (req, res) => {
 
         const result = await runSherlock(validatedUsername);
         const scanId = generateScanId();
-        
+
         // Add scanId to standardized response
         const responseWithId = { ...result, scanId };
-        
+
         osintResults.set(scanId, {
             ...responseWithId,
             timestamp: Date.now()
@@ -1040,10 +1040,10 @@ router.post('/holehe', osintLimiter, requireAdmin, async (req, res) => {
 
         const result = await runHolehe(validatedEmail);
         const scanId = generateScanId();
-        
+
         // Add scanId to standardized response
         const responseWithId = { ...result, scanId };
-        
+
         osintResults.set(scanId, {
             ...responseWithId,
             timestamp: Date.now()
@@ -1083,10 +1083,10 @@ router.post('/phoneinfoga', osintLimiter, requireAdmin, async (req, res) => {
 
         const result = await runPhoneInfoga(validatedPhoneNumber);
         const scanId = generateScanId();
-        
+
         // Add scanId to standardized response
         const responseWithId = { ...result, scanId };
-        
+
         osintResults.set(scanId, {
             ...responseWithId,
             timestamp: Date.now()

@@ -264,14 +264,15 @@ export function createBot() {
             await ctx.reply(`🔍 Starting ${tool} scan for: ${target}\nThis may take a few minutes...`);
 
             // Make API call to OSINT endpoint
-            const osintEndpoint = `http://localhost:3000/api/osint/${tool}`;
+            const port = process.env.PORT || 3000;
+            const osintEndpoint = `http://localhost:${port}/api/osint/${tool}`;
             const response = await fetch(osintEndpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${process.env.BOT_TOKEN}`
                 },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     target: tool === 'spiderfoot' ? target : undefined,
                     username: ['maigret', 'sherlock'].includes(tool) ? target : undefined,
                     email: tool === 'holehe' ? target : undefined,
@@ -349,9 +350,10 @@ export function createBot() {
             }
 
             await ctx.reply(`🕸️ Starting SpiderFoot scan for: ${target}`);
-            
+
             // Call OSINT API
-            const response = await fetch('http://localhost:3000/api/osint/spiderfoot', {
+            const port = process.env.PORT || 3000;
+            const response = await fetch(`http://localhost:${port}/api/osint/spiderfoot`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -361,7 +363,7 @@ export function createBot() {
             });
 
             const result = await response.json();
-            
+
             if (result.error) {
                 await ctx.reply(`❌ Scan failed: ${result.error}`);
             } else {
@@ -389,8 +391,9 @@ export function createBot() {
             }
 
             await ctx.reply(`👤 Starting Maigret search for: ${username}`);
-            
-            const response = await fetch('http://localhost:3000/api/osint/maigret', {
+
+            const port = process.env.PORT || 3000;
+            const response = await fetch(`http://localhost:${port}/api/osint/maigret`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -400,7 +403,7 @@ export function createBot() {
             });
 
             const result = await response.json();
-            
+
             if (result.error) {
                 await ctx.reply(`❌ Search failed: ${result.error}`);
             } else {
@@ -428,8 +431,9 @@ export function createBot() {
             }
 
             await ctx.reply(`🔎 Starting Sherlock search for: ${username}`);
-            
-            const response = await fetch('http://localhost:3000/api/osint/sherlock', {
+
+            const port = process.env.PORT || 3000;
+            const response = await fetch(`http://localhost:${port}/api/osint/sherlock`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -439,7 +443,7 @@ export function createBot() {
             });
 
             const result = await response.json();
-            
+
             if (result.error) {
                 await ctx.reply(`❌ Search failed: ${result.error}`);
             } else {
@@ -467,8 +471,9 @@ export function createBot() {
             }
 
             await ctx.reply(`📧 Starting Holehe check for: ${email}`);
-            
-            const response = await fetch('http://localhost:3000/api/osint/holehe', {
+
+            const port = process.env.PORT || 3000;
+            const response = await fetch(`http://localhost:${port}/api/osint/holehe`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -478,7 +483,7 @@ export function createBot() {
             });
 
             const result = await response.json();
-            
+
             if (result.error) {
                 await ctx.reply(`❌ Check failed: ${result.error}`);
             } else {
@@ -506,8 +511,9 @@ export function createBot() {
             }
 
             await ctx.reply(`📱 Starting PhoneInfoga lookup for: ${phone}`);
-            
-            const response = await fetch('http://localhost:3000/api/osint/phoneinfoga', {
+
+            const port = process.env.PORT || 3000;
+            const response = await fetch(`http://localhost:${port}/api/osint/phoneinfoga`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -517,7 +523,7 @@ export function createBot() {
             });
 
             const result = await response.json();
-            
+
             if (result.error) {
                 await ctx.reply(`❌ Lookup failed: ${result.error}`);
             } else {
