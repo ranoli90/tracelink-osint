@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: tracelink-mcp
+    env: python
+    repo: https://github.com/ranoli90/tracelink-osint
+    rootDir: mcp-server
+    buildCommand: "pip3 install -r requirements.txt"
+    startCommand: "python3 server.py"
+    plan: free
+    envVars:
+      - key: PORT
+        value: "5000"
+      - key: RENDER_API_KEY
+        sync: false
