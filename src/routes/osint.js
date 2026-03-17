@@ -186,7 +186,7 @@ async function checkToolsInstalled() {
  * Get list of all available SpiderFoot modules
  */
 async function getSpiderFootModules() {
-    const spiderFootUrl = process.env.SPIDERFOOT_URL || 'https://tracelink-spiderfoot.onrender.com';
+    const spiderFootUrl = process.env.SPIDERFOOT_URL || 'http://localhost:5001';
     try {
         const response = await fetch(`${spiderFootUrl}/api/modules`);
         if (!response.ok) throw new Error('Failed to fetch modules');
@@ -204,7 +204,7 @@ async function getSpiderFootModules() {
 async function runSpiderFoot(target, scanType = 'all') {
     const validatedTarget = targetSchema.parse(target);
     const scanId = generateScanId();
-    const spiderFootUrl = process.env.SPIDERFOOT_URL || 'https://tracelink-spiderfoot.onrender.com';
+    const spiderFootUrl = process.env.SPIDERFOOT_URL || 'http://localhost:5001';
 
     const moduleConfigs = {
         'all': {
@@ -566,7 +566,7 @@ async function getScanResults(scanId) {
     }
 
     if (result.tool === 'spiderfoot' && result.sfScanId) {
-const spiderFootUrl = process.env.SPIDERFOOT_URL || 'https://tracelink-spiderfoot.onrender.com';
+const spiderFootUrl = process.env.SPIDERFOOT_URL || 'http://localhost:5001';
         
         try {
             const response = await fetch(`${spiderFootUrl}/api/scan/${result.sfScanId}/results`);
