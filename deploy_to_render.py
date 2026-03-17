@@ -3,12 +3,18 @@ import requests
 import json
 import time
 
-RENDER_API_KEY = "rnd_QLtQaZmUnzRhFME0eWgJhl3RuBmB"
+RENDER_API_KEY = os.getenv("RENDER_API_KEY")
 RENDER_API_URL = "https://api.render.com/v1"
-BOT_TOKEN = "8692641453:AAGZa2cgGbVw2-IZN2ivV4xLhIgFkoc2Chg"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 def update_env_and_deploy():
     print("=== TASK: Render.com API Configuration & Deployment ===")
+    if not RENDER_API_KEY:
+        print("[!] RENDER_API_KEY not set in environment")
+        return
+    if not BOT_TOKEN:
+        print("[!] BOT_TOKEN not set in environment")
+        return
     headers = {
         "Authorization": f"Bearer {RENDER_API_KEY}",
         "Accept": "application/json",

@@ -1,17 +1,13 @@
 services:
   - type: web
-    name: spiderfoot-core
-    env: python
-    rootDir: spiderfoot
-    buildCommand: "pip install -r requirements.txt && pip install litellm ollama sentence-transformers faiss-cpu telebot requests"
-    startCommand: "python3 tg_bot_upgrade.py & python3 sf.py -l 0.0.0.0:$PORT"
+    name: tracelink-spiderfoot
+    env: docker
+    imageUrl: docker.io/smgorven/spiderfoot:latest
     plan: free
     envVars:
       - key: PORT
         value: "5001"
-      - key: SPIDERFOOT_UI_PORT
+      - key: SPIDERFOOT_HOST
+        value: "0.0.0.0"
+      - key: SPIDERFOOT_PORT
         value: "5001"
-      - key: SPIDERFOOT_PROFILE
-        value: "scan"
-      - key: BOT_TOKEN
-        sync: false

@@ -3,7 +3,10 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Install dependencies
+# Install system dependencies needed by Prisma/OpenSSL
+RUN apk add --no-cache openssl
+
+# Install Node dependencies
 COPY package*.json ./
 RUN npm ci --only=production
 

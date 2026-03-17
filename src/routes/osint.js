@@ -183,46 +183,115 @@ async function checkToolsInstalled() {
 }
 
 /**
- * Run SpiderFoot scan
+ * Get list of all available SpiderFoot modules
+ */
+async function getSpiderFootModules() {
+    const spiderFootUrl = process.env.SPIDERFOOT_URL || 'https://tracelink-spiderfoot.onrender.com';
+    try {
+        const response = await fetch(`${spiderFootUrl}/api/modules`);
+        if (!response.ok) throw new Error('Failed to fetch modules');
+        const data = await response.json();
+        return Object.keys(data);
+    } catch (error) {
+        console.error('Failed to get SpiderFoot modules:', error.message);
+        return [];
+    }
+}
+
+/**
+ * Run SpiderFoot scan via API
  */
 async function runSpiderFoot(target, scanType = 'all') {
-    // Validate input to prevent command injection
     const validatedTarget = targetSchema.parse(target);
-    
     const scanId = generateScanId();
-    const outputDir = path.join(process.cwd(), 'osint-results', scanId);
+    const spiderFootUrl = process.env.SPIDERFOOT_URL || 'https://tracelink-spiderfoot.onrender.com';
+
+    const moduleConfigs = {
+        'all': {
+            useAll: true,
+            type: 'ALL'
+        },
+        'email': {
+            modules: ['sfp_emailformat', 'sfp_hunter', 'sfp_breachdirectory', 'sfp_dehashed', 'sfp_emailrep', 'sfp_holehe'],
+            type: 'EMAILADDR'
+        },
+        'domain': {
+            modules: ['sfp_whois', 'sfp_dnszonexfer', 'sfp_dnsresolving', 'sfp_hunter', 'sfp_dnsbrute', 'sfp_googiesearch', 'sfp_bingsearch'],
+            type: 'INTERNET_NAME'
+        },
+        'username': {
+            modules: ['sfp_sherlock', 'sfp_maigret', 'sfp_instagram', 'sfp_twitter', 'sfp_facebook', 'sfp_linkedin', 'sfp_github'],
+            type: 'USERNAME'
+        },
+        'phone': {
+            modules: ['sfp_phonenumber', 'sfp_calleridemonitor', 'sfp_phonesearch'],
+            type: 'PHONE_NUMBER'
+        }
+    };
 
     try {
-        await fs.mkdir(outputDir, { recursive: true });
+        const config = moduleConfigs[scanType] || moduleConfigs['all'];
+        
+        let moduleList = [];
+        if (config.useAll) {
+            moduleList = await getSpiderFootModules();
+            if (moduleList.length === 0) {
+                moduleList = moduleConfigs['all'].modules;
+            }
+        } else {
+            moduleList = config.modules;
+        }
 
-        const modules = {
-            'all': 'sfp_spiderfoot,sfp_hunter,sfp_emailformat,sfp_whois,sfp_dnszonexfer,sfp_bingsearch,sfp_googlesearch,sfp_twitter',
-            'email': 'sfp_emailformat,sfp_hunter,sfp_breachdirectory,sfp_dehashed,sfp_emailrep',
-            'domain': 'sfp_spiderfoot,sfp_whois,sfp_dnszonexfer,sfp_dnsresolving,sfp_hunter',
-            'username': 'sfp_sherlock,sfp_maigret,sfp_instagram,sfp_twitter,sfp_facebook',
-            'phone': 'sfp_phonenumber,sfp_calleridemonitor,sfp_phonesearch'
+        const targetType = config.type;
+
+        const scanRequest = {
+            scanName: `TraceLink Scan ${scanId}`,
+            target: {
+                [targetType]: [validatedTarget]
+            },
+            moduleList: moduleList,
+            doNotModules: [],
+            unqrytypes: []
         };
 
-        const moduleList = modules[scanType] || modules['all'];
+        const response = await fetch(`${spiderFootUrl}/api/scan`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(scanRequest)
+        });
 
-        const cmd = `spiderfoot -s ${validatedTarget} -M ${moduleList} -o json > ${outputDir}/results.json 2>&1`;
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`SpiderFoot API error: ${errorText}`);
+        }
 
-        // Run in background, don't wait
-        execAsync(cmd).catch(err => console.error('SpiderFoot error:', err));
+        const scanResult = await response.json();
+        
+        osintResults.set(scanId, {
+            scanId,
+            tool: 'spiderfoot',
+            target: validatedTarget,
+            scanType,
+            sfScanId: scanResult.scanId || scanResult.id,
+            status: 'started',
+            timestamp: Date.now()
+        });
 
         return {
             scanId,
             status: 'started',
-            message: 'SpiderFoot scan initiated',
-            target,
-            scanType
+            message: 'SpiderFoot scan initiated via API',
+            target: validatedTarget,
+            scanType,
+            modulesUsed: moduleList.length,
+            sfScanId: scanResult.scanId || scanResult.id
         };
     } catch (error) {
         return {
             scanId,
             status: 'error',
             message: error.message,
-            target
+            target: validatedTarget
         };
     }
 }
@@ -487,7 +556,7 @@ async function runPhoneInfoga(phoneNumber) {
 }
 
 /**
- * Get scan results
+ * Get scan results from SpiderFoot API
  */
 async function getScanResults(scanId) {
     const result = osintResults.get(scanId);
@@ -496,14 +565,18 @@ async function getScanResults(scanId) {
         return null;
     }
 
-    // Check if results file exists for SpiderFoot
-    if (result.tool === 'spiderfoot') {
-        const resultsFile = path.join(process.cwd(), 'osint-results', scanId, 'results.json');
+    if (result.tool === 'spiderfoot' && result.sfScanId) {
+const spiderFootUrl = process.env.SPIDERFOOT_URL || 'https://tracelink-spiderfoot.onrender.com';
+        
         try {
-            const content = await fs.readFile(resultsFile, 'utf-8');
-            result.results = JSON.parse(content);
+            const response = await fetch(`${spiderFootUrl}/api/scan/${result.sfScanId}/results`);
+            if (response.ok) {
+                const data = await response.json();
+                result.results = data;
+                result.status = 'completed';
+            }
         } catch (e) {
-            // Results not ready yet
+            result.status = 'processing';
         }
     }
 

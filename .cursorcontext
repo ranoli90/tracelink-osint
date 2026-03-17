@@ -1,0 +1,29 @@
+# PROJECT CONTEXT — loaded once, referenced always
+
+## Project Name
+TraceLink
+
+## What This Project Does
+Privacy-compliant link tracking and fingerprinting tool that logs visits, enriches them with IP/location/ASN data, and exposes them via an API and Netlify function for use in bots or other clients.
+
+## Tech Stack
+- Frontend: Vanilla JS with HTML/CSS in `public`
+- Backend: Node.js with Express, Netlify Functions, and Serverless HTTP
+- Database: PostgreSQL via Prisma ORM
+- AI/LLM: None currently
+- Hosting: Netlify
+- Other: Telegram Bot via Telegraf, Redis for caching/rate limiting, Prisma for database access
+
+## Key Files & What They Do
+- `src/index.js` — main Express application entrypoint
+- `netlify/functions/api.js` — serverless handler wrapping the Express app for Netlify
+- `prisma/schema.prisma` — database schema and Prisma configuration
+
+## Current State
+Core Express server, Netlify serverless entrypoint, and Prisma schema are in place; overall feature completeness and production readiness are unknown from the current snapshot.
+
+## Rules For This Project
+- Never touch `prisma/migrations` unless explicitly told to
+- Always use existing Express and Prisma patterns already in use when adding new endpoints or models
+- All new code must follow the existing camelCase naming convention for JavaScript functions and variables
+- Do not install new packages without flagging it first

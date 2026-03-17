@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """Test Render API and list/create services"""
+import os
 import requests
 import json
 import sys
 
-API_KEY = 'rnd_QLtQaZmUnzRhFME0eWgJhl3RuBmB'
-OWNER_ID = 'tea-d6p1rv6a2pns73f4sucg'
+API_KEY = os.getenv('RENDER_API_KEY')  # assumption: provided via environment or .env.render
+OWNER_ID = os.getenv('RENDER_OWNER_ID')
 BASE_URL = 'https://api.render.com/v1'
+
+if not API_KEY or not OWNER_ID:
+    print("Missing RENDER_API_KEY or RENDER_OWNER_ID in environment", file=sys.stderr)
+    sys.exit(1)
 
 headers = {
     'Authorization': f'Bearer {API_KEY}',
