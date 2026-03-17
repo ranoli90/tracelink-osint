@@ -17,8 +17,11 @@ RUN npx prisma generate
 # Copy source code
 COPY src ./src/
 COPY public ./public/
-COPY spiderfoot ./spiderfoot/
 COPY .env.production.example .env
+
+# Initialize and update git submodule for SpiderFoot
+RUN git clone --depth 1 https://github.com/poppopjmp/spiderfoot.git /app/spiderfoot || \
+    (git submodule init && git submodule update --recursive)
 
 # Install SpiderFoot dependencies
 WORKDIR /app/spiderfoot
