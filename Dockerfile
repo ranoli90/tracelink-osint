@@ -22,10 +22,10 @@ COPY .env.production.example .env
 
 # Install SpiderFoot dependencies
 WORKDIR /app/spiderfoot
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
 
 # Install SpiderFoot CLI
-RUN pip3 install -e .
+RUN pip3 install --no-cache-dir --break-system-packages -e .
 
 WORKDIR /app
 
