@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      text-align: center;
+      max-width: 400px;
+      padding: 2rem;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #e5e7eb;
+      border-top: 3px solid #6366f1;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    h1 {
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    p {
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .consent-notice {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .consent-notice h3 {
+      margin: 0 0 0.75rem 0;
+      font-size: 1rem;
+      color: #1a1a1a;
+    }
+    .consent-notice p {
+      margin: 0 0 1rem 0;
+      font-size: 0.813rem;
+    }
+    .consent-buttons {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      flex: 1;
+      padding: 0.625rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-accept {
+      background: #6366f1;
+      color: white;
+    }
+    .btn-accept:hover {
+      background: #4f46e5;
+    }
+    .btn-decline {
+      background: #f3f4f6;
+      color: #6b7280;
+    }
+    .btn-decline:hover {
+      background: #e5e7eb;
+    }
+    .privacy-link {
+      color: #6366f1;
+      text-decoration: none;
+      font-size: 0.813rem;
+    }
+    .privacy-link:hover {
+      text-decoration: underline;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="spinner"></div>
+    <h1>Preparing your link...</h1>
+    <p>We're setting up your secure redirect. This will only take a moment.</p>
+    
+    <div id="consentModal" class="consent-notice">
+      <h3>Privacy Notice</h3>
+      <p>
+        This link uses privacy-first analytics to understand basic device information like browser type and general location. 
+        We collect minimal technical data only to improve service quality and prevent abuse.
+      </p>
+      <p>
+        <strong>No personal information, emails, or private data is collected.</strong> 
+        All data is anonymized and used in aggregate only.
+      </p>
+      <div class="consent-buttons">
+        <button id="acceptBtn" class="btn btn-accept">Accept & Continue</button>
+        <button id="declineBtn" class="btn btn-decline">Decline</button>
+      </div>
+      <p>
+        <a href="/privacy" target="_blank" class="privacy-link">View full privacy policy</a>
+      </p>
+    </div>
+    
+    <div id="loadingText" class="hidden">
+      <p>Redirecting you to your destination...</p>
+    </div>
+  </div>
+
+  <script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const trackingId = urlParams.get('id');
+    const destinationUrl = urlParams.get('url');
+    
+    // Check if consent was already given
+    const consentGiven = localStorage.getItem('analytics_consent');
+    
+    // Show consent modal if not already given
+    if (consentGiven !== 'true') {
+      document.getElementById('consentModal').classList.remove('hidden');
+      document.querySelector('.spinner').classList.add('hidden');
+      document.querySelector('h1').textContent = 'Privacy Choice';
+      document.querySelector('p').textContent = 'Please choose your privacy preference before continuing.';
+    } else {
+      // Consent already given, proceed with fingerprinting
+      startFingerprinting();
+    }
+    
+    // Handle consent acceptance
+    document.getElementById('acceptBtn').addEventListener('click', () => {
+      localStorage.setItem('analytics_consent', 'true');
+      document.getElementById('consentModal').classList.add('hidden');
+      document.querySelector('.spinner').classList.remove('hidden');
+      document.querySelector('h1').textContent = 'Preparing your link...';
+      document.querySelector('p').textContent = 'We\'re setting up your secure redirect. This will only take a moment.';
+      startFingerprinting();
+    });
+    
+    // Handle consent decline
+    document.getElementById('declineBtn').addEventListener('click', () => {
+      localStorage.setItem('analytics_consent', 'false');
+      // Redirect directly without analytics
+      if (destinationUrl) {
+        window.location.href = destinationUrl;
+      } else {
+        document.getElementById('consentModal').innerHTML = `
+          <h3>Privacy Respected</h3>
+          <p>You will be redirected without any analytics collection.</p>
+          <p><a href="${destinationUrl || '#'}" class="privacy-link">Continue to destination</a></p>
+        `;
+      }
+    });
+    
+    function startFingerprinting() {
+      if (!trackingId || !destinationUrl) {
+        document.querySelector('.container').innerHTML = `
+          <h1>Invalid Link</h1>
+          <p>This tracking link is malformed or missing required parameters.</p>
+        `;
+        return;
+      }
+      
+      // Load fingerprinting script
+      const script = document.createElement('script');
+      script.src = '/fingerprint-quantum.js';
+      script.onload = () => {
+        // Fingerprinting script will handle the rest
+        if (window.TRACE_FINGERPRINT) {
+          window.TRACE_FINGERPRINT.init(trackingId, destinationUrl);
+        }
+      };
+      script.onerror = () => {
+        // Fallback redirect if fingerprinting fails
+        window.location.href = destinationUrl;
+      };
+      document.head.appendChild(script);
+    }
+  </script>
+</body>
+</html>

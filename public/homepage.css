@@ -1,0 +1,54 @@
+/* Base styles - Additional styles are inline in index.html */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.homepage {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reset */
+.homepage a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.homepage button {
+  font-family: inherit;
+}
+
+.homepage img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Selection */
+.homepage ::selection {
+  background: rgba(99, 102, 241, 0.2);
+  color: #1a1a1a;
+}
+
+/* Focus styles */
+.homepage a:focus,
+.homepage button:focus,
+.homepage input:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.homepage a:focus:not(:focus-visible),
+.homepage button:focus:not(:focus-visible),
+.homepage input:focus:not(:focus-visible) {
+  outline: none;
+}

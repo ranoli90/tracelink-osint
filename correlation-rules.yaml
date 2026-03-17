@@ -1,0 +1,1269 @@
+# TraceLink OSINT Correlation Rules
+# 95+ correlation rules for threat intelligence
+# 
+# Types:
+#   - indicator_match: Match specific indicators
+#   - threshold: Alert when values exceed thresholds
+#   - sequence: Alert on sequential patterns
+#   - anomaly: Detect anomalous behavior
+#   - enrichment: Add contextual data
+#
+# Severity:
+#   - critical, high, medium, low, info
+#
+# Operators:
+#   - equals, contains, regex, startsWith, endsWith, in, gt, gte, lt, lte
+
+version: "1.0"
+rules:
+
+  # ===== IDENTITY & BREACH RULES (20) =====
+
+  - id: rule_001
+    name: Email Breach Detected
+    description: Alert when an email is found in known breaches
+    type: indicator_match
+    severity: high
+    tags: [breach, email, critical]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: isBreached
+        operator: equals
+        value: true
+    actions:
+      - type: log
+      - type: notify
+        method: telegram
+
+  - id: rule_002
+    name: Multiple Breach Sources
+    description: Email found in multiple breach databases
+    type: threshold
+    severity: critical
+    tags: [breach, email]
+    enabled: true
+    confidence: 0.95
+    conditions:
+      - field: breachCount
+        operator: gte
+        threshold: 3
+    actions:
+      - type: log
+      - type: notify
+        method: telegram
+
+  - id: rule_003
+    name: Dehashed Entry Found
+    description: Email found in Dehashed database
+    type: indicator_match
+    severity: critical
+    tags: [breach, dehashed]
+    enabled: true
+    confidence: 0.95
+    conditions:
+      - field: dehashed.found
+        operator: equals
+        value: true
+
+  - id: rule_004
+    name: HaveIBeenPwned Alert
+    description: Email found in HIBP database
+    type: indicator_match
+    severity: high
+    tags: [breach, hibp]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: hibp.found
+        operator: equals
+        value: true
+
+  - id: rule_005
+    name: Password Exposure
+    description: Detected exposed passwords in breach data
+    type: indicator_match
+    severity: critical
+    tags: [breach, password]
+    enabled: true
+    confidence: 0.95
+    conditions:
+      - field: breachData.passwordExposed
+        operator: equals
+        value: true
+
+  - id: rule_006
+    name: Credential Stuffing Risk
+    description: Multiple accounts with same password
+    type: sequence
+    severity: high
+    tags: [breach, credentials]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: uniquePasswords
+        value: 1
+      - field: accountCount
+        value: 3
+
+  - id: rule_007
+    name: Recent Breach Activity
+    description: Account involved in recent breach
+    type: indicator_match
+    severity: high
+    tags: [breach, recent]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: breachDate
+        operator: gte
+        value: 90
+
+  - id: rule_008
+    name: Sensitive Data Exposure
+    description: Sensitive data found in breach
+    type: indicator_match
+    severity: critical
+    tags: [breach, sensitive]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: breachData.containsSensitive
+        operator: equals
+        value: true
+
+  - id: rule_009
+    name: Corporate Email Breach
+    description: Corporate email found in breaches
+    type: indicator_match
+    severity: high
+    tags: [breach, corporate]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: emailType
+        operator: equals
+        value: corporate
+
+  - id: rule_010
+    name: Government Email Breach
+    description: Government domain email found in breach
+    type: indicator_match
+    severity: critical
+    tags: [breach, government]
+    enabled: true
+    confidence: 0.95
+    conditions:
+      - field: emailDomain
+        operator: regex
+        pattern: "\\.(gov|mil|govt)"
+
+  - id: rule_011
+    name: Healthcare Breach
+    description: Healthcare-related email found in breach
+    type: indicator_match
+    severity: critical
+    tags: [breach, healthcare, hipaa]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: emailDomain
+        operator: regex
+        pattern: "(hospital|health|medical|clinic|pharma)"
+
+  - id: rule_012
+    name: Financial Data Breach
+    description: Financial information in breach
+    type: indicator_match
+    severity: critical
+    tags: [breach, financial]
+    enabled: true
+    confidence: 0.95
+    conditions:
+      - field: breachData.containsFinancial
+        operator: equals
+        value: true
+
+  - id: rule_013
+    name: Educational Institution Breach
+    description: Educational email found in breach
+    type: indicator_match
+    severity: medium
+    tags: [breach, education]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: emailDomain
+        operator: regex
+        pattern: "\\.(edu|school|university)"
+
+  - id: rule_014
+    name: Fresh Breach Data
+    description: Breach within last 30 days
+    type: threshold
+    severity: critical
+    tags: [breach, fresh]
+    enabled: true
+    confidence: 0.95
+    conditions:
+      - field: daysSinceBreach
+        operator: lt
+        threshold: 30
+
+  - id: rule_015
+    name: Multiple Breaches Same Service
+    description: Same account breached multiple times
+    type: threshold
+    severity: high
+    tags: [breach, repeated]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: breachesPerService
+        operator: gte
+        threshold: 2
+
+  - id: rule_016
+    name: Credential Age Warning
+    description: Old credentials still in use
+    type: threshold
+    severity: medium
+    tags: [credentials, age]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: credentialAge
+        operator: gte
+        threshold: 365
+
+  - id: rule_017
+    name: Breach Data Quality
+    description: High-quality breach data detected
+    type: enrichment
+    severity: info
+    tags: [breach, enrichment]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: breachData.qualityScore
+        operator: gte
+        threshold: 0.8
+
+  - id: rule_018
+    name: Dark Web Listing
+    description: Email found on dark web
+    type: indicator_match
+    severity: high
+    tags: [darkweb, listing]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: darkweb.found
+        operator: equals
+        value: true
+
+  - id: rule_019
+    name: Stealer Log Detection
+    description: Found in stealer malware logs
+    type: indicator_match
+    severity: critical
+    tags: [malware, stealer]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: malwareLogs.stealer
+        operator: equals
+        value: true
+
+  - id: rule_020
+    name: Botnet Credential
+    description: Credentials associated with botnet
+    type: indicator_match
+    severity: critical
+    tags: [botnet, malware]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: malwareLogs.botnet
+        operator: equals
+        value: true
+
+  # ===== SOCIAL MEDIA RULES (15) =====
+
+  - id: rule_021
+    name: Username Found
+    description: Username discovered on social media
+    type: indicator_match
+    severity: low
+    tags: [social, username]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: social.found
+        operator: equals
+        value: true
+
+  - id: rule_022
+    name: Multiple Social Accounts
+    description: Same username found on multiple platforms
+    type: threshold
+    severity: medium
+    tags: [social, username]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: social.accountCount
+        operator: gte
+        threshold: 10
+
+  - id: rule_023
+    name: Active Social Presence
+    description: Active account with recent activity
+    type: indicator_match
+    severity: low
+    tags: [social, active]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: social.lastActive
+        operator: lt
+        threshold: 30
+
+  - id: rule_024
+    name: Verified Social Account
+    description: Verified account detected
+    type: indicator_match
+    severity: info
+    tags: [social, verified]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: social.verified
+        operator: equals
+        value: true
+
+  - id: rule_025
+    name: High Follower Count
+    description: Account with significant following
+    type: threshold
+    severity: low
+    tags: [social, influence]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: social.followers
+        operator: gte
+        threshold: 10000
+
+  - id: rule_026
+    name: Business Account
+    description: Business/Professional account detected
+    type: indicator_match
+    severity: medium
+    tags: [social, business]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: social.accountType
+        operator: equals
+        value: business
+
+  - id: rule_027
+    name: Location Tagged Posts
+    description: Posts with location data
+    type: indicator_match
+    severity: low
+    tags: [social, location]
+    enabled: true
+    confidence: 0.75
+    conditions:
+      - field: social.hasLocation
+        operator: equals
+        value: true
+
+  - id: rule_028
+    name: Email in Profile
+    description: Email address visible in profile
+    type: indicator_match
+    severity: medium
+    tags: [social, doxing]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: social.emailVisible
+        operator: equals
+        value: true
+
+  - id: rule_029
+    name: Phone in Profile
+    description: Phone number visible in profile
+    type: indicator_match
+    severity: high
+    tags: [social, doxing]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: social.phoneVisible
+        operator: equals
+        value: true
+
+  - id: rule_030
+    name: Real Name Discovery
+    description: Real name linked to username
+    type: enrichment
+    severity: low
+    tags: [social, identity]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: social.realName
+        operator: exists
+        value: true
+
+  - id: rule_031
+    name: Profile Similarity
+    description: Similar profiles across platforms
+    type: sequence
+    severity: medium
+    tags: [social, correlation]
+    enabled: true
+    confidence: 0.75
+    conditions:
+      - field: profileSimilarity
+        operator: gte
+        threshold: 0.8
+
+  - id: rule_032
+    name: Influencer Account
+    description: High-influence social account
+    type: threshold
+    severity: low
+    tags: [social, influencer]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: social.influenceScore
+        operator: gte
+        threshold: 75
+
+  - id: rule_033
+    name: New Account
+    description: Recently created account
+    type: threshold
+    severity: info
+    tags: [social, new]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: social.accountAge
+        operator: lt
+        threshold: 30
+
+  - id: rule_034
+    name: Suspended Account
+    description: Account has been suspended
+    type: indicator_match
+    severity: medium
+    tags: [social, suspended]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: social.suspended
+        operator: equals
+        value: true
+
+  - id: rule_035
+    name: Bot Activity Detected
+    description: Account shows bot-like behavior
+    type: anomaly
+    severity: low
+    tags: [social, bot]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: social.botScore
+        operator: gte
+        threshold: 0.7
+
+  # ===== PHONE & TELECOM RULES (10) =====
+
+  - id: rule_036
+    name: VoIP Number Detected
+    description: Phone number is VoIP
+    type: indicator_match
+    severity: medium
+    tags: [phone, voip]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: phone.type
+        operator: equals
+        value: voip
+
+  - id: rule_037
+    name: Prepaid Phone
+    description: Prepaid mobile number
+    type: indicator_match
+    severity: medium
+    tags: [phone, prepaid]
+    enabled: true
+    confidence: 0.75
+    conditions:
+      - field: phone.prepaid
+        operator: equals
+        value: true
+
+  - id: rule_038
+    name: High-Risk Phone Number
+    description: Number associated with fraud
+    type: indicator_match
+    severity: high
+    tags: [phone, fraud]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: phone.riskScore
+        operator: gte
+        threshold: 75
+
+  - id: rule_039
+    name: Phone Number Ported
+    description: Number recently ported
+    type: indicator_match
+    severity: medium
+    tags: [phone, port]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: phone.recentlyPorted
+        operator: equals
+        value: true
+
+  - id: rule_040
+    name: Caller ID Spoofing
+    description: Potential caller ID spoofing
+    type: anomaly
+    severity: high
+    tags: [phone, spoofing]
+    enabled: true
+    confidence: 0.75
+    conditions:
+      - field: phone.spoofingIndicators
+        operator: gte
+        threshold: 3
+
+  - id: rule_041
+    name: Telemarketer Flag
+    description: Number flagged as telemarketing
+    type: indicator_match
+    severity: low
+    tags: [phone, telemarketing]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: phone.telemarketerFlag
+        operator: equals
+        value: true
+
+  - id: rule_042
+    name: Phone Number Valid
+    description: Phone number is valid and reachable
+    type: enrichment
+    severity: info
+    tags: [phone, validation]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: phone.valid
+        operator: equals
+        value: true
+
+  - id: rule_043
+    name: SMS Enabled
+    description: Number supports SMS
+    type: enrichment
+    severity: info
+    tags: [phone, sms]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: phone.smsCapable
+        operator: equals
+        value: true
+
+  - id: rule_044
+    name: International Number
+    description: Phone number from international region
+    type: enrichment
+    severity: low
+    tags: [phone, international]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: phone.country
+        operator: notEquals
+        value: US
+
+  - id: rule_045
+    name: Premium Rate Number
+    description: Premium rate telephone number
+    type: indicator_match
+    severity: high
+    tags: [phone, premium]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: phone.numberType
+        operator: equals
+        value: premium
+
+  # ===== DOMAIN & INFRASTRUCTURE RULES (15) =====
+
+  - id: rule_046
+    name: Newly Registered Domain
+    description: Domain registered within last 30 days
+    type: threshold
+    severity: medium
+    tags: [domain, new]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: domain.age
+        operator: lt
+        threshold: 30
+
+  - id: rule_047
+    name: Domain Age Warning
+    description: Very old domain (potential for old vulnerabilities)
+    type: threshold
+    severity: low
+    tags: [domain, age]
+    enabled: true
+    confidence: 0.6
+    conditions:
+      - field: domain.age
+        operator: gte
+        threshold: 3650
+
+  - id: rule_048
+    name: Many Subdomains
+    description: Domain has many subdomains
+    type: threshold
+    severity: medium
+    tags: [domain, subdomain]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: domain.subdomainCount
+        operator: gte
+        threshold: 50
+
+  - id: rule_049
+    name: DNS Anomaly
+    description: Unusual DNS configuration
+    type: anomaly
+    severity: high
+    tags: [domain, dns]
+    enabled: true
+    confidence: 0.75
+    conditions:
+      - field: domain.dnsAnomalies
+        operator: gte
+        threshold: 2
+
+  - id: rule_050
+    name: Suspicious TLD
+    description: Domain uses suspicious TLD
+    type: indicator_match
+    severity: medium
+    tags: [domain, tld]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: domain.tld
+        operator: in
+        value: [xyz, top, gq, ml, cf, tk, pw, cc, ws]
+
+  - id: rule_051
+    name: Free Email Domain
+    description: Using free email provider
+    type: indicator_match
+    severity: low
+    tags: [domain, email]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: domain.emailProvider
+        operator: in
+        value: [gmail.com, yahoo.com, outlook.com, hotmail.com, protonmail.com]
+
+  - id: rule_052
+    name: Cloudflare Protected
+    description: Domain uses Cloudflare
+    type: enrichment
+    severity: info
+    tags: [domain, cloudflare]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: domain.cloudflare
+        operator: equals
+        value: true
+
+  - id: rule_053
+    name: Mail Server Configuration
+    description: Check MX records
+    type: enrichment
+    severity: info
+    tags: [domain, mail]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: domain.mxRecords
+        operator: exists
+
+  - id: rule_054
+    name: SPF Record Missing
+    description: No SPF record configured
+    type: indicator_match
+    severity: medium
+    tags: [domain, email, security]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: domain.spfRecord
+        operator: equals
+        value: missing
+
+  - id: rule_055
+    name: DMARC Not Configured
+    description: No DMARC record found
+    type: indicator_match
+    severity: medium
+    tags: [domain, email, security]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: domain.dmarcRecord
+        operator: equals
+        value: missing
+
+  - id: rule_056
+    name: DNSSEC Not Enabled
+    description: Domain has DNSSEC disabled
+    type: indicator_match
+    severity: medium
+    tags: [domain, dnssec]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: domain.dnssec
+        operator: equals
+        value: false
+
+  - id: rule_057
+    name: Domain Registrar
+    description: Get domain registrar info
+    type: enrichment
+    severity: info
+    tags: [domain, whois]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: domain.registrar
+        operator: exists
+
+  - id: rule_058
+    name: Expired Domain
+    description: Domain has expired
+    type: indicator_match
+    severity: high
+    tags: [domain, expired]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: domain.expired
+        operator: equals
+        value: true
+
+  - id: rule_059
+    name: Proxy Domain
+    description: Domain associated with proxy/vpn
+    type: indicator_match
+    severity: medium
+    tags: [domain, proxy]
+    enabled: true
+    confidence: 0.75
+    conditions:
+      - field: domain.isProxy
+        operator: equals
+        value: true
+
+  - id: rule_060
+    name: Threat Domain
+    description: Domain flagged as malicious
+    type: indicator_match
+    severity: critical
+    tags: [domain, threat, malware]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: domain.malicious
+        operator: equals
+        value: true
+
+  # ===== NETWORK & IP RULES (15) =====
+
+  - id: rule_061
+    name: VPN Detection
+    description: IP associated with VPN
+    type: indicator_match
+    severity: medium
+    tags: [network, vpn]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: ip.isVPN
+        operator: equals
+        value: true
+
+  - id: rule_062
+    name: Proxy Detection
+    description: IP associated with proxy
+    type: indicator_match
+    severity: medium
+    tags: [network, proxy]
+    enabled: true
+    confidence: 0.75
+    conditions:
+      - field: ip.isProxy
+        operator: equals
+        value: true
+
+  - id: rule_063
+    name: Tor Exit Node
+    description: IP is a Tor exit node
+    type: indicator_match
+    severity: high
+    tags: [network, tor]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: ip.isTorExit
+        operator: equals
+        value: true
+
+  - id: rule_064
+    name: Hosting Provider
+    description: IP from hosting/datacenter
+    type: indicator_match
+    severity: low
+    tags: [network, hosting]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: ip.isHosting
+        operator: equals
+        value: true
+
+  - id: rule_065
+    name: Residential IP
+    description: IP from residential ISP
+    type: enrichment
+    severity: info
+    tags: [network, residential]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: ip.isResidential
+        operator: equals
+        value: true
+
+  - id: rule_066
+    name: Mobile Network
+    description: IP from mobile carrier
+    type: indicator_match
+    severity: low
+    tags: [network, mobile]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: ip.isMobile
+        operator: equals
+        value: true
+
+  - id: rule_067
+    name: High-Risk IP
+    description: IP flagged as high risk
+    type: indicator_match
+    severity: high
+    tags: [network, threat]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: ip.riskScore
+        operator: gte
+        threshold: 75
+
+  - id: rule_068
+    name: Malware Hosting
+    description: IP hosts malware
+    type: indicator_match
+    severity: critical
+    tags: [network, malware]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: ip.hostsMalware
+        operator: equals
+        value: true
+
+  - id: rule_069
+    name: Command & Control
+    description: IP associated with C2
+    type: indicator_match
+    severity: critical
+    tags: [network, c2, malware]
+    enabled: true
+    confidence: 0.95
+    conditions:
+      - field: ip.isC2
+        operator: equals
+        value: true
+
+  - id: rule_070
+    name: Phishing Domain
+    description: IP associated with phishing
+    type: indicator_match
+    severity: critical
+    tags: [network, phishing]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: ip.isPhishing
+        operator: equals
+        value: true
+
+  - id: rule_071
+    name: Recent Attack Activity
+    description: Recent attack from this IP
+    type: threshold
+    severity: high
+    tags: [network, attack]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: ip.recentAttacks
+        operator: gte
+        threshold: 10
+
+  - id: rule_072
+    name: Geographic Anomaly
+    description: Location doesn't match ISP
+    type: anomaly
+    severity: medium
+    tags: [network, geolocation]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: ip.geoAnomaly
+        operator: equals
+        value: true
+
+  - id: rule_073
+    name: Autonomous System Risk
+    description: High-risk ASN
+    type: threshold
+    severity: high
+    tags: [network, asn]
+    enabled: true
+    confidence: 0.75
+    conditions:
+      - field: ip.asnRisk
+        operator: gte
+        threshold: 75
+
+  - id: rule_074
+    name: Open Port Warning
+    description: Many open ports detected
+    type: threshold
+    severity: medium
+    tags: [network, ports]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: ip.openPorts
+        operator: gte
+        threshold: 20
+
+  - id: rule_075
+    name: Service Detection
+    description: Critical services exposed
+    type: threshold
+    severity: high
+    tags: [network, services]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: ip.criticalPorts
+        operator: gte
+        threshold: 3
+
+  # ===== DARK WEB RULES (10) =====
+
+  - id: rule_076
+    name: Dark Web Match
+    description: Found on dark web
+    type: indicator_match
+    severity: high
+    tags: [darkweb, threat]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: darkweb.found
+        operator: equals
+        value: true
+
+  - id: rule_077
+    name: Marketplace Listing
+    description: Found on dark web marketplace
+    type: indicator_match
+    severity: critical
+    tags: [darkweb, marketplace]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: darkweb.marketplace
+        operator: equals
+        value: true
+
+  - id: rule_078
+    name: Forum Mention
+    description: Mentioned on dark web forum
+    type: indicator_match
+    severity: medium
+    tags: [darkweb, forum]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: darkweb.forumMention
+        operator: equals
+        value: true
+
+  - id: rule_079
+    name: Recent Dark Web Activity
+    description: Recent dark web activity
+    type: threshold
+    severity: high
+    tags: [darkweb, recent]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: darkweb.lastSeen
+        operator: lt
+        threshold: 7
+
+  - id: rule_080
+    name: Data for Sale
+    description: Personal data listed for sale
+    type: indicator_match
+    severity: critical
+    tags: [darkweb, sale]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: darkweb.forSale
+        operator: equals
+        value: true
+
+  - id: rule_081
+    name: Credit Card Data
+    description: Credit card data detected
+    type: indicator_match
+    severity: critical
+    tags: [darkweb, financial]
+    enabled: true
+    confidence: 0.95
+    conditions:
+      - field: darkweb.creditCardData
+        operator: equals
+        value: true
+
+  - id: rule_082
+    name: Bank Credentials
+    description: Bank credentials detected
+    type: indicator_match
+    severity: critical
+    tags: [darkweb, banking]
+    enabled: true
+    confidence: 0.95
+    conditions:
+      - field: darkweb.bankCredentials
+        operator: equals
+        value: true
+
+  - id: rule_083
+    name: Exploit Kit
+    description: Exploit kit related
+    type: indicator_match
+    severity: critical
+    tags: [darkweb, exploit]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: darkweb.exploitKit
+        operator: equals
+        value: true
+
+  - id: rule_084
+    name: Ransomware Data
+    description: Associated with ransomware
+    type: indicator_match
+    severity: critical
+    tags: [darkweb, ransomware]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: darkweb.ransomware
+        operator: equals
+        value: true
+
+  - id: rule_085
+    name: Dark Web Source Count
+    description: Multiple dark web sources
+    type: threshold
+    severity: high
+    tags: [darkweb, sources]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: darkweb.sourceCount
+        operator: gte
+        threshold: 3
+
+  # ===== THREAT INTELLIGENCE RULES (10) =====
+
+  - id: rule_086
+    name: Threat Feed Alert
+    description: Found in threat intelligence feed
+    type: indicator_match
+    severity: high
+    tags: [threatintel, feed]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: threatIntel.found
+        operator: equals
+        value: true
+
+  - id: rule_087
+    name: Multiple Feed Matches
+    description: Found in multiple threat feeds
+    type: threshold
+    severity: critical
+    tags: [threatintel, feed]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: threatIntel.feedCount
+        operator: gte
+        threshold: 3
+
+  - id: rule_088
+    name: APT Indicator
+    description: Associated with APT
+    type: indicator_match
+    severity: critical
+    tags: [threatintel, apt]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: threatIntel.isAPT
+        operator: equals
+        value: true
+
+  - id: rule_089
+    name: Malware Family
+    description: Associated with malware family
+    type: enrichment
+    severity: high
+    tags: [threatintel, malware]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: threatIntel.malwareFamily
+        operator: exists
+
+  - id: rule_090
+    name: Campaign Detection
+    description: Part of known campaign
+    type: indicator_match
+    severity: critical
+    tags: [threatintel, campaign]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: threatIntel.campaign
+        operator: exists
+
+  - id: rule_091
+    name: CVE Association
+    description: Linked to known CVE
+    type: enrichment
+    severity: high
+    tags: [threatintel, cve]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: threatIntel.cves
+        operator: exists
+
+  - id: rule_092
+    name: MITRE ATT&CK
+    description: Matches MITRE ATT&CK technique
+    type: enrichment
+    severity: high
+    tags: [threatintel, mitre]
+    enabled: true
+    confidence: 0.85
+    conditions:
+      - field: threatIntel.mitreTechniques
+        operator: exists
+
+  - id: rule_093
+    name: Reputation Score Low
+    description: Very low reputation score
+    type: threshold
+    severity: high
+    tags: [threatintel, reputation]
+    enabled: true
+    confidence: 0.8
+    conditions:
+      - field: threatIntel.reputationScore
+        operator: lt
+        threshold: 20
+
+  - id: rule_094
+    name: First Seen Warning
+    description: Recently observed indicator
+    type: threshold
+    severity: medium
+    tags: [threatintel, new]
+    enabled: true
+    confidence: 0.7
+    conditions:
+      - field: threatIntel.firstSeen
+        operator: lt
+        threshold: 30
+
+  - id: rule_095
+    name: Threat Actor
+    description: Linked to threat actor
+    type: indicator_match
+    severity: critical
+    tags: [threatintel, actor]
+    enabled: true
+    confidence: 0.9
+    conditions:
+      - field: threatIntel.threatActor
+        operator: exists

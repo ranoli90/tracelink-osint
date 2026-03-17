@@ -1,0 +1,119 @@
+functionsDirectory = "C:\\Users\\Administrator\\Desktop\\grabber\\netlify\\functions"
+functionsDirectoryOrigin = "config-v1"
+headersOrigin = "config"
+redirectsOrigin = "config"
+plugins = []
+
+[build]
+publish = "C:\\Users\\Administrator\\Desktop\\grabber\\public"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm ci && npx prisma generate"
+functions = "C:\\Users\\Administrator\\Desktop\\grabber\\netlify\\functions"
+
+[build.environment]
+NODE_VERSION = "18"
+NODE_ENV = "production"
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[functions]
+
+[functions."*"]
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://openfpcdn.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://openfpcdn.io; font-src 'self'; frame-ancestors 'none'"
+Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+for = "/api/*"
+
+[headers.values]
+Cache-Control = "no-store, no-cache, must-revalidate"
+X-Content-Type-Options = "nosniff"
+
+[[headers]]
+for = "/.netlify/functions/api/*"
+
+[headers.values]
+Cache-Control = "no-store, no-cache, must-revalidate"
+X-Content-Type-Options = "nosniff"
+
+[[redirects]]
+from = "/api/*"
+to = "/.netlify/functions/api/:splat"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/click"
+to = "/.netlify/functions/api/click"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/api/click/track"
+to = "/.netlify/functions/api/click/complete"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/admin"
+to = "/admin.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]

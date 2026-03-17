@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>TraceLink Dashboard</title>
+    <script src="https://twa-dev.github.io/sdk/@twa-dev/sdk@7.10.1/dist/webapp.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tg-theme-bg-color: #ffffff;
+            --tg-theme-text-color: #000000;
+            --tg-theme-button-color: #2481cc;
+            --tg-theme-button-text-color: #ffffff;
+            --tg-theme-hint-color: #999999;
+            --tg-theme-link-color: #2481cc;
+            --tg-theme-secondary-bg-color: #f5f5f5;
+            --tg-theme-header-bg-color: #ffffff;
+            --tg-theme-bottom-bar-bg-color: #ffffff;
+            --tg-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --tg-theme-bg-color: #1c1c1e;
+                --tg-theme-text-color: #ffffff;
+                --tg-theme-button-color: #2cab33;
+                --tg-theme-button-text-color: #ffffff;
+                --tg-theme-hint-color: #8e8e93;
+                --tg-theme-link-color: #2cab33;
+                --tg-theme-secondary-bg-color: #2c2c2e;
+                --tg-theme-header-bg-color: #1c1c1e;
+                --tg-theme-bottom-bar-bg-color: #1c1c1e;
+                --tg-scheme: dark;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--tg-theme-bg-color);
+            color: var(--tg-theme-text-color);
+            min-height: 100vh;
+            min-height: 100dvh;
+            font-size: 16px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .app-container {
+            padding: 16px;
+            padding-bottom: 100px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background-color: var(--tg-theme-header-bg-color);
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--tg-theme-text-color);
+        }
+
+        .header-subtitle {
+            font-size: 12px;
+            color: var(--tg-theme-hint-color);
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--tg-theme-secondary-bg-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--tg-theme-hint-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--tg-theme-text-color);
+        }
+
+        .card-subtitle {
+            font-size: 12px;
+            color: var(--tg-theme-hint-color);
+            margin-top: 4px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .stat-card {
+            background-color: var(--tg-theme-secondary-bg-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--tg-theme-button-color);
+            border-radius: 8px;
+        }
+
+        .stat-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--tg-theme-button-text-color);
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--tg-theme-text-color);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--tg-theme-hint-color);
+            margin-top: 2px;
+        }
+
+        /* Links List */
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--tg-theme-secondary-bg-color);
+            border-radius: 12px;
+            padding: 14px 16px;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .link-item:active {
+            opacity: 0.7;
+        }
+
+        .link-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .link-url {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--tg-theme-text-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .link-stats {
+            font-size: 12px;
+            color: var(--tg-theme-hint-color);
+            margin-top: 4px;
+        }
+
+        .link-clicks {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--tg-theme-button-color);
+            white-space: nowrap;
+            margin-left: 12px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            min-height: 48px;
+        }
+
+        .btn-primary {
+            background-color: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+        }
+
+        .btn-primary:active {
+            opacity: 0.8;
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background-color: var(--tg-theme-secondary-bg-color);
+            color: var(--tg-theme-text-color);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--tg-theme-text-color);
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 16px;
+            border: 2px solid transparent;
+            background-color: var(--tg-theme-secondary-bg-color);
+            color: var(--tg-theme-text-color);
+            border-radius: 12px;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--tg-theme-button-color);
+        }
+
+        .form-input::placeholder {
+            color: var(--tg-theme-hint-color);
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--tg-theme-secondary-bg-color);
+            border-top-color: var(--tg-theme-button-color);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .empty-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            background-color: var(--tg-theme-secondary-bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .empty-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--tg-theme-text-color);
+            margin-bottom: 8px;
+        }
+
+        .empty-description {
+            font-size: 14px;
+            color: var(--tg-theme-hint-color);
+        }
+
+        /* Error */
+        .error-message {
+            background-color: rgba(248, 113, 113, 0.1);
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            color: #f87171;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--tg-theme-text-color);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--tg-theme-bg-color);
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px 20px 0 0;
+            padding: 24px 16px;
+            padding-bottom: max(24px, env(safe-area-inset-bottom));
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: var(--tg-theme-hint-color);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background-color: var(--tg-theme-text-color);
+            color: var(--tg-theme-bg-color);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Hide elements */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Pull to refresh */
+        .pull-container {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Safe area padding for notched phones */
+        @supports (padding: max(0px)) {
+            .app-container {
+                padding-left: max(16px, env(safe-area-inset-left));
+                padding-right: max(16px, env(safe-area-inset-right));
+            }
+        }
+
+        /* OSINT Styles */
+        .osint-tools {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 16px 0;
+        }
+
+        .osint-tool-card {
+            background-color: var(--tg-theme-secondary-bg-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .osint-tool-card:active {
+            transform: scale(0.98);
+            opacity: 0.8;
+        }
+
+        .osint-tool-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--tg-theme-button-color);
+            border-radius: 12px;
+        }
+
+        .osint-tool-icon svg {
+            fill: var(--tg-theme-button-text-color);
+        }
+
+        .osint-tool-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--tg-theme-text-color);
+            margin-bottom: 4px;
+        }
+
+        .osint-tool-desc {
+            font-size: 12px;
+            color: var(--tg-theme-hint-color);
+        }
+
+        .osint-results {
+            margin-top: 16px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .osint-result-item {
+            background-color: var(--tg-theme-secondary-bg-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
+        }
+
+        .osint-result-item.found {
+            border-left: 3px solid #2cab33;
+        }
+
+        .osint-result-item.not-found {
+            border-left: 3px solid #999;
+        }
+
+        .osint-result-site {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--tg-theme-text-color);
+        }
+
+        .osint-result-url {
+            font-size: 12px;
+            color: var(--tg-theme-link-color);
+            word-break: break-all;
+            margin-top: 4px;
+        }
+
+        .osint-result-loading {
+            text-align: center;
+            padding: 20px;
+            color: var(--tg-theme-hint-color);
+        }
+
+        .osint-summary {
+            background-color: var(--tg-theme-secondary-bg-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .osint-summary-title {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--tg-theme-text-color);
+            margin-bottom: 8px;
+        }
+
+        .osint-summary-stat {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--tg-theme-hint-color);
+            margin-bottom: 4px;
+        }
+
+        .osint-summary-stat strong {
+            color: var(--tg-theme-text-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container" id="app">
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="main" class="hidden">
+            <!-- Header -->
+            <div class="header">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div>
+                        <div class="header-title">TraceLink</div>
+                        <div class="header-subtitle" id="userName">Loading...</div>
+                    </div>
+                    <button class="btn btn-secondary" onclick="showOsintModal()"
+                        style="padding: 8px 12px; min-height: 36px;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                        </svg>
+                    </button>
+                </div>
+                <button class="btn-secondary" style="width: auto; padding: 8px 16px; min-height: 36px; font-size: 14px;"
+                    onclick="refreshData()">
+                    Refresh
+                </button>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error" class="error-message hidden"></div>
+
+            <!-- Stats Grid -->
+            <div class="section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="totalLinks">0</div>
+                        <div class="stat-label">Total Links</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="totalClicks">0</div>
+                        <div class="stat-label">Total Clicks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="recentClicks">0</div>
+                        <div class="stat-label">Last 24 Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="avgClicks">0</div>
+                        <div class="stat-label">Avg/Link</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Link Button -->
+            <div class="section">
+                <button class="btn btn-primary" onclick="showCreateModal()">
+                    Create New Link
+                </button>
+            </div>
+
+            <!-- Security Stats -->
+            <div class="section">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Security Detections</span>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center;">
+                        <div>
+                            <div style="font-size: 20px; font-weight: 700; color: #f59e0b;" id="securityVpn">0</div>
+                            <div style="font-size: 12px; color: var(--tg-theme-hint-color);">VPN</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 20px; font-weight: 700; color: #ef4444;" id="securityProxy">0</div>
+                            <div style="font-size: 12px; color: var(--tg-theme-hint-color);">Proxy</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 20px; font-weight: 700; color: #8b5cf6;" id="securityBots">0</div>
+                            <div style="font-size: 12px; color: var(--tg-theme-hint-color);">Bots</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Links List -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-title">Your Links</span>
+                </div>
+                <div id="linksList" class="links-list"></div>
+                <div id="linksEmpty" class="empty-state hidden">
+                    <div class="empty-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--tg-theme-hint-color)">
+                            <path
+                                d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
+                        </svg>
+                    </div>
+                    <div class="empty-title">No links yet</div>
+                    <div class="empty-description">Create your first tracking link to get started</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Link Modal -->
+        <div id="createModal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title">Create Link</span>
+                    <button class="modal-close" onclick="hideCreateModal()">&times;</button>
+                </div>
+                <form onsubmit="createLink(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="destinationUrl">Destination URL</label>
+                        <input type="url" id="destinationUrl" class="form-input" placeholder="https://example.com"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="createBtn">
+                        Generate Link
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Toast -->
+        <div id="toast" class="toast"></div>
+
+        <!-- OSINT Modal -->
+        <div id="osintModal" class="modal-overlay">
+            <div class="modal-content" style="max-width: 500px;">
+                <div class="modal-header">
+                    <span class="modal-title">OSINT Tools</span>
+                    <button class="modal-close" onclick="hideOsintModal()">&times;</button>
+                </div>
+                <div class="osint-tools">
+                    <div class="osint-tool-card" onclick="showOsintTool('username')">
+                        <div class="osint-tool-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                        </div>
+                        <div class="osint-tool-name">Username Search</div>
+                        <div class="osint-tool-desc">Maigret & Sherlock</div>
+                    </div>
+                    <div class="osint-tool-card" onclick="showOsintTool('email')">
+                        <div class="osint-tool-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
+                        </div>
+                        <div class="osint-tool-name">Email Check</div>
+                        <div class="osint-tool-desc">Holehe</div>
+                    </div>
+                    <div class="osint-tool-card" onclick="showOsintTool('phone')">
+                        <div class="osint-tool-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                            </svg>
+                        </div>
+                        <div class="osint-tool-name">Phone Lookup</div>
+                        <div class="osint-tool-desc">PhoneInfoga</div>
+                    </div>
+                    <div class="osint-tool-card" onclick="showOsintTool('domain')">
+                        <div class="osint-tool-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                            </svg>
+                        </div>
+                        <div class="osint-tool-name">Domain Scan</div>
+                        <div class="osint-tool-desc">SpiderFoot</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OSINT Tool Modal -->
+        <div id="osintToolModal" class="modal-overlay">
+            <div class="modal-content" style="max-width: 500px;">
+                <div class="modal-header">
+                    <span class="modal-title" id="osintToolTitle">OSINT Search</span>
+                    <button class="modal-close" onclick="hideOsintToolModal()">&times;</button>
+                </div>
+                <form onsubmit="runOsintScan(event)">
+                    <div class="form-group">
+                        <label class="form-label" id="osintInputLabel" for="osintInput">Search</label>
+                        <input type="text" id="osintInput" class="form-input" placeholder="" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="osintScanBtn">
+                        Start Scan
+                    </button>
+                </form>
+                <div id="osintResults" class="osint-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Telegram Web App
+        let telegramInitData = '';
+
+        if (window.Telegram && window.Telegram.WebApp) {
+            Telegram.WebApp.ready();
+            telegramInitData = window.Telegram.WebApp.initData;
+
+            // Set theme
+            Telegram.WebApp.setHeaderColor('bg_color');
+            Telegram.WebApp.setBackgroundColor('bg_color');
+
+            // Expand to full height
+            Telegram.WebApp.expand();
+        }
+
+        // API helper
+        async function apiCall(endpoint, options = {}) {
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'tma ' + telegramInitData,
+                ...options.headers
+            };
+
+            const response = await fetch(endpoint, {
+                ...options,
+                headers
+            });
+
+            if (!response.ok) {
+                const error = await response.json().catch(() => ({ error: 'Request failed' }));
+                throw new Error(error.error || 'Request failed');
+            }
+
+            return response.json();
+        }
+
+        // Show toast
+        function showToast(message, duration = 3000) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), duration);
+        }
+
+        // Show error
+        function showError(message) {
+            const error = document.getElementById('error');
+            error.textContent = message;
+            error.classList.remove('hidden');
+        }
+
+        // Hide error
+        function hideError() {
+            const error = document.getElementById('error');
+            error.classList.add('hidden');
+        }
+
+        // Load user and stats
+        async function loadUser() {
+            try {
+                const user = await apiCall('/api/me');
+                document.getElementById('userName').textContent = user.username ? '@' + user.username : user.firstName || 'User';
+                return user;
+            } catch (error) {
+                showError(error.message);
+                throw error;
+            }
+        }
+
+        // Load stats
+        async function loadStats() {
+            try {
+                const stats = await apiCall('/api/me/stats');
+
+                document.getElementById('totalLinks').textContent = stats.totalLinks;
+                document.getElementById('totalClicks').textContent = stats.totalClicks;
+                document.getElementById('recentClicks').textContent = stats.recentClicks;
+                document.getElementById('avgClicks').textContent = stats.avgClicksPerLink;
+
+                document.getElementById('securityVpn').textContent = stats.security.vpn;
+                document.getElementById('securityProxy').textContent = stats.security.proxy;
+                document.getElementById('securityBots').textContent = stats.security.bots;
+
+                return stats;
+            } catch (error) {
+                console.error('Failed to load stats:', error);
+            }
+        }
+
+        // Load links
+        async function loadLinks() {
+            try {
+                const links = await apiCall('/api/me/links');
+
+                const linksList = document.getElementById('linksList');
+                const linksEmpty = document.getElementById('linksEmpty');
+
+                if (links.length === 0) {
+                    linksList.innerHTML = '';
+                    linksEmpty.classList.remove('hidden');
+                    return;
+                }
+
+                linksEmpty.classList.add('hidden');
+                linksList.innerHTML = links.map(link => `
+          <div class="link-item" onclick="viewLinkAnalytics('${link.trackingId}')">
+            <div class="link-info">
+              <div class="link-url">${escapeHtml(link.destinationUrl)}</div>
+              <div class="link-stats">${new Date(link.createdAt).toLocaleDateString()}</div>
+            </div>
+            <div class="link-clicks">${link.clickCount} clicks</div>
+          </div>
+        `).join('');
+            } catch (error) {
+                console.error('Failed to load links:', error);
+            }
+        }
+
+        // Escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // View link analytics
+        function viewLinkAnalytics(trackingId) {
+            // Could open a detail view
+            showToast('Analytics coming soon!');
+        }
+
+        // Show create modal
+        function showCreateModal() {
+            const modal = document.getElementById('createModal');
+            modal.classList.add('active');
+            document.getElementById('destinationUrl').focus();
+        }
+
+        // Hide create modal
+        function hideCreateModal() {
+            const modal = document.getElementById('createModal');
+            modal.classList.remove('active');
+            document.getElementById('destinationUrl').value = '';
+        }
+
+        // Create link
+        async function createLink(event) {
+            event.preventDefault();
+
+            const btn = document.getElementById('createBtn');
+            const url = document.getElementById('destinationUrl').value;
+
+            btn.disabled = true;
+            btn.textContent = 'Creating...';
+
+            try {
+                const link = await apiCall('/api/me/links', {
+                    method: 'POST',
+                    body: JSON.stringify({ destinationUrl: url })
+                });
+
+                hideCreateModal();
+                showToast('Link created successfully!');
+
+                // Haptic feedback
+                if (window.Telegram && window.Telegram.WebApp) {
+                    Telegram.WebApp.HapticFeedback.notificationOccurred('success');
+                }
+
+                // Reload data
+                await loadLinks();
+                await loadStats();
+
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Generate Link';
+            }
+        }
+
+        // Refresh data
+        async function refreshData() {
+            hideError();
+
+            if (window.Telegram && window.Telegram.WebApp) {
+                Telegram.WebApp.HapticFeedback.impactOccurred('light');
+            }
+
+            await Promise.all([loadUser(), loadStats(), loadLinks()]);
+            showToast('Data refreshed');
+        }
+
+        // OSINT Functions
+        let currentOsintTool = '';
+
+        function showOsintModal() {
+            const modal = document.getElementById('osintModal');
+            modal.classList.add('active');
+        }
+
+        function hideOsintModal() {
+            const modal = document.getElementById('osintModal');
+            modal.classList.remove('active');
+        }
+
+        function showOsintTool(tool) {
+            currentOsintTool = tool;
+            const toolModal = document.getElementById('osintToolModal');
+            const title = document.getElementById('osintToolTitle');
+            const label = document.getElementById('osintInputLabel');
+            const input = document.getElementById('osintInput');
+            const results = document.getElementById('osintResults');
+
+            const toolConfig = {
+                username: { title: 'Username Search', label: 'Username', placeholder: 'Enter username to search' },
+                email: { title: 'Email Check', label: 'Email Address', placeholder: 'Enter email to check' },
+                phone: { title: 'Phone Lookup', label: 'Phone Number', placeholder: 'Enter phone number' },
+                domain: { title: 'Domain Scan', label: 'Domain', placeholder: 'Enter domain to scan' }
+            };
+
+            const config = toolConfig[tool];
+            title.textContent = config.title;
+            label.textContent = config.label;
+            input.placeholder = config.placeholder;
+            input.value = '';
+            results.innerHTML = '';
+
+            hideOsintModal();
+            toolModal.classList.add('active');
+            input.focus();
+        }
+
+        function hideOsintToolModal() {
+            const modal = document.getElementById('osintToolModal');
+            modal.classList.remove('active');
+            currentOsintTool = '';
+        }
+
+        async function runOsintScan(event) {
+            event.preventDefault();
+
+            const btn = document.getElementById('osintScanBtn');
+            const input = document.getElementById('osintInput').value;
+            const resultsDiv = document.getElementById('osintResults');
+
+            btn.disabled = true;
+            btn.textContent = 'Scanning...';
+            resultsDiv.innerHTML = '<div class="osint-result-loading">Running OSINT scan...</div>';
+
+            try {
+                let endpoint = '/api/osint/';
+                let body = {};
+
+                switch (currentOsintTool) {
+                    case 'username':
+                        endpoint += 'scan';
+                        body = { username: input, types: ['maigret', 'sherlock'] };
+                        break;
+                    case 'email':
+                        endpoint += 'holehe';
+                        body = { email: input };
+                        break;
+                    case 'phone':
+                        endpoint += 'phoneinfoga';
+                        body = { phoneNumber: input };
+                        break;
+                    case 'domain':
+                        endpoint += 'spiderfoot';
+                        body = { target: input };
+                        break;
+                }
+
+                const result = await apiCall(endpoint, {
+                    method: 'POST',
+                    body: JSON.stringify(body)
+                });
+
+                // Display results
+                if (result.scans && result.scans.length > 0) {
+                    displayOsintResults(result);
+                } else if (result.found !== undefined) {
+                    displaySingleResult(result);
+                } else {
+                    resultsDiv.innerHTML = '<div class="osint-result-loading">Scan completed. No results to display.</div>';
+                }
+
+            } catch (error) {
+                resultsDiv.innerHTML = '<div class="osint-result-loading" style="color: red;">Error: ' + escapeHtml(error.message) + '</div>';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Start Scan';
+            }
+        }
+
+        function displayOsintResults(result) {
+            const resultsDiv = document.getElementById('osintResults');
+            let html = '';
+
+            if (result.summary) {
+                html += '<div class="osint-summary">';
+                html += '<div class="osint-summary-title">Scan Summary</div>';
+                html += '<div class="osint-summary-stat"><span>Total Tools:</span><strong>' + result.summary.total + '</strong></div>';
+                html += '<div class="osint-summary-stat"><span>Successful:</span><strong>' + result.summary.successful + '</strong></div>';
+                html += '<div class="osint-summary-stat"><span>Failed:</span><strong>' + result.summary.failed + '</strong></div>';
+                html += '</div>';
+            }
+
+            for (const scan of result.scans || []) {
+                if (scan.error) continue;
+
+                html += '<div class="osint-summary">';
+                html += '<div class="osint-summary-title">' + (scan.type || scan.tool) + '</div>';
+
+                if (scan.found !== undefined) {
+                    html += '<div class="osint-summary-stat"><span>Found:</span><strong>' + (scan.found ? 'Yes' : 'No') + '</strong></div>';
+                }
+                if (scan.count !== undefined) {
+                    html += '<div class="osint-summary-stat"><span>Matches:</span><strong>' + scan.count + '</strong></div>';
+                }
+                if (scan.matches !== undefined) {
+                    html += '<div class="osint-summary-stat"><span>Registered Sites:</span><strong>' + scan.matches + '</strong></div>';
+                }
+
+                html += '</div>';
+            }
+
+            resultsDiv.innerHTML = html;
+        }
+
+        function displaySingleResult(result) {
+            const resultsDiv = document.getElementById('osintResults');
+
+            let html = '<div class="osint-result-item ' + (result.found ? 'found' : 'not-found') + '">';
+            html += '<div class="osint-result-site">' + (result.tool || 'OSINT') + '</div>';
+
+            if (result.found) {
+                html += '<div class="osint-result-url">Target found!</div>';
+            } else {
+                html += '<div class="osint-result-url">No matches found</div>';
+            }
+
+            if (result.count !== undefined) {
+                html += '<div class="osint-result-url">Count: ' + result.count + '</div>';
+            }
+
+            html += '</div>';
+
+            resultsDiv.innerHTML = html;
+        }
+
+        // Initialize
+        async function init() {
+            try {
+                await loadUser();
+                await Promise.all([loadStats(), loadLinks()]);
+
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('main').classList.remove('hidden');
+
+            } catch (error) {
+                document.getElementById('loading').classList.add('hidden');
+                showError(error.message || 'Failed to initialize. Please open from Telegram.');
+            }
+        }
+
+        // Start app
+        init();
+
+        // Close modal on overlay click
+        document.getElementById('createModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                hideCreateModal();
+            }
+        });
+
+        // Close OSINT modals on overlay click
+        document.getElementById('osintModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                hideOsintModal();
+            }
+        });
+
+        document.getElementById('osintToolModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                hideOsintToolModal();
+            }
+        });
+
+        // Handle back button
+        if (window.Telegram && window.Telegram.WebApp) {
+            Telegram.WebApp.onEvent('backButtonClicked', function () {
+                hideCreateModal();
+            });
+        }
+    </script>
+</body>
+
+</html>

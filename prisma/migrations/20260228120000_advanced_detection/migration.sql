@@ -1,0 +1,15 @@
+-- AlterTable
+ALTER TABLE "click_events" ADD COLUMN "continent" TEXT,
+ADD COLUMN "continent_code" TEXT,
+ADD COLUMN "currency" TEXT,
+ADD COLUMN "asname" TEXT,
+ADD COLUMN "is_mobile_carrier" BOOLEAN,
+ADD COLUMN "viewport_width" INT,
+ADD COLUMN "viewport_height" INT,
+ADD COLUMN "color_depth" INT,
+ADD COLUMN "device_memory" INT,
+ADD COLUMN "hardware_concurrency" INT,
+ADD COLUMN "platform" TEXT,
+ADD COLUMN "max_touch_points" INT,
+ADD COLUMN "effective_connection_type" TEXT,
+ADD COLUMN "click_source" TEXT;

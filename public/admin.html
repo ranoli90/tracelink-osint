@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TraceLink — Privacy-compliant link tracking and analytics. Create trackable links, view clicks, geolocation, devices, and campaigns.">
+  <title>TraceLink Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #loginOverlay{position:fixed;inset:0;background:#0f172a;display:flex;align-items:center;justify-content:center;z-index:9999;}
+    #loginOverlay.hidden{display:none;}
+    .login-box{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:2.5rem 2rem;width:min(100vw - 2rem,380px);display:flex;flex-direction:column;gap:1.25rem;}
+    .login-box h2{color:#f1f5f9;font-size:1.5rem;font-weight:700;margin:0;text-align:center;}
+    .login-box p{color:#94a3b8;font-size:0.875rem;text-align:center;margin:0;}
+    .login-box input{width:100%;padding:0.75rem 1rem;background:#0f172a;border:1px solid #334155;border-radius:8px;color:#f1f5f9;font-size:0.9375rem;outline:none;box-sizing:border-box;}
+    .login-box input:focus{border-color:#6366f1;}
+    .login-box button{width:100%;padding:0.75rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;}
+    .login-box button:hover{background:#4f46e5;}
+    .login-box .login-error{color:#f87171;font-size:0.8125rem;text-align:center;display:none;}
+  </style>
+</head>
+<body>
+  <div id="loginOverlay">
+    <div class="login-box">
+      <h2>TraceLink Admin</h2>
+      <p>Enter your admin credentials to continue</p>
+      <input type="text" id="loginUser" placeholder="Username" autocomplete="username">
+      <input type="password" id="loginPass" placeholder="Password" autocomplete="current-password">
+      <button type="button" id="loginBtn">Sign In</button>
+      <div class="login-error" id="loginError">Invalid credentials — try again</div>
+    </div>
+  </div>
+  <header class="app-header" role="banner">
+    <div class="header-content">
+      <div class="logo">
+        <h1>TraceLink</h1>
+        <p class="tagline">Link Intelligence &amp; Analytics</p>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="btn-secondary" onclick="logout()" aria-label="Sign out" id="logoutBtn" style="display:none">
+          <svg class="icon-svg" aria-hidden="true"><use href="icons.svg#icon-exit"></use></svg> Sign Out
+        </button>
+        <button type="button" class="btn-secondary" onclick="refreshData()" aria-label="Refresh data">
+          <svg class="icon-svg" aria-hidden="true"><use href="icons.svg#icon-refresh"></use></svg> Refresh
+        </button>
+        <button type="button" class="btn-secondary" onclick="showDomainModal()" aria-label="Manage custom domains">
+          <svg class="icon-svg" aria-hidden="true"><use href="icons.svg#icon-globe"></use></svg> Domains
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content" id="main-content" role="main">
+    <div class="container">
+      <section class="quick-stats stats-strip" aria-label="Overview stats">
+        <div class="stat-card">
+          <div class="stat-icon"><svg class="icon-svg"><use href="icons.svg#icon-link"></use></svg></div>
+          <div class="stat-content">
+            <p class="stat-label">Total Links</p>
+            <p class="stat-value" id="totalLinks">-</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><svg class="icon-svg"><use href="icons.svg#icon-users"></use></svg></div>
+          <div class="stat-content">
+            <p class="stat-label">Total Clicks</p>
+            <p class="stat-value" id="totalClicks">-</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><svg class="icon-svg"><use href="icons.svg#icon-chart"></use></svg></div>
+          <div class="stat-content">
+            <p class="stat-label">Clicks (24h)</p>
+            <p class="stat-value" id="recentClicks">-</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><svg class="icon-svg"><use href="icons.svg#icon-bar"></use></svg></div>
+          <div class="stat-content">
+            <p class="stat-label">Avg. Clicks/Link</p>
+            <p class="stat-value" id="avgClicks">-</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="create-section" id="createSection">
+        <div class="section-header create-toggle" id="createToggle" role="button" tabindex="0" aria-expanded="false" aria-controls="createFormWrap">
+          <div>
+            <h2>Create Trackable Link</h2>
+            <p class="section-description">Generate a unique tracking link — every click is fingerprinted and analyzed</p>
+          </div>
+          <span class="toggle-icon" aria-hidden="true">+</span>
+        </div>
+        <div id="createFormWrap" class="create-form-wrap">
+        <form id="createLinkForm" class="create-form">
+          <div class="form-group">
+            <label for="destinationUrl">Destination URL</label>
+            <input type="text" id="destinationUrl" placeholder="https://example.com or a username (e.g. maxilad)" required autocomplete="url">
+          </div>
+          <div class="form-group">
+            <label for="linkDomain">Tracking Domain</label>
+            <select id="linkDomain" aria-label="Choose which domain appears in the tracking URL">
+              <option value="">&mdash; Select a tracking domain &mdash;</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">
+            <svg class="icon-svg" aria-hidden="true"><use href="icons.svg#icon-plus"></use></svg> Generate Tracking Link
+          </button>
+        </form>
+        <div id="createdLink" class="link-result" style="display: none;">
+          <div class="result-header">
+            <h3>Your Tracking Link</h3>
+            <button type="button" onclick="copyToClipboard()" class="copy-btn" aria-label="Copy link">
+              <svg class="icon-svg" aria-hidden="true"><use href="icons.svg#icon-copy"></use></svg> Copy
+            </button>
+          </div>
+          <div class="link-display">
+            <input type="text" id="newShortUrl" readonly>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="links-section">
+        <div class="section-header">
+          <h2>Active Tracking Links</h2>
+          <div class="section-actions">
+            <button class="btn-outline" onclick="loadLinks()">
+              <svg class="icon-svg" aria-hidden="true"><use href="icons.svg#icon-refresh"></use></svg> Reload
+            </button>
+          </div>
+        </div>
+        <div id="linksCards" class="links-cards"></div>
+      </section>
+
+      <section class="events-section" id="eventsSection" aria-label="Link analytics detail">
+        <div class="events-header">
+          <div class="events-header-left">
+            <h2>Analytics</h2>
+            <p class="section-description"><code id="selectedLinkId"></code></p>
+          </div>
+          <button type="button" onclick="closeEvents()" class="btn-close" aria-label="Close analytics">
+            <span class="icon" aria-hidden="true">×</span> Close
+          </button>
+        </div>
+
+        <div class="analytics-tabs" role="tablist">
+          <button type="button" role="tab" aria-selected="true" data-tab="overview" class="analytics-tab active">Overview</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="charts" class="analytics-tab">Charts</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="fingerprint" class="analytics-tab">Fingerprint</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="behavior" class="analytics-tab">Behavior</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="events" class="analytics-tab">Events</button>
+        </div>
+
+        <div class="analytics-tab-panel" id="tabOverview" role="tabpanel">
+        <div class="analytics-grid">
+          <div class="analytics-card">
+            <div class="card-title">Total Clicks</div>
+            <div class="card-value" id="eventTotalClicks">-</div>
+          </div>
+          <div class="analytics-card">
+            <div class="card-title">Unique IPs</div>
+            <div class="card-value" id="eventUniqueIps">-</div>
+          </div>
+          <div class="analytics-card">
+            <div class="card-title">Countries</div>
+            <div class="card-value" id="eventCountries">-</div>
+          </div>
+          <div class="analytics-card">
+            <div class="card-title">VPN/Proxy</div>
+            <div class="card-value" id="eventVpnProxy">-</div>
+          </div>
+          <div class="analytics-card">
+            <div class="card-title">Last Click</div>
+            <div class="card-value" id="eventLastClick">-</div>
+          </div>
+          <div class="analytics-card">
+            <div class="card-title">Likely Bots</div>
+            <div class="card-value" id="eventBots">-</div>
+          </div>
+          <div class="analytics-card">
+            <div class="card-title">WebRTC Leaks</div>
+            <div class="card-value" id="eventWebrtcLeaks">-</div>
+          </div>
+        </div>
+
+        <div class="security-grid">
+          <div class="security-card vpn">
+            <div class="security-icon"><svg class="icon-svg"><use href="icons.svg#icon-shield"></use></svg></div>
+            <div class="security-content">
+              <div class="security-value" id="securityVpn">0</div>
+              <div class="security-label">VPN Detections</div>
+            </div>
+          </div>
+          <div class="security-card proxy">
+            <div class="security-icon"><svg class="icon-svg"><use href="icons.svg#icon-mask"></use></svg></div>
+            <div class="security-content">
+              <div class="security-value" id="securityProxy">0</div>
+              <div class="security-label">Proxy Detections</div>
+            </div>
+          </div>
+          <div class="security-card tor">
+            <div class="security-icon"><svg class="icon-svg"><use href="icons.svg#icon-onion"></use></svg></div>
+            <div class="security-content">
+              <div class="security-value" id="securityTor">0</div>
+              <div class="security-label">Tor Exits</div>
+            </div>
+          </div>
+          <div class="security-card hosting">
+            <div class="security-icon"><svg class="icon-svg"><use href="icons.svg#icon-building"></use></svg></div>
+            <div class="security-content">
+              <div class="security-value" id="securityHosting">0</div>
+              <div class="security-label">Hosting/DC</div>
+            </div>
+          </div>
+          <div class="security-card webrtc">
+            <div class="security-icon"><svg class="icon-svg"><use href="icons.svg#icon-leak"></use></svg></div>
+            <div class="security-content">
+              <div class="security-value" id="securityWebrtc">0</div>
+              <div class="security-label">WebRTC Leaks</div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="analytics-tab-panel" id="tabCharts" role="tabpanel" hidden>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>Top Countries</h3>
+            <div id="countriesChart" class="chart-container"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Device Types</h3>
+            <div id="devicesChart" class="chart-container"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Browsers</h3>
+            <div id="browsersChart" class="chart-container"></div>
+          </div>
+          <div class="chart-card timeline-chart-card">
+            <h3>Click Timeline (7 Days)</h3>
+            <div id="timelineChart" class="timeline-container"></div>
+            <div class="timeline-labels">
+              <span>7 days ago</span>
+              <span>Today</span>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Operating Systems</h3>
+            <div id="osChart" class="chart-container"></div>
+          </div>
+          <div class="chart-card">
+            <h3>ISPs</h3>
+            <div id="ispsChart" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="details-grid charts-details">
+          <div class="detail-card">
+            <h3>Traffic Sources</h3>
+            <div id="referrersList" class="detail-list"></div>
+          </div>
+          <div class="detail-card">
+            <h3>Top Cities</h3>
+            <div id="citiesList" class="detail-list"></div>
+          </div>
+        </div>
+
+        <div class="utm-section charts-utm">
+          <h3>Campaign (UTM)</h3>
+          <div class="utm-grid">
+            <div class="chart-card">
+              <h4>UTM Source</h4>
+              <div id="utmSourceChart" class="chart-container"></div>
+            </div>
+            <div class="chart-card">
+              <h4>UTM Medium</h4>
+              <div id="utmMediumChart" class="chart-container"></div>
+            </div>
+            <div class="chart-card">
+              <h4>UTM Campaign</h4>
+              <div id="utmCampaignChart" class="chart-container"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="analytics-tab-panel" id="tabFingerprint" role="tabpanel" hidden>
+          <div class="fingerprint-section">
+            <!-- Header Stats -->
+            <div class="fp-header-stats" id="fpHeaderStats"></div>
+            
+            <!-- Main Data Grid -->
+            <div class="fp-main-grid">
+              <!-- Identity Card -->
+              <div class="fp-detail-card identity-card">
+                <div class="card-header">
+                  <span class="card-icon">🆔</span>
+                  <h3>Fingerprint Identity</h3>
+                </div>
+                <div class="card-body" id="fpIdentityCard"></div>
+              </div>
+
+              <!-- Device Card -->
+              <div class="fp-detail-card device-card">
+                <div class="card-header">
+                  <span class="card-icon">📱</span>
+                  <h3>Device Information</h3>
+                </div>
+                <div class="card-body" id="fpDeviceCard"></div>
+              </div>
+
+              <!-- Browser Card -->
+              <div class="fp-detail-card browser-card">
+                <div class="card-header">
+                  <span class="card-icon">🌐</span>
+                  <h3>Browser & Software</h3>
+                </div>
+                <div class="card-body" id="fpBrowserCard"></div>
+              </div>
+
+              <!-- Security Card -->
+              <div class="fp-detail-card security-card">
+                <div class="card-header">
+                  <span class="card-icon">🔒</span>
+                  <h3>Security Analysis</h3>
+                </div>
+                <div class="card-body" id="fpSecurityCard"></div>
+              </div>
+
+              <!-- Network Card -->
+              <div class="fp-detail-card network-card">
+                <div class="card-header">
+                  <span class="card-icon">📡</span>
+                  <h3>Network & Connection</h3>
+                </div>
+                <div class="card-body" id="fpNetworkCard"></div>
+              </div>
+
+              <!-- Location Card -->
+              <div class="fp-detail-card location-card">
+                <div class="card-header">
+                  <span class="card-icon">🌍</span>
+                  <h3>Geographic Location</h3>
+                </div>
+                <div class="card-body" id="fpLocationCard"></div>
+              </div>
+
+              <!-- Canvas/WebGL Card -->
+              <div class="fp-detail-card canvas-card">
+                <div class="card-header">
+                  <span class="card-icon">🎨</span>
+                  <h3>Canvas & WebGL Fingerprint</h3>
+                </div>
+                <div class="card-body" id="fpCanvasCard"></div>
+              </div>
+
+              <!-- Hardware Card -->
+              <div class="fp-detail-card hardware-card">
+                <div class="card-header">
+                  <span class="card-icon">⚙️</span>
+                  <h3>Hardware Capabilities</h3>
+                </div>
+                <div class="card-body" id="fpHardwareCard"></div>
+              </div>
+            </div>
+
+            <!-- Detailed Events List -->
+            <div class="fp-events-section">
+              <div class="section-header">
+                <h3>📋 Complete Fingerprint Records</h3>
+                <span class="record-count" id="fpRecordCount"></span>
+              </div>
+              <div class="fp-events-list" id="fpEventsList"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="analytics-tab-panel" id="tabBehavior" role="tabpanel" hidden>
+          <div class="behavior-section">
+            <!-- Header Stats -->
+            <div class="bh-header-stats" id="bhHeaderStats"></div>
+
+            <!-- Behavior Grid -->
+            <div class="bh-main-grid">
+              <!-- Interactions Card -->
+              <div class="fp-detail-card">
+                <div class="card-header">
+                  <span class="card-icon">👆</span>
+                  <h3>User Interactions</h3>
+                </div>
+                <div class="card-body" id="bhInteractionsCard"></div>
+              </div>
+
+              <!-- Timing Card -->
+              <div class="fp-detail-card">
+                <div class="card-header">
+                  <span class="card-icon">⏱️</span>
+                  <h3>Timing & Sessions</h3>
+                </div>
+                <div class="card-body" id="bhTimingCard"></div>
+              </div>
+
+              <!-- Storage Card -->
+              <div class="fp-detail-card">
+                <div class="card-header">
+                  <span class="card-icon">💾</span>
+                  <h3>Storage & Cookies</h3>
+                </div>
+                <div class="card-body" id="bhStorageCard"></div>
+              </div>
+
+              <!-- Battery Card -->
+              <div class="fp-detail-card">
+                <div class="card-header">
+                  <span class="card-icon">🔋</span>
+                  <h3>Battery Status</h3>
+                </div>
+                <div class="card-body" id="bhBatteryCard"></div>
+              </div>
+
+              <!-- Connection Card -->
+              <div class="fp-detail-card">
+                <div class="card-header">
+                  <span class="card-icon">📶</span>
+                  <h3>Connection Quality</h3>
+                </div>
+                <div class="card-body" id="bhConnectionCard"></div>
+              </div>
+
+              <!-- Bot Detection Card -->
+              <div class="fp-detail-card bot-card">
+                <div class="card-header">
+                  <span class="card-icon">🤖</span>
+                  <h3>Bot Detection</h3>
+                </div>
+                <div class="card-body" id="bhBotCard"></div>
+              </div>
+            </div>
+
+            <!-- Behavior Events List -->
+            <div class="fp-events-section">
+              <div class="section-header">
+                <h3>📋 Behavior Event Records</h3>
+                <span class="record-count" id="bhRecordCount"></span>
+              </div>
+              <div class="fp-events-list" id="bhEventsList"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="analytics-tab-panel" id="tabEvents" role="tabpanel" hidden>
+          <div class="events-table-section events-tab-content">
+            <p class="events-table-note">Geographic data derived from IP-based geolocation (city-level accuracy).</p>
+            <div class="events-table-actions">
+              <button type="button" class="btn-outline" id="exportCsvBtn" onclick="exportEventsCsv()" style="display: none;">
+                <svg class="icon-svg"><use href="icons.svg#icon-download"></use></svg> Export CSV
+              </button>
+              <span class="events-count" id="eventsCount"></span>
+            </div>
+            <div id="eventsGrid" class="events-grid"></div>
+            <button type="button" class="btn-outline load-more-btn" id="loadMoreEventsBtn" onclick="loadMoreEvents()" style="display: none; margin-top: 0.75rem;">
+              Load more
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="domainModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="domainModalTitle" aria-hidden="true" onclick="if(event.target===this)closeDomainModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="domainModalTitle">Custom Domains</h2>
+        <button type="button" onclick="closeDomainModal()" class="btn-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="addDomainForm" class="domain-form">
+          <div class="form-group">
+            <label for="domainInput">Domain</label>
+            <input type="text" id="domainInput" placeholder="track.mydomain.com" required autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="linkSelect">Link</label>
+            <select id="linkSelect" aria-label="Choose which link to attach the domain to"></select>
+          </div>
+          <div class="form-group checkbox">
+            <label>
+              <input type="checkbox" id="isPrimary">
+              Set as Primary
+            </label>
+          </div>
+          <button type="submit" class="btn-primary">Add Domain</button>
+        </form>
+        <div id="domainsList" class="domains-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer" role="contentinfo">
+    <p>IP geolocation: city level · ip-api.com</p>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="Quick actions">
+    <button type="button" onclick="focusCreateForm()" aria-label="Create link">
+      <span class="nav-icon">+</span>
+      <span class="nav-label">Create</span>
+    </button>
+    <button type="button" onclick="refreshData()" aria-label="Refresh">
+      <span class="nav-icon">↻</span>
+      <span class="nav-label">Refresh</span>
+    </button>
+    <button type="button" onclick="showDomainModal()" aria-label="Domains">
+      <svg class="nav-icon icon-svg"><use href="icons.svg#icon-globe"></use></svg>
+      <span class="nav-label">Domains</span>
+    </button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
