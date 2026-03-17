@@ -13,8 +13,35 @@ import path from 'path';
 import https from 'https';
 import http from 'http';
 import { URL } from 'url';
+import { z } from 'zod';
 
 const execAsync = promisify(exec);
+
+// Input validation schemas (consistent with main OSINT routes)
+const targetSchema = z.string()
+  .min(3)
+  .max(255)
+  .regex(/^[a-zA-Z0-9.-]+$/, 'Target can only contain letters, numbers, dots, and hyphens');
+
+const usernameSchema = z.string()
+  .min(3)
+  .max(50)
+  .regex(/^[a-zA-Z0-9_.-]+$/, 'Username can only contain letters, numbers, underscores, dots, and hyphens');
+
+const emailSchema = z.string()
+  .email()
+  .max(255);
+
+const phoneSchema = z.string()
+  .min(10)
+  .max(20)
+  .regex(/^[+0-9-() ]+$/, 'Phone number can only contain digits, plus, and common phone symbols');
+
+const scanTypeSchema = z.enum(['all', 'email', 'domain', 'username', 'phone', 'subdomain'], {
+  errorMap: (issue, ctx) => {
+    return { message: 'Invalid scan type. Must be one of: all, email, domain, username, phone, subdomain' };
+  }
+});
 
 /**
  * OSINT Module Categories
@@ -83,14 +110,41 @@ export class EnhancedScanner {
     validateTarget(target, type) {
         const validators = {
             email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            phone: /^\+?[\d\s-]{10,}$/,
+            phone: /^\+?[\d\s\-()]{10,20}$/,
             domain: /^[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]?\.[a-zA-Z]{2,}$/,
-            username: /^[a-zA-Z0-9_]{2,30}$/,
+            username: /^[a-zA-Z0-9_.-]{2,50}$/,
             ip: /^(\d{1,3}\.){3}\d{1,3}$/,
             url: /^https?:\/\/.+/
         };
 
         return validators[type]?.test(target) || false;
+    }
+
+    /**
+     * Ensure target is safe to interpolate into shell commands.
+     * This is a defense-in-depth check; prefer passing args without a shell when possible.
+     */
+    assertSafeTarget(target, type) {
+        if (typeof target !== 'string') {
+            throw new Error('Invalid target type');
+        }
+
+        const trimmed = target.trim();
+        if (!trimmed) {
+            throw new Error('Target is required');
+        }
+
+        // Block common shell metacharacters to reduce command injection risk.
+        // Note: this is intentionally strict.
+        if (/[\n\r;&|`$<>\\]/.test(trimmed)) {
+            throw new Error('Target contains invalid characters');
+        }
+
+        if (type && !this.validateTarget(trimmed, type)) {
+            throw new Error(`Target is not a valid ${type}`);
+        }
+
+        return trimmed;
     }
 
     /**
@@ -360,11 +414,15 @@ export class EnhancedScanner {
 
     // Username Modules
     async runMaigret(target) {
-        const outputFile = path.join(this.resultsDir, `maigret-${Date.now()}.json`);
-        await fs.mkdir(path.dirname(outputFile), { recursive: true });
-
         try {
-            const cmd = `maigret ${target} --json ${outputFile} -v 2>&1`;
+            // Validate input using zod schema
+            const validatedTarget = usernameSchema.parse(target);
+            const safeTarget = this.assertSafeTarget(validatedTarget, 'username');
+
+            const outputFile = path.join(this.resultsDir, `maigret-${Date.now()}.json`);
+            await fs.mkdir(path.dirname(outputFile), { recursive: true });
+
+            const cmd = `maigret ${safeTarget} --json ${outputFile} -v 2>&1`;
             await execAsync(cmd, { timeout: this.timeout });
             const content = await fs.readFile(outputFile, 'utf-8');
             const results = JSON.parse(content);
@@ -375,11 +433,15 @@ export class EnhancedScanner {
     }
 
     async runSherlock(target) {
-        const outputFile = path.join(this.resultsDir, `sherlock-${Date.now()}.txt`);
-        await fs.mkdir(path.dirname(outputFile), { recursive: true });
-
         try {
-            const cmd = `sherlock ${target} --output ${outputFile} --print-all 2>&1`;
+            // Validate input using zod schema
+            const validatedTarget = usernameSchema.parse(target);
+            const safeTarget = this.assertSafeTarget(validatedTarget, 'username');
+
+            const outputFile = path.join(this.resultsDir, `sherlock-${Date.now()}.txt`);
+            await fs.mkdir(path.dirname(outputFile), { recursive: true });
+
+            const cmd = `sherlock ${safeTarget} --output ${outputFile} --print-all 2>&1`;
             const { stdout } = await execAsync(cmd, { timeout: this.timeout });
             const sites = this.parseSherlockOutput(stdout);
             return { found: sites.length > 0, sites, count: sites.length };
@@ -415,7 +477,11 @@ export class EnhancedScanner {
     // Email Modules
     async runHolehe(target) {
         try {
-            const cmd = `holehe ${target} --only-used --json 2>&1`;
+            // Validate input using zod schema
+            const validatedTarget = emailSchema.parse(target);
+            const safeTarget = this.assertSafeTarget(validatedTarget, 'email');
+
+            const cmd = `holehe ${safeTarget} --only-used --json 2>&1`;
             const { stdout } = await execAsync(cmd, { timeout: this.timeout });
             const results = JSON.parse(stdout);
             const found = results.filter(r => r.exist).length;
@@ -499,11 +565,15 @@ export class EnhancedScanner {
 
     // Phone Modules
     async runPhoneInfoga(target) {
-        const outputFile = path.join(this.resultsDir, `phone-${Date.now()}.json`);
-        await fs.mkdir(path.dirname(outputFile), { recursive: true });
-
         try {
-            const cmd = `phoneinfoga -n ${target} -o json > ${outputFile} 2>&1`;
+            // Validate input using zod schema
+            const validatedTarget = phoneSchema.parse(target);
+            const safeTarget = this.assertSafeTarget(validatedTarget, 'phone');
+
+            const outputFile = path.join(this.resultsDir, `phone-${Date.now()}.json`);
+            await fs.mkdir(path.dirname(outputFile), { recursive: true });
+
+            const cmd = `phoneinfoga -n ${safeTarget} -o json > ${outputFile} 2>&1`;
             await execAsync(cmd, { timeout: this.timeout });
             const content = await fs.readFile(outputFile, 'utf-8');
             const results = JSON.parse(content);
@@ -528,6 +598,10 @@ export class EnhancedScanner {
         await fs.mkdir(outputDir, { recursive: true });
 
         try {
+            // Validate inputs using zod schemas
+            const validatedTarget = targetSchema.parse(target);
+            const validatedScanType = scanTypeSchema.parse(scanType);
+            
             const modules = {
                 'all': 'sfp_spiderfoot,sfp_hunter,sfp_emailformat,sfp_whois,sfp_dnszonexfer,sfp_bingsearch,sfp_googlesearch',
                 'email': 'sfp_emailformat,sfp_hunter,sfp_breachdirectory,sfp_dehashed,sfp_emailrep',
@@ -535,13 +609,17 @@ export class EnhancedScanner {
                 'subdomain': 'sfp_dnszonexfer,sfp_subdomain,sfp_cloudflare'
             };
 
-            const moduleList = modules[scanType] || modules['all'];
-            const cmd = `spiderfoot -s ${target} -M ${moduleList} -o json - > ${outputDir}/results.json 2>&1`;
-            execAsync(cmd).catch(err => console.error('SpiderFoot error:', err));
+            const safeTarget = this.assertSafeTarget(validatedTarget, 'domain');
+            const moduleList = modules[validatedScanType] || modules['all'];
 
-            return { scanId, status: 'started', message: 'SpiderFoot scan initiated' };
+            // Fixed SpiderFoot command syntax (removed conflicting -o json -)
+            const cmd = `spiderfoot -s ${safeTarget} -M ${moduleList} -o json > ${outputDir}/results.json 2>&1`;
+            
+            await execAsync(cmd, { timeout: this.timeout });
+
+            return { scanId, status: 'completed', message: 'SpiderFoot scan completed successfully' };
         } catch (error) {
-            return { error: error.message };
+            return { scanId, status: 'error', error: error.message };
         }
     }
 

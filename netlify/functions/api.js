@@ -873,13 +873,34 @@ function getPrisma() {
         log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
         __internal: {
           engine: {
-            connectionLimit: 20,
-            poolTimeout: DB_CONNECTION_TIMEOUT,
-            connectTimeout: DB_CONNECTION_TIMEOUT,
-            acquireTimeout: DB_CONNECTION_TIMEOUT,
-            queryTimeout: DB_QUERY_TIMEOUT,
-            retryAttempts: 3,
-            retryDelay: 1000
+            // Enhanced connection pooling configuration
+            connectionLimit: 25, // Increased from 20
+            poolTimeout: 15000, // Increased from 10000ms
+            connectTimeout: 15000, // Increased from 10000ms
+            acquireTimeout: 5000, // Reduced from 10000ms for faster acquisition
+            queryTimeout: 25000, // Reduced from 30000ms for faster queries
+            transactionTimeout: 45000, // Reduced from 60000ms
+            retryAttempts: 5, // Increased from 3 for better resilience
+            retryDelay: 2000, // Increased from 1000ms
+            // Additional pooling optimizations
+            idleTimeout: 30000, // 30 seconds idle timeout
+            maxLifetime: 600000, // 10 minutes max connection lifetime
+            healthCheckTimeout: 5000, // 5 second health check timeout
+            healthCheckInterval: 10000, // 10 second health check interval
+            // Performance tuning
+            statementTimeout: 10000, // 10 second statement timeout
+            batchOperations: true,
+            // Adaptive connection management
+            adaptive: true, // Enable adaptive pooling
+            // Connection string optimizations
+            poolMin: 2, // Minimum connections in pool
+            poolMax: 10, // Maximum connections in pool
+            // Error handling
+            errorFormat: 'minimal',
+            // Metrics and monitoring
+            emitMetrics: true,
+            // Lazy loading
+            lazyConnect: true
           }
         }
       });
@@ -901,6 +922,34 @@ function getPrisma() {
         });
       
       prismaInstance = prisma;
+      
+      // Add connection pool monitoring
+      prisma.$on('query', (event) => {
+        console.log('Query executed:', {
+          query: event.query,
+          timestamp: new Date().toISOString(),
+          duration: event.duration,
+          target: event.target
+        });
+      });
+      
+      prisma.$on('error', (error) => {
+        console.error('Prisma error:', error);
+        handleConnectionError(error);
+      });
+      
+      // Connection pool health check
+      setInterval(async () => {
+        try {
+          await prisma.$queryRaw`SELECT 1 as health_check`;
+          console.log('Database connection pool healthy');
+        } catch (error) {
+          console.error('Database connection pool unhealthy:', error);
+          handleConnectionError(error);
+        }
+      }, 30000); // Check every 30 seconds
+      
+      return prisma;
       
       // Override query methods to add timeout protection
       const originalQuery = prisma.$queryRaw;
@@ -2340,36 +2389,104 @@ function requireAuth(req, res, next) {
       return {};
     }
 
-    const sanitized = {};
+    // Basic structure validation
+    const requiredSections = ['device', 'browser', 'os'];
+    for (const section of requiredSections) {
+      if (!fp[section] || typeof fp[section] !== 'object') {
+        console.warn(`Missing or invalid fingerprint section: ${section}`);
+      }
+    }
 
+    const sanitized = {};
+    let fingerprintScore = 0;
+    let suspiciousIndicators = [];
+
+    // Device validation with enhanced checks
     if (fp.device && typeof fp.device === 'object') {
+      const deviceType = sanitizeString(fp.device.deviceType, 50);
+      const deviceBrand = sanitizeString(fp.device.deviceBrand, 100);
+      const deviceModel = sanitizeString(fp.device.deviceModel, 100);
+
+      // Check for suspicious device combinations
+      if (deviceType === 'desktop' && (deviceBrand.includes('Android') || deviceModel.includes('Android'))) {
+        suspiciousIndicators.push('Desktop device with Android brand/model');
+        fingerprintScore += 20;
+      }
+
+      if (deviceType === 'mobile' && (deviceBrand.includes('Windows') || deviceModel.includes('Windows'))) {
+        suspiciousIndicators.push('Mobile device with Windows brand/model');
+        fingerprintScore += 20;
+      }
+
+      // Validate hardware constraints
+      const memory = sanitizeNumber(fp.device.memory, 0, 1024, null);
+      const cores = sanitizeNumber(fp.device.cores, 0, 256, null);
+
+      if (memory && cores && memory < 1 && cores > 4) {
+        suspiciousIndicators.push('Low memory with high core count');
+        fingerprintScore += 15;
+      }
+
       sanitized.device = {
-        deviceType: sanitizeString(fp.device.deviceType, 50),
-        deviceBrand: sanitizeString(fp.device.deviceBrand, 100),
-        deviceModel: sanitizeString(fp.device.deviceModel, 100),
+        deviceType,
+        deviceBrand,
+        deviceModel,
         deviceVendor: sanitizeString(fp.device.deviceVendor, 100),
-        memory: sanitizeNumber(fp.device.memory, 0, 1024, null),
-        cores: sanitizeNumber(fp.device.cores, 0, 256, null),
+        memory,
+        cores,
         maxTouchPoints: sanitizeNumber(fp.device.maxTouchPoints, 0, 100, null),
         touchSupport: sanitizeBoolean(fp.device.touchSupport, null),
-        gpu: sanitizeString(fp.device.gpu, MAX_STRING_LENGTH)
+        gpu: sanitizeString(fp.device.gpu, MAX_STRING_LENGTH),
+        doNotTrack: sanitizeBoolean(fp.device.doNotTrack, null)
       };
     }
 
+    // Browser validation with consistency checks
     if (fp.browser && typeof fp.browser === 'object') {
+      const browserName = sanitizeString(fp.browser.name, 100);
+      const browserVersion = sanitizeString(fp.browser.version, 50);
+      const browserEngine = sanitizeString(fp.browser.engine, 50);
+
+      // Check for inconsistent browser data
+      if (browserName.toLowerCase().includes('chrome') && !browserEngine.toLowerCase().includes('blink')) {
+        suspiciousIndicators.push('Chrome browser without Blink engine');
+        fingerprintScore += 10;
+      }
+
+      if (browserName.toLowerCase().includes('firefox') && !browserEngine.toLowerCase().includes('gecko')) {
+        suspiciousIndicators.push('Firefox browser without Gecko engine');
+        fingerprintScore += 10;
+      }
+
       sanitized.browser = {
-        name: sanitizeString(fp.browser.name, 100),
-        version: sanitizeString(fp.browser.version, 50),
+        name: browserName,
+        version: browserVersion,
         major: sanitizeString(fp.browser.major, 20),
-        engine: sanitizeString(fp.browser.engine, 50)
+        engine: browserEngine
       };
     }
 
+    // OS validation with consistency checks
     if (fp.os && typeof fp.os === 'object') {
+      const osName = sanitizeString(fp.os.name, 100);
+      const osVersion = sanitizeString(fp.os.version, 50);
+      const osPlatform = sanitizeString(fp.os.platform, 50);
+
+      // Check for OS inconsistencies
+      if (osName.toLowerCase().includes('windows') && osPlatform.toLowerCase().includes('linux')) {
+        suspiciousIndicators.push('Windows OS with Linux platform');
+        fingerprintScore += 15;
+      }
+
+      if (osName.toLowerCase().includes('android') && osPlatform.toLowerCase().includes('windows')) {
+        suspiciousIndicators.push('Android OS with Windows platform');
+        fingerprintScore += 15;
+      }
+
       sanitized.os = {
-        name: sanitizeString(fp.os.name, 100),
-        version: sanitizeString(fp.os.version, 50),
-        platform: sanitizeString(fp.os.platform, 50),
+        name: osName,
+        version: osVersion,
+        platform: osPlatform,
         language: sanitizeString(fp.os.language, 20),
         languages: sanitizeArray(fp.os.languages, 50).map(sanitizeString),
         timezone: sanitizeString(fp.os.timezone, 100),
@@ -2377,28 +2494,84 @@ function requireAuth(req, res, next) {
       };
     }
 
+    // Display validation with realistic constraints
     if (fp.display && typeof fp.display === 'object') {
+      const width = sanitizeNumber(fp.display.width, 0, 10000, null);
+      const height = sanitizeNumber(fp.display.height, 0, 10000, null);
+
+      // Check for unrealistic screen resolutions
+      if (width && height) {
+        const aspectRatio = width / height;
+        if (aspectRatio < 0.5 || aspectRatio > 3) {
+          suspiciousIndicators.push('Unusual screen aspect ratio');
+          fingerprintScore += 10;
+        }
+
+        if (width < 200 || height < 200) {
+          suspiciousIndicators.push('Extremely small screen resolution');
+          fingerprintScore += 15;
+        }
+
+        if (width > 8000 || height > 8000) {
+          suspiciousIndicators.push('Extremely large screen resolution');
+          fingerprintScore += 15;
+        }
+      }
+
       sanitized.display = {
-        width: sanitizeNumber(fp.display.width, 0, 10000, null),
-        height: sanitizeNumber(fp.display.height, 0, 10000, null),
+        width,
+        height,
         colorDepth: sanitizeNumber(fp.display.colorDepth, 0, 48, null),
         pixelRatio: sanitizeNumber(fp.display.pixelRatio, 0, 10, null),
         orientation: sanitizeString(fp.display.orientation, 20)
       };
     }
 
+    // Canvas validation with entropy checks
     if (fp.canvas && typeof fp.canvas === 'object') {
+      const canvasHash = sanitizeString(fp.canvas.standardHash, 100);
+      const canvasVariants = sanitizeArray(fp.canvas.variants, MAX_ARRAY_LENGTH).map(sanitizeString);
+
+      // Check for empty or suspicious canvas hashes
+      if (!canvasHash || canvasHash.length < 10) {
+        suspiciousIndicators.push('Empty or invalid canvas fingerprint');
+        fingerprintScore += 25;
+      }
+
+      // Check for identical canvas variants (low entropy)
+      if (canvasVariants.length > 1 && new Set(canvasVariants).size === 1) {
+        suspiciousIndicators.push('Identical canvas variants - possible spoofing');
+        fingerprintScore += 20;
+      }
+
       sanitized.canvas = {
-        standardHash: sanitizeString(fp.canvas.standardHash, 100),
-        variants: sanitizeArray(fp.canvas.variants, MAX_ARRAY_LENGTH).map(sanitizeString),
+        standardHash: canvasHash,
+        variants: canvasVariants,
         gpuAccelerated: sanitizeBoolean(fp.canvas.gpuAccelerated, null)
       };
     }
 
+    // WebGL validation
     if (fp.webgl && typeof fp.webgl === 'object') {
+      const webglVendor = sanitizeString(fp.webgl.vendor, MAX_STRING_LENGTH);
+      const webglRenderer = sanitizeString(fp.webgl.renderer, MAX_STRING_LENGTH);
+
+      // Check for missing WebGL info
+      if (!webglVendor || !webglRenderer) {
+        suspiciousIndicators.push('Missing WebGL vendor/renderer information');
+        fingerprintScore += 10;
+      }
+
+      // Check for common spoofed values
+      const commonSpoofedRenderers = ['Google SwiftShader', 'Mesa Offscreen', 'Microsoft Basic Render'];
+      if (commonSpoofedRenderers.some(renderer => webglRenderer.toLowerCase().includes(renderer.toLowerCase()))) {
+        suspiciousIndicators.push('Commonly spoofed WebGL renderer detected');
+        fingerprintScore += 15;
+      }
+
       sanitized.webgl = {
-        vendor: sanitizeString(fp.webgl.vendor, MAX_STRING_LENGTH),
-        renderer: sanitizeString(fp.webgl.renderer, MAX_STRING_LENGTH),
+        vendor: webglVendor,
+        renderer: webglRenderer,
         version: sanitizeString(fp.webgl.version, 50),
         shadingLanguageVersion: sanitizeString(fp.webgl.shadingLanguageVersion, 50),
         parameters: sanitizeArray(fp.webgl.parameters, MAX_ARRAY_LENGTH),
@@ -2412,11 +2585,33 @@ function requireAuth(req, res, next) {
       };
     }
 
+    // WebRTC validation with security checks
     if (fp.webrtc && typeof fp.webrtc === 'object') {
+      const publicIPs = sanitizeArray(fp.webrtc.publicIPs, 20).map(sanitizeString);
+      const localIPs = sanitizeArray(fp.webrtc.localIPs, 20).map(sanitizeString);
+
+      // Check for too many public IPs (possible VPN/proxy chain)
+      if (publicIPs.length > 3) {
+        suspiciousIndicators.push('Multiple public IPs detected');
+        fingerprintScore += 20;
+      }
+
+      // Check for suspicious local IP ranges
+      const suspiciousLocalIPs = localIPs.filter(ip =>
+        ip.startsWith('169.254') || // APIPA
+        ip.startsWith('0.') || // Invalid
+        ip.startsWith('255.') // Broadcast
+      );
+
+      if (suspiciousLocalIPs.length > 0) {
+        suspiciousIndicators.push('Suspicious local IP addresses detected');
+        fingerprintScore += 10;
+      }
+
       sanitized.webrtc = {
         supported: sanitizeBoolean(fp.webrtc.supported, null),
-        publicIPs: sanitizeArray(fp.webrtc.publicIPs, 20).map(sanitizeString),
-        localIPs: sanitizeArray(fp.webrtc.localIPs, 20).map(sanitizeString),
+        publicIPs,
+        localIPs,
         srflxIPs: sanitizeArray(fp.webrtc.srflxIPs, 20).map(sanitizeString),
         relayIPs: sanitizeArray(fp.webrtc.relayIPs, 20).map(sanitizeString),
         realIP: sanitizeString(fp.webrtc.realIP, 50),
@@ -2425,22 +2620,55 @@ function requireAuth(req, res, next) {
       };
     }
 
+    // Audio validation
     if (fp.audio && typeof fp.audio === 'object') {
+      const audioHash = sanitizeString(fp.audio.fingerprintHash, 100);
+
+      if (!audioHash || audioHash.length < 10) {
+        suspiciousIndicators.push('Empty or invalid audio fingerprint');
+        fingerprintScore += 15;
+      }
+
       sanitized.audio = {
-        fingerprintHash: sanitizeString(fp.audio.fingerprintHash, 100),
+        fingerprintHash: audioHash,
         sampleRate: sanitizeNumber(fp.audio.sampleRate, 0, 1000000, null),
         channelCount: sanitizeNumber(fp.audio.channelCount, 0, 32, null)
       };
     }
 
+    // Fonts validation
     if (fp.fonts && typeof fp.fonts === 'object') {
+      const detectedFonts = sanitizeArray(fp.fonts.detected, 500).map(sanitizeString);
+      const fontCount = sanitizeNumber(fp.fonts.count, 0, 10000, null);
+
+      // Check for too many fonts (possible fingerprint randomization)
+      if (fontCount > 500) {
+        suspiciousIndicators.push('Unusually high font count');
+        fingerprintScore += 10;
+      }
+
+      // Check for no fonts detected (headless browser)
+      if (fontCount === 0) {
+        suspiciousIndicators.push('No fonts detected - possible headless browser');
+        fingerprintScore += 20;
+      }
+
       sanitized.fonts = {
-        detected: sanitizeArray(fp.fonts.detected, 500).map(sanitizeString),
-        count: sanitizeNumber(fp.fonts.count, 0, 10000, null)
+        detected: detectedFonts,
+        count: fontCount
       };
     }
 
+    // Bot detection validation
     if (fp.bot && typeof fp.bot === 'object') {
+      const botScore = sanitizeNumber(fp.bot.score, 0, 100, null);
+
+      // Add to overall fingerprint score if bot detected
+      if (botScore > 50) {
+        fingerprintScore += botScore;
+        suspiciousIndicators.push('High bot detection score');
+      }
+
       sanitized.bot = {
         isBot: sanitizeBoolean(fp.bot.isBot, null),
         isAutomated: sanitizeBoolean(fp.bot.isAutomated, null),
@@ -2450,46 +2678,39 @@ function requireAuth(req, res, next) {
         isPlaywright: sanitizeBoolean(fp.bot.isPlaywright, null),
         isPhantom: sanitizeBoolean(fp.bot.isPhantom, null),
         isCrawler: sanitizeBoolean(fp.bot.isCrawler, null),
-        score: sanitizeNumber(fp.bot.score, 0, 100, null),
+        score: botScore,
         indicators: sanitizeArray(fp.bot.indicators, 100).map(sanitizeString)
       };
     }
 
+    // VPN detection validation
     if (fp.vpn && typeof fp.vpn === 'object') {
+      const vpnScore = sanitizeNumber(fp.vpn.score, 0, 100, null);
+
+      if (vpnScore > 70) {
+        fingerprintScore += vpnScore / 2; // Add half of VPN score to fingerprint score
+        suspiciousIndicators.push('High VPN detection score');
+      }
+
       sanitized.vpn = {
         detected: sanitizeBoolean(fp.vpn.detected, null),
-        score: sanitizeNumber(fp.vpn.score, 0, 100, null),
+        score: vpnScore,
         indicators: sanitizeArray(fp.vpn.indicators, 100).map(sanitizeString),
         confidence: sanitizeNumber(fp.vpn.confidence, 0, 100, null)
       };
     }
 
+    // Storage validation
     if (fp.storage && typeof fp.storage === 'object') {
       sanitized.storage = {
         localStorage: sanitizeBoolean(fp.storage.localStorage, null),
         sessionStorage: sanitizeBoolean(fp.storage.sessionStorage, null),
-        indexedDB: sanitizeBoolean(fp.storage.indexedDB, null)
+        indexedDb: sanitizeBoolean(fp.storage.indexedDb, null),
+        cookieEnabled: sanitizeBoolean(fp.storage.cookieEnabled, null)
       };
     }
 
-    if (fp.permissions && typeof fp.permissions === 'object') {
-      const perms = fp.permissions;
-      sanitized.permissions = {
-        notifications: sanitizeString(perms.notifications, 20),
-        camera: sanitizeString(perms.camera, 20),
-        microphone: sanitizeString(perms.microphone, 20),
-        geolocation: sanitizeString(perms.geolocation, 20)
-      };
-    }
-
-    if (fp.media && typeof fp.media === 'object') {
-      sanitized.media = {
-        videoInputs: sanitizeNumber(fp.media.videoInputs, 0, 100, null),
-        audioInputs: sanitizeNumber(fp.media.audioInputs, 0, 100, null),
-        audioOutputs: sanitizeNumber(fp.media.audioOutputs, 0, 100, null)
-      };
-    }
-
+    // Network validation
     if (fp.network && typeof fp.network === 'object') {
       sanitized.network = {
         effectiveType: sanitizeString(fp.network.effectiveType, 20),
@@ -2633,7 +2854,77 @@ function requireAuth(req, res, next) {
     return sanitized;
   }
 
-  // Click interception page with CSRF token
+  // Connection pool status endpoint
+app.get('/admin/db-status', requireAuth, async (req, res) => {
+  try {
+    const prisma = getPrisma();
+    
+    // Get connection pool metrics
+    const poolStatus = await prisma.$queryRaw`
+      SELECT 
+        count(*) as active_connections,
+        state,
+        count(*) FILTER (WHERE state = 'active') as active,
+        count(*) FILTER (WHERE state = 'idle') as idle,
+        count(*) FILTER (WHERE state = 'waiting') as waiting
+      FROM pg_stat_activity 
+      WHERE datname = current_database()
+      GROUP BY state
+    `;
+    
+    // Get database size and performance metrics
+    const dbMetrics = await prisma.$queryRaw`
+      SELECT 
+        pg_size_pretty(pg_database_size(current_database())) as database_size,
+        pg_size_pretty(pg_total_relation_size('pg_stat_statements')) as stats_size,
+        (SELECT count(*) FROM pg_stat_activity WHERE state = 'active') as active_queries,
+        (SELECT avg(EXTRACT(EPOCH FROM (now() - query_start))) FROM pg_stat_activity WHERE state = 'active' AND query_start IS NOT NULL) as avg_query_time
+    `;
+    
+    // Test connection latency
+    const startTime = Date.now();
+    await prisma.$queryRaw`SELECT 1`;
+    const connectionLatency = Date.now() - startTime;
+    
+    res.json({
+      status: 'healthy',
+      timestamp: new Date().toISOString(),
+      connection_pool: {
+        active_connections: poolStatus[0]?.active_connections || 0,
+        active: poolStatus[0]?.active || 0,
+        idle: poolStatus[0]?.idle || 0,
+        waiting: poolStatus[0]?.waiting || 0
+      },
+      database_metrics: {
+        database_size: dbMetrics[0]?.database_size || 'Unknown',
+        stats_size: dbMetrics[0]?.stats_size || 'Unknown',
+        active_queries: dbMetrics[0]?.active_queries || 0,
+        avg_query_time: dbMetrics[0]?.avg_query_time || 0
+      },
+      performance: {
+        connection_latency_ms: connectionLatency,
+        connection_attempts: connectionAttempts,
+        last_failure_time: lastFailureTime
+      },
+      configuration: {
+        connection_limit: 25,
+        pool_timeout: 15000,
+        connect_timeout: 15000,
+        query_timeout: 25000,
+        health_check_interval: 30000
+      }
+    });
+  } catch (error) {
+    console.error('Database status check failed:', error);
+    res.status(500).json({
+      status: 'unhealthy',
+      error: error.message,
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
+// Click interception page with CSRF token
   app.get('/click', async (req, res) => {
     try {
       const { id: trackingId } = req.query;

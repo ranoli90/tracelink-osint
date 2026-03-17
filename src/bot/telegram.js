@@ -241,12 +241,308 @@ export function createBot() {
         }
     });
 
+    // OSINT Commands - only for admins
+    bot.command('scan', async (ctx) => {
+        try {
+            const user = ctx.message.from;
+            const telegramId = BigInt(user.id);
+
+            // Check if user is admin
+            if (!isAdmin(telegramId)) {
+                return ctx.reply('You are not authorized to use this command.');
+            }
+
+            const args = ctx.message.text.split(' ').slice(1);
+            if (args.length === 0) {
+                return ctx.reply('Usage: /scan <target> [tool]\nExample: /scan example.com spiderfoot');
+            }
+
+            const target = args[0];
+            const tool = args[1] || 'spiderfoot';
+
+            // Send scanning message
+            await ctx.reply(`🔍 Starting ${tool} scan for: ${target}\nThis may take a few minutes...`);
+
+            // Make API call to OSINT endpoint
+            const osintEndpoint = `http://localhost:3000/api/osint/${tool}`;
+            const response = await fetch(osintEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.BOT_TOKEN}`
+                },
+                body: JSON.stringify({ 
+                    target: tool === 'spiderfoot' ? target : undefined,
+                    username: ['maigret', 'sherlock'].includes(tool) ? target : undefined,
+                    email: tool === 'holehe' ? target : undefined,
+                    phoneNumber: tool === 'phoneinfoga' ? target : undefined,
+                    scanType: tool === 'spiderfoot' ? 'all' : undefined
+                })
+            });
+
+            const result = await response.json();
+
+            if (result.error) {
+                await ctx.reply(`❌ Scan failed: ${result.error}`);
+            } else {
+                await ctx.reply(`✅ Scan completed!\n\nResults: ${JSON.stringify(result, null, 2)}`);
+            }
+
+        } catch (error) {
+            console.error('Error in /scan command:', error);
+            ctx.reply('❌ Scan failed. Please try again later.');
+        }
+    });
+
+    bot.command('osint', async (ctx) => {
+        try {
+            const user = ctx.message.from;
+            const telegramId = BigInt(user.id);
+
+            // Check if user is admin
+            if (!isAdmin(telegramId)) {
+                return ctx.reply('You are not authorized to use this command.');
+            }
+
+            const webAppUrl = getWebAppUrl();
+
+            await ctx.reply(
+                '🔍 OSINT Tools\n\n' +
+                'Available tools:\n' +
+                '• SpiderFoot - Comprehensive OSINT\n' +
+                '• Maigret - Username search\n' +
+                '• Sherlock - Social media finder\n' +
+                '• Holehe - Email verification\n' +
+                '• PhoneInfoga - Phone lookup\n\n' +
+                'Commands:\n' +
+                '/scan <target> <tool> - Run OSINT scan\n' +
+                '/spiderfoot <target> - SpiderFoot scan\n' +
+                '/maigret <username> - Username search\n' +
+                '/sherlock <username> - Social media search\n' +
+                '/holehe <email> - Email check\n' +
+                '/phoneinfoga <phone> - Phone lookup\n\n' +
+                'Or use the Web App for a better experience:',
+                Markup.inlineKeyboard([
+                    [Markup.button.webApp('🔍 Open OSINT Tools', webAppUrl)]
+                ])
+            );
+
+        } catch (error) {
+            console.error('Error in /osint command:', error);
+            ctx.reply('Sorry, something went wrong. Please try again later.');
+        }
+    });
+
+    // Individual OSINT tool commands
+    bot.command('spiderfoot', async (ctx) => {
+        try {
+            const user = ctx.message.from;
+            const telegramId = BigInt(user.id);
+
+            if (!isAdmin(telegramId)) {
+                return ctx.reply('You are not authorized to use this command.');
+            }
+
+            const target = ctx.message.text.split(' ').slice(1)[0];
+            if (!target) {
+                return ctx.reply('Usage: /spiderfoot <domain|ip|email>');
+            }
+
+            await ctx.reply(`🕸️ Starting SpiderFoot scan for: ${target}`);
+            
+            // Call OSINT API
+            const response = await fetch('http://localhost:3000/api/osint/spiderfoot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.BOT_TOKEN}`
+                },
+                body: JSON.stringify({ target, scanType: 'all' })
+            });
+
+            const result = await response.json();
+            
+            if (result.error) {
+                await ctx.reply(`❌ Scan failed: ${result.error}`);
+            } else {
+                await ctx.reply(`✅ SpiderFoot scan completed!\nScan ID: ${result.scanId}`);
+            }
+
+        } catch (error) {
+            console.error('Error in /spiderfoot command:', error);
+            ctx.reply('❌ Scan failed. Please try again later.');
+        }
+    });
+
+    bot.command('maigret', async (ctx) => {
+        try {
+            const user = ctx.message.from;
+            const telegramId = BigInt(user.id);
+
+            if (!isAdmin(telegramId)) {
+                return ctx.reply('You are not authorized to use this command.');
+            }
+
+            const username = ctx.message.text.split(' ').slice(1)[0];
+            if (!username) {
+                return ctx.reply('Usage: /maigret <username>');
+            }
+
+            await ctx.reply(`👤 Starting Maigret search for: ${username}`);
+            
+            const response = await fetch('http://localhost:3000/api/osint/maigret', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.BOT_TOKEN}`
+                },
+                body: JSON.stringify({ username })
+            });
+
+            const result = await response.json();
+            
+            if (result.error) {
+                await ctx.reply(`❌ Search failed: ${result.error}`);
+            } else {
+                await ctx.reply(`✅ Maigret search completed!\nFound: ${result.found ? 'Yes' : 'No'}\nResults: ${result.count}`);
+            }
+
+        } catch (error) {
+            console.error('Error in /maigret command:', error);
+            ctx.reply('❌ Search failed. Please try again later.');
+        }
+    });
+
+    bot.command('sherlock', async (ctx) => {
+        try {
+            const user = ctx.message.from;
+            const telegramId = BigInt(user.id);
+
+            if (!isAdmin(telegramId)) {
+                return ctx.reply('You are not authorized to use this command.');
+            }
+
+            const username = ctx.message.text.split(' ').slice(1)[0];
+            if (!username) {
+                return ctx.reply('Usage: /sherlock <username>');
+            }
+
+            await ctx.reply(`🔎 Starting Sherlock search for: ${username}`);
+            
+            const response = await fetch('http://localhost:3000/api/osint/sherlock', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.BOT_TOKEN}`
+                },
+                body: JSON.stringify({ username })
+            });
+
+            const result = await response.json();
+            
+            if (result.error) {
+                await ctx.reply(`❌ Search failed: ${result.error}`);
+            } else {
+                await ctx.reply(`✅ Sherlock search completed!\nFound: ${result.found ? 'Yes' : 'No'}\nResults: ${result.count}`);
+            }
+
+        } catch (error) {
+            console.error('Error in /sherlock command:', error);
+            ctx.reply('❌ Search failed. Please try again later.');
+        }
+    });
+
+    bot.command('holehe', async (ctx) => {
+        try {
+            const user = ctx.message.from;
+            const telegramId = BigInt(user.id);
+
+            if (!isAdmin(telegramId)) {
+                return ctx.reply('You are not authorized to use this command.');
+            }
+
+            const email = ctx.message.text.split(' ').slice(1)[0];
+            if (!email) {
+                return ctx.reply('Usage: /holehe <email>');
+            }
+
+            await ctx.reply(`📧 Starting Holehe check for: ${email}`);
+            
+            const response = await fetch('http://localhost:3000/api/osint/holehe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.BOT_TOKEN}`
+                },
+                body: JSON.stringify({ email })
+            });
+
+            const result = await response.json();
+            
+            if (result.error) {
+                await ctx.reply(`❌ Check failed: ${result.error}`);
+            } else {
+                await ctx.reply(`✅ Holehe check completed!\nFound: ${result.found ? 'Yes' : 'No'}\nResults: ${result.count}`);
+            }
+
+        } catch (error) {
+            console.error('Error in /holehe command:', error);
+            ctx.reply('❌ Check failed. Please try again later.');
+        }
+    });
+
+    bot.command('phoneinfoga', async (ctx) => {
+        try {
+            const user = ctx.message.from;
+            const telegramId = BigInt(user.id);
+
+            if (!isAdmin(telegramId)) {
+                return ctx.reply('You are not authorized to use this command.');
+            }
+
+            const phone = ctx.message.text.split(' ').slice(1)[0];
+            if (!phone) {
+                return ctx.reply('Usage: /phoneinfoga <phone>');
+            }
+
+            await ctx.reply(`📱 Starting PhoneInfoga lookup for: ${phone}`);
+            
+            const response = await fetch('http://localhost:3000/api/osint/phoneinfoga', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.BOT_TOKEN}`
+                },
+                body: JSON.stringify({ phoneNumber: phone })
+            });
+
+            const result = await response.json();
+            
+            if (result.error) {
+                await ctx.reply(`❌ Lookup failed: ${result.error}`);
+            } else {
+                await ctx.reply(`✅ PhoneInfoga lookup completed!\nValid: ${result.found ? 'Yes' : 'No'}\nResults: ${JSON.stringify(result.results, null, 2)}`);
+            }
+
+        } catch (error) {
+            console.error('Error in /phoneinfoga command:', error);
+            ctx.reply('❌ Lookup failed. Please try again later.');
+        }
+    });
+
     // Help command
     bot.help((ctx) => {
         ctx.reply(
             'TraceLink Bot Commands:\n\n' +
             '/start - Start the bot and access your dashboard\n' +
             '/admin - View admin stats (admins only)\n' +
+            '/scan <target> [tool] - Run OSINT scan (admins only)\n' +
+            '/osint - Show OSINT tools menu (admins only)\n' +
+            '/spiderfoot <target> - SpiderFoot scan (admins only)\n' +
+            '/maigret <username> - Username search (admins only)\n' +
+            '/sherlock <username> - Social media search (admins only)\n' +
+            '/holehe <email> - Email verification (admins only)\n' +
+            '/phoneinfoga <phone> - Phone lookup (admins only)\n' +
             '/help - Show this help message'
         );
     });

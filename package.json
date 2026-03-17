@@ -15,6 +15,8 @@
     "db:studio": "npx prisma studio",
     "db:download": "node scripts/download-db.js",
     "setup:dns": "node scripts/setup-thr0ne-dns.js",
+    "validate-env": "node scripts/validate-env.js",
+    "check-env": "node scripts/validate-env.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
   },
@@ -28,6 +30,7 @@
     "csrf": "^3.1.0",
     "dotenv": "^16.6.1",
     "express": "^4.21.1",
+    "express-rate-limit": "^8.3.1",
     "helmet": "^7.1.0",
     "ipwhois": "^1.0.3",
     "morgan": "^1.10.0",
@@ -37,7 +40,7 @@
     "serverless-http": "^3.2.0",
     "telegraf": "^4.16.3",
     "ua-parser-js": "^2.0.0",
-    "zod": "^3.22.4"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "acorn": "^8.16.0",

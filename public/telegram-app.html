@@ -581,6 +581,110 @@
         .osint-summary-stat strong {
             color: var(--tg-theme-text-color);
         }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            background-color: var(--tg-theme-header-bg-color);
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            position: sticky;
+            top: 60px;
+            z-index: 99;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 12px 16px;
+            background: none;
+            border: none;
+            color: var(--tg-theme-hint-color);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-tab.active {
+            color: var(--tg-theme-button-color);
+            border-bottom-color: var(--tg-theme-button-color);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Tool Grid */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .tool-card {
+            background-color: var(--tg-theme-secondary-bg-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card:active {
+            transform: scale(0.98);
+        }
+
+        .tool-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .tool-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--tg-theme-text-color);
+            margin-bottom: 4px;
+        }
+
+        .tool-description {
+            font-size: 12px;
+            color: var(--tg-theme-hint-color);
+            line-height: 1.3;
+        }
+
+        /* Action Grid */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        /* Section Description */
+        .section-description {
+            color: var(--tg-theme-hint-color);
+            font-size: 14px;
+            margin: 8px 0 16px 0;
+        }
+
+        /* Links Preview */
+        .links-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
     </style>
 </head>
 
@@ -593,120 +697,207 @@
 
         <!-- Main Content -->
         <div id="main" class="hidden">
-            <!-- Header -->
+            <!-- Header with Navigation -->
             <div class="header">
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <div>
                         <div class="header-title">TraceLink</div>
                         <div class="header-subtitle" id="userName">Loading...</div>
                     </div>
-                    <button class="btn btn-secondary" onclick="showOsintModal()"
-                        style="padding: 8px 12px; min-height: 36px;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-                        </svg>
-                    </button>
                 </div>
-                <button class="btn-secondary" style="width: auto; padding: 8px 16px; min-height: 36px; font-size: 14px;"
-                    onclick="refreshData()">
-                    Refresh
+                <button class="btn btn-secondary" onclick="showSettings()">
+                    ⚙️ Settings
+                </button>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="dashboard" onclick="switchTab('dashboard')">
+                    📊 Dashboard
+                </button>
+                <button class="nav-tab" data-tab="osint" onclick="switchTab('osint')">
+                    🔍 OSINT Tools
+                </button>
+                <button class="nav-tab" data-tab="links" onclick="switchTab('links')">
+                    🔗 Links
                 </button>
             </div>
 
             <!-- Error Message -->
             <div id="error" class="error-message hidden"></div>
 
-            <!-- Stats Grid -->
-            <div class="section">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
-                            </svg>
+            <!-- Dashboard Tab -->
+            <div id="dashboard-tab" class="tab-content active">
+                <!-- Stats Grid -->
+                <div class="section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
+                                </svg>
+                            </div>
+                            <div class="stat-value" id="totalLinks">0</div>
+                            <div class="stat-label">Total Links</div>
                         </div>
-                        <div class="stat-value" id="totalLinks">0</div>
-                        <div class="stat-label">Total Links</div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                                </svg>
+                            </div>
+                            <div class="stat-value" id="totalClicks">0</div>
+                            <div class="stat-label">Total Clicks</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                </svg>
+                            </div>
+                            <div class="stat-value" id="recentClicks">0</div>
+                            <div class="stat-label">Recent Clicks</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                                </svg>
+                            </div>
+                            <div class="stat-value" id="avgClicks">0</div>
+                            <div class="stat-label">Avg Clicks/Link</div>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                            </svg>
-                        </div>
-                        <div class="stat-value" id="totalClicks">0</div>
-                        <div class="stat-label">Total Clicks</div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="section">
+                    <h3 class="section-title">Quick Actions</h3>
+                    <div class="action-grid">
+                        <button class="btn btn-primary" onclick="showCreateModal()">
+                            🔗 Create New Link
+                        </button>
+                        <button class="btn btn-secondary" onclick="switchTab('osint')">
+                            🔍 Start OSINT Scan
+                        </button>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
-                            </svg>
+                </div>
+
+                <!-- Security Stats -->
+                <div class="section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🛡️ Security Overview</h3>
                         </div>
-                        <div class="stat-value" id="recentClicks">0</div>
-                        <div class="stat-label">Last 24 Hours</div>
+                        <div class="security-stats">
+                            <div class="security-stat">
+                                <span class="security-label">VPN Detection:</span>
+                                <span class="security-value" id="securityVpn">0</span>
+                            </div>
+                            <div class="security-stat">
+                                <span class="security-label">Proxy Detection:</span>
+                                <span class="security-value" id="securityProxy">0</span>
+                            </div>
+                            <div class="security-stat">
+                                <span class="security-label">Bot Detection:</span>
+                                <span class="security-value" id="securityBots">0</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-                            </svg>
-                        </div>
-                        <div class="stat-value" id="avgClicks">0</div>
-                        <div class="stat-label">Avg/Link</div>
+                </div>
+
+                <!-- Recent Links Preview -->
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-title">Recent Links</span>
+                        <button class="btn btn-link" onclick="switchTab('links')">View All</button>
+                    </div>
+                    <div id="recentLinks" class="links-preview">
+                        <!-- Will be populated by JavaScript -->
                     </div>
                 </div>
             </div>
 
-            <!-- Create Link Button -->
-            <div class="section">
-                <button class="btn btn-primary" onclick="showCreateModal()">
-                    Create New Link
-                </button>
-            </div>
+            <!-- OSINT Tab -->
+            <div id="osint-tab" class="tab-content">
+                <div class="section">
+                    <h3 class="section-title">🔍 OSINT Tools</h3>
+                    <p class="section-description">Select a tool to start your investigation</p>
+                </div>
 
-            <!-- Security Stats -->
-            <div class="section">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Security Detections</span>
+                <!-- Tool Selection Grid -->
+                <div class="tool-grid">
+                    <div class="tool-card" onclick="selectOsintTool('spiderfoot')">
+                        <div class="tool-icon">🕸️</div>
+                        <div class="tool-name">SpiderFoot</div>
+                        <div class="tool-description">Comprehensive OSINT reconnaissance</div>
                     </div>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center;">
-                        <div>
-                            <div style="font-size: 20px; font-weight: 700; color: #f59e0b;" id="securityVpn">0</div>
-                            <div style="font-size: 12px; color: var(--tg-theme-hint-color);">VPN</div>
+                    <div class="tool-card" onclick="selectOsintTool('maigret')">
+                        <div class="tool-icon">👤</div>
+                        <div class="tool-name">Maigret</div>
+                        <div class="tool-description">Username search across platforms</div>
+                    </div>
+                    <div class="tool-card" onclick="selectOsintTool('sherlock')">
+                        <div class="tool-icon">🔎</div>
+                        <div class="tool-name">Sherlock</div>
+                        <div class="tool-description">Find social media accounts</div>
+                    </div>
+                    <div class="tool-card" onclick="selectOsintTool('holehe')">
+                        <div class="tool-icon">📧</div>
+                        <div class="tool-name">Holehe</div>
+                        <div class="tool-description">Email account verification</div>
+                    </div>
+                    <div class="tool-card" onclick="selectOsintTool('phoneinfoga')">
+                        <div class="tool-icon">📱</div>
+                        <div class="tool-name">PhoneInfoga</div>
+                        <div class="tool-description">Phone number information</div>
+                    </div>
+                </div>
+
+                <!-- OSINT Scan Form -->
+                <div id="osintScanForm" class="section hidden">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title" id="osintToolTitle">OSINT Scan</h3>
+                            <button class="btn btn-link" onclick="backToToolSelection()">← Back</button>
                         </div>
-                        <div>
-                            <div style="font-size: 20px; font-weight: 700; color: #ef4444;" id="securityProxy">0</div>
-                            <div style="font-size: 12px; color: var(--tg-theme-hint-color);">Proxy</div>
-                        </div>
-                        <div>
-                            <div style="font-size: 20px; font-weight: 700; color: #8b5cf6;" id="securityBots">0</div>
-                            <div style="font-size: 12px; color: var(--tg-theme-hint-color);">Bots</div>
-                        </div>
+                        <form id="osintForm">
+                            <div class="form-group">
+                                <label class="form-label" id="osintInputLabel">Target</label>
+                                <input type="text" id="osintInput" class="form-input" placeholder="" required>
+                            </div>
+                            <div class="form-group" id="scanTypeGroup">
+                                <label class="form-label">Scan Type</label>
+                                <select id="scanType" class="form-select">
+                                    <option value="all">All</option>
+                                    <option value="email">Email</option>
+                                    <option value="domain">Domain</option>
+                                    <option value="username">Username</option>
+                                    <option value="phone">Phone</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="osintScanBtn">
+                                Start Scan
+                            </button>
+                        </form>
+                        <div id="osintResults" class="osint-results"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Links List -->
-            <div class="section">
-                <div class="section-header">
-                    <span class="section-title">Your Links</span>
-                </div>
-                <div id="linksList" class="links-list"></div>
-                <div id="linksEmpty" class="empty-state hidden">
-                    <div class="empty-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--tg-theme-hint-color)">
-                            <path
-                                d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
-                        </svg>
+            <!-- Links Tab -->
+            <div id="links-tab" class="tab-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-title">🔗 Your Links</span>
+                        <button class="btn btn-primary" onclick="showCreateModal()">
+                            + Create New
+                        </button>
                     </div>
-                    <div class="empty-title">No links yet</div>
+                    <div id="linksList" class="links-list">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
                     <div class="empty-description">Create your first tracking link to get started</div>
                 </div>
             </div>
@@ -1002,6 +1193,114 @@
             showToast('Data refreshed');
         }
 
+        // Tab switching function
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            const selectedTab = document.getElementById(tabName + '-tab');
+            if (selectedTab) {
+                selectedTab.classList.remove('hidden');
+            }
+            
+            // Add active class to selected nav tab
+            const selectedNavTab = document.querySelector(`[data-tab="${tabName}"]`);
+            if (selectedNavTab) {
+                selectedNavTab.classList.add('active');
+            }
+            
+            // Load tab-specific content
+            if (tabName === 'dashboard') {
+                loadDashboard();
+            } else if (tabName === 'links') {
+                loadLinks();
+            }
+        }
+
+        // OSINT tool selection function
+        function selectOsintTool(tool) {
+            currentOsintTool = tool;
+            
+            // Hide tool selection grid
+            document.querySelector('.tool-grid').classList.add('hidden');
+            
+            // Show scan form
+            document.getElementById('osintScanForm').classList.remove('hidden');
+            
+            // Configure form based on tool
+            const title = document.getElementById('osintToolTitle');
+            const inputLabel = document.getElementById('osintInputLabel');
+            const input = document.getElementById('osintInput');
+            const scanTypeGroup = document.getElementById('scanTypeGroup');
+            
+            const toolConfig = {
+                spiderfoot: {
+                    title: '🕸️ SpiderFoot Scan',
+                    label: 'Domain or Target',
+                    placeholder: 'example.com',
+                    showScanType: true
+                },
+                maigret: {
+                    title: '👤 Maigret Username Search',
+                    label: 'Username',
+                    placeholder: 'username',
+                    showScanType: false
+                },
+                sherlock: {
+                    title: '🔎 Sherlock Username Search',
+                    label: 'Username',
+                    placeholder: 'username',
+                    showScanType: false
+                },
+                holehe: {
+                    title: '📧 Holehe Email Check',
+                    label: 'Email Address',
+                    placeholder: 'user@example.com',
+                    showScanType: false
+                },
+                phoneinfoga: {
+                    title: '📱 PhoneInfoga Phone Info',
+                    label: 'Phone Number',
+                    placeholder: '+1234567890',
+                    showScanType: false
+                }
+            };
+            
+            const config = toolConfig[tool];
+            if (config) {
+                title.textContent = config.title;
+                inputLabel.textContent = config.label;
+                input.placeholder = config.placeholder;
+                input.value = '';
+                scanTypeGroup.style.display = config.showScanType ? 'block' : 'none';
+                
+                // Clear previous results
+                document.getElementById('osintResults').innerHTML = '';
+                
+                // Focus input
+                input.focus();
+            }
+        }
+
+        function backToToolSelection() {
+            // Show tool selection grid
+            document.querySelector('.tool-grid').classList.remove('hidden');
+            
+            // Hide scan form
+            document.getElementById('osintScanForm').classList.add('hidden');
+            
+            // Clear current tool
+            currentOsintTool = '';
+        }
+
         // OSINT Functions
         let currentOsintTool = '';
 
@@ -1144,7 +1443,7 @@
 
             let html = '<div class="osint-result-item ' + (result.found ? 'found' : 'not-found') + '">';
             html += '<div class="osint-result-site">' + (result.tool || 'OSINT') + '</div>';
-
+            
             if (result.found) {
                 html += '<div class="osint-result-url">Target found!</div>';
             } else {
@@ -1155,20 +1454,26 @@
                 html += '<div class="osint-result-url">Count: ' + result.count + '</div>';
             }
 
-            html += '</div>';
-
             resultsDiv.innerHTML = html;
         }
 
-        // Initialize
+        // Load dashboard content
+        async function loadDashboard() {
+            try {
+                await Promise.all([loadUser(), loadStats()]);
+            } catch (error) {
+                console.error('Failed to load dashboard:', error);
+            }
+        }
+
+        // Start app
         async function init() {
             try {
-                await loadUser();
-                await Promise.all([loadStats(), loadLinks()]);
-
                 document.getElementById('loading').classList.add('hidden');
                 document.getElementById('main').classList.remove('hidden');
 
+                // Load initial data
+                await loadDashboard();
             } catch (error) {
                 document.getElementById('loading').classList.add('hidden');
                 showError(error.message || 'Failed to initialize. Please open from Telegram.');

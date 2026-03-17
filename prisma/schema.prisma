@@ -363,10 +363,30 @@ model TelegramUser {
   updatedAt     DateTime  @updatedAt @map("updated_at")
   links         Link[]
   clickEvents   ClickEvent[]
+  osintScans    OsintScan[]
   referrer      TelegramUser? @relation("Referrals", fields: [referrerId], references: [telegramId], onDelete: SetNull)
   referrals     TelegramUser[] @relation("Referrals")
 
   @@index([telegramId])
   @@index([createdAt])
   @@map("telegram_users")
+}
+
+model OsintScan {
+  id        String   @id @default(cuid())
+  scanId    String   @unique @map("scan_id")
+  userId    BigInt   @map("user_id")
+  tool      String
+  target    String
+  results   Json
+  status    String
+  error     String?
+  createdAt DateTime @default(now()) @map("created_at")
+  user      TelegramUser @relation(fields: [userId], references: [telegramId], onDelete: Cascade)
+
+  @@index([scanId])
+  @@index([userId])
+  @@index([tool])
+  @@index([createdAt])
+  @@map("osint_scans")
 }
