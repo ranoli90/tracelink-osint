@@ -1,26 +1,17 @@
 services:
-  - name: osint-api
-    type: web_service
-    env: docker
-    dockerfilePath: ./Dockerfile
-    buildCommand: npm install
-    startCommand: node src/index.js
-    envVars:
-      - key: DATABASE_URL
-        value: postgres://osint_db_e9wl_user:se7l3ss2TySdKq07hGMgZXmjyQgSfdIT@dpg-d6sogba4d50c73bs79gg-a.oregon-postgres.render.com/osint_db_e9wl
-      - key: BOT_TOKEN
-        value: 8692641453:AAGZa2cgGbVw2-IZN2ivV4xLhIgFkoc2Chg
-      - key: NODE_ENV
-        value: production
-      - key: PORT
-        value: "3000"
-      - key: WEBAPP_URL
-        value: https://osint-api-6t21.onrender.com
-      - key: BASE_URL
-        value: https://osint-api-6t21.onrender.com
-
-databases:
-  - name: osint_db
+  - type: web
+    name: spiderfoot-core
+    env: python
+    rootDir: spiderfoot
+    buildCommand: "pip install -r requirements.txt && pip install litellm ollama sentence-transformers faiss-cpu telebot requests"
+    startCommand: "python3 tg_bot_upgrade.py & python3 sf.py -l 0.0.0.0:$PORT"
     plan: free
-    region: oregon
-    version: "15"
+    envVars:
+      - key: PORT
+        value: "5001"
+      - key: SPIDERFOOT_UI_PORT
+        value: "5001"
+      - key: SPIDERFOOT_PROFILE
+        value: "scan"
+      - key: BOT_TOKEN
+        sync: false
