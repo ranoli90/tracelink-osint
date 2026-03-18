@@ -23,8 +23,15 @@ install_tools() {
     rm -rf /app/spiderfoot
     
     # Clone SpiderFoot - use version 3.3.0 which supports SQLite
-    git clone --depth 1 --branch 3.3.0 https://github.com/smicallef/spiderfoot.git /app/spiderfoot 2>/dev/null || \
+    echo "Cloning SpiderFoot..."
+    git clone --depth 1 --branch 3.3.0 https://github.com/smicallef/spiderfoot.git /app/spiderfoot || \
     git clone --depth 1 https://github.com/smicallef/spiderfoot.git /app/spiderfoot
+    
+    if [ ! -d "/app/spiderfoot" ]; then
+        echo "ERROR: Failed to clone SpiderFoot"
+    else
+        echo "SpiderFoot cloned successfully"
+        ls -la /app/spiderfoot/
     
     cd /app/spiderfoot
     # Install requirements without editable install
