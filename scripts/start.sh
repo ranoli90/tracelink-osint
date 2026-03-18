@@ -15,6 +15,11 @@ install_tools() {
         cd /app/spiderfoot
         pip3 install --no-cache-dir --break-system-packages -r requirements.txt
         pip3 install --no-cache-dir --break-system-packages -e .
+        
+        # Patch SpiderFoot to use SQLite by default when no PostgreSQL is configured
+        # This fixes the bug where it tries to use PostgreSQL with a SQLite path
+        sed -i "s/_db_type = 'postgresql'/_db_type = 'sqlite'/g" /app/spiderfoot/spiderfoot/api/dependencies.py
+        
         cd /app
     fi
 
