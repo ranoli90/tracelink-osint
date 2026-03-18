@@ -27,11 +27,21 @@ install_tools() {
     
     # Start SpiderFoot API after installation
     if [ -f "/app/spiderfoot/sfapi.py" ]; then
-        # Pass SF_POSTGRES_DSN if available in environment
+        # Add sslmode=require to PostgreSQL connection string if using PostgreSQL
         if [ -n "$SF_POSTGRES_DSN" ]; then
+            # Add sslmode=require if not already present
+            if echo "$SF_POSTGRES_DSN" | grep -qv 'sslmode='; then
+                SF_POSTGRES_DSN="${SF_POSTGRES_DSN}?sslmode=require"
+            fi
             SF_POSTGRES_DSN="$SF_POSTGRES_DSN" python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
         elif [ -n "$DATABASE_URL" ]; then
-            SF_POSTGRES_DSN="$DATABASE_URL" python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
+            # Add sslmode=require if not already present
+            if echo "$DATABASE_URL" | grep -qv 'sslmode='; then
+                SF_POSTGRES_DSN="${DATABASE_URL}?sslmode=require"
+            else
+                SF_POSTGRES_DSN="$DATABASE_URL"
+            fi
+            SF_POSTGRES_DSN="$SF_POSTGRES_DSN" python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
         else
             python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
         fi
