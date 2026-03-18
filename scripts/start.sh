@@ -27,7 +27,14 @@ install_tools() {
     
     # Start SpiderFoot API after installation
     if [ -f "/app/spiderfoot/sfapi.py" ]; then
-        python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
+        # Pass SF_POSTGRES_DSN if available in environment
+        if [ -n "$SF_POSTGRES_DSN" ]; then
+            SF_POSTGRES_DSN="$SF_POSTGRES_DSN" python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
+        elif [ -n "$DATABASE_URL" ]; then
+            SF_POSTGRES_DSN="$DATABASE_URL" python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
+        else
+            python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
+        fi
         echo "SpiderFoot API started on port 5001"
     fi
 }

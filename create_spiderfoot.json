@@ -1,0 +1,15 @@
+{
+  "service": {
+    "owner_id": "tea-d6p1rv6a2pns73f4sucg",
+    "name": "tracelink-spiderfoot",
+    "type": "web",
+    "region": "oregon",
+    "env": "docker",
+    "imageUrl": "smgorven/spiderfoot:latest",
+    "envVars": [
+      {"key": "PORT", "value": "5001"},
+      {"key": "SPIDERFOOT_HOST", "value": "0.0.0.0"},
+      {"key": "SPIDERFOOT_PORT", "value": "5001"}
+    ]
+  }
+}

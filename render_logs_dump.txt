@@ -1,0 +1,1000 @@
+[2026-03-17T23:48:18Z] clientIP="91.108.5.73" requestID="cd300210-c0e5-47db" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:47:15Z] clientIP="91.108.5.73" requestID="3416382a-12dc-49dc" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:46:43Z] clientIP="91.108.5.73" requestID="557c5dd7-f65c-430f" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:45:39Z] clientIP="91.108.5.73" requestID="23570a34-94a6-403e" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:45:18Z] clientIP="91.108.5.73" requestID="eab4fd11-caef-452e" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:43:53Z] clientIP="91.108.5.73" requestID="9744805a-1103-4c1e" responseTimeMS=10 responseBytes=310 userAgent=""
+[2026-03-17T23:43:48Z] clientIP="91.108.5.73" requestID="b257d647-51ab-48b3" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:42:20Z] clientIP="91.108.5.73" requestID="abebc6a5-3a21-415b" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T23:42:17Z] clientIP="91.108.5.73" requestID="524d30e1-315c-4e09" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:41:11Z] clientIP="91.108.5.73" requestID="e18306d0-c134-42ba" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T23:40:38Z] clientIP="91.108.5.73" requestID="9e486c65-eb6a-4010" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:39:43Z] clientIP="91.108.5.73" requestID="d863b4d2-3052-4aba" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:39:01Z] clientIP="91.108.5.73" requestID="269222c5-4940-45fb" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:38:36Z] clientIP="91.108.5.73" requestID="e69c314e-d76e-4a6c" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:37:45Z] clientIP="91.108.5.73" requestID="d9dc15b7-68ba-4d9c" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:36:45Z] clientIP="91.108.5.73" requestID="f2d4fe43-ef66-4da7" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:36:45Z] clientIP="91.108.5.73" requestID="3d85c072-37f2-4322" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:35:23Z] clientIP="91.108.5.73" requestID="d404e2d1-e4b9-48f4" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:35:15Z] clientIP="91.108.5.73" requestID="62d365c2-4f18-46df" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:34:12Z] clientIP="91.108.5.73" requestID="0eef01c9-5c31-4e94" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:33:29Z] clientIP="91.108.5.73" requestID="af44756d-71df-4ccb" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:32:13Z] clientIP="91.108.5.73" requestID="adc62e17-a517-4c0b" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:31:41Z] clientIP="91.108.5.73" requestID="df50f33b-841c-4772" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:30:36Z] clientIP="91.108.5.73" requestID="21db6865-86a6-4b29" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:29:42Z] clientIP="91.108.5.73" requestID="087dfcd0-6a9a-426c" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:29:14Z] clientIP="91.108.5.73" requestID="4b70e8fb-88a5-4abe" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:28:34Z] clientIP="91.108.5.73" requestID="25249cd6-7e85-4388" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:28:13Z] clientIP="91.108.5.73" requestID="af6995a0-b2eb-4da8" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:26:58Z] clientIP="91.108.5.73" requestID="18638679-9475-4dd2" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:26:37Z] clientIP="91.108.5.73" requestID="0f901e8a-bbf6-458c" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:25:10Z] clientIP="91.108.5.73" requestID="de54bd79-8557-4dfe" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:25:01Z] clientIP="91.108.5.73" requestID="10992d27-fc61-42b5" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:23:59Z] clientIP="91.108.5.73" requestID="753f1708-aca5-4447" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:23:25Z] clientIP="91.108.5.73" requestID="4cc0b576-7c56-41d4" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:22:34Z] clientIP="91.108.5.73" requestID="937e3754-6674-4998" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:21:53Z] clientIP="91.108.5.73" requestID="d90c0c57-515b-4fde" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:21:15Z] clientIP="91.108.5.73" requestID="76049079-f2a6-4fdb" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:20:52Z] clientIP="91.108.5.73" requestID="37b3055f-0764-440d" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:20:14Z] clientIP="91.108.5.73" requestID="a9e14739-524b-4dac" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:19:13Z] clientIP="91.108.5.73" requestID="6dedd779-9822-48c3" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:19:06Z] clientIP="91.108.5.73" requestID="ffe0ffbb-018e-444a" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:18:10Z] clientIP="91.108.5.73" requestID="587e7893-75f5-4ad9" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:17:18Z] clientIP="91.108.5.73" requestID="b35476f4-03dc-4f12" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:17:09Z] clientIP="91.108.5.73" requestID="67f22dfe-fdad-4cbb" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:16:08Z] clientIP="91.108.5.73" requestID="9a67d911-62e8-43da" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:15:49Z] clientIP="91.108.5.73" requestID="a2fa8b4f-5a1a-4fa4" responseTimeMS=22 responseBytes=310 userAgent=""
+[2026-03-17T23:14:48Z] clientIP="91.108.5.73" requestID="ca56d6ea-abbb-4040" responseTimeMS=7 responseBytes=310 userAgent=""
+[2026-03-17T23:14:00Z] clientIP="91.108.5.73" requestID="387fc8d6-b347-4a74" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:13:07Z] clientIP="91.108.5.73" requestID="608c0e43-374c-4bf4" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:12:17Z] clientIP="91.108.5.73" requestID="0e985cd1-aaf0-41f4" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:11:43Z] clientIP="91.108.5.73" requestID="f2b7e3ed-dacc-4271" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:10:36Z] clientIP="91.108.5.73" requestID="4e090492-ea67-4c8c" responseTimeMS=8 responseBytes=310 userAgent=""
+[2026-03-17T23:09:59Z] clientIP="91.108.5.73" requestID="3eedfa27-2c84-4bfb" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:09:11Z] clientIP="91.108.5.73" requestID="e71f6e3c-bf91-4a4f" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:08:08Z] clientIP="91.108.5.73" requestID="8bb95cfc-b639-4b48" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:07:35Z] clientIP="91.108.5.73" requestID="6d45255b-05f8-499d" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:07:06Z] clientIP="91.108.5.73" requestID="29e3d5e5-779f-4035" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T23:06:29Z] clientIP="91.108.5.73" requestID="91faad31-cec6-48e8" responseTimeMS=10 responseBytes=310 userAgent=""
+[2026-03-17T23:05:44Z] clientIP="91.108.5.73" requestID="790945ef-51fa-4622" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:04:49Z] clientIP="91.108.5.73" requestID="4035ef8d-761b-4cf1" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:04:43Z] clientIP="91.108.5.73" requestID="397bbc7b-7498-4e15" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:03:25Z] clientIP="91.108.5.73" requestID="b10d0a83-c058-4c2d" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T23:03:16Z] clientIP="91.108.5.73" requestID="06f97cf7-fe9b-4a40" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T23:02:13Z] clientIP="91.108.5.73" requestID="e896bd29-39d7-4a29" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T23:01:57Z] clientIP="91.108.5.73" requestID="4e644755-57aa-482e" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T23:00:50Z] clientIP="91.108.5.73" requestID="f33b9d58-1f65-4fcf" responseTimeMS=16 responseBytes=310 userAgent=""
+[2026-03-17T23:00:43Z] clientIP="91.108.5.73" requestID="320509d4-ee60-4e15" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:59:49Z] clientIP="91.108.5.73" requestID="0747d28c-bb8e-4e7b" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:58:46Z] clientIP="91.108.5.73" requestID="2881b1ee-787b-4ece" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:58:09Z] clientIP="91.108.5.73" requestID="d9277ef8-0663-4109" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:57:00Z] clientIP="91.108.5.73" requestID="f9e75e73-d53c-49d0" responseTimeMS=23 responseBytes=310 userAgent=""
+[2026-03-17T22:56:55Z] clientIP="91.108.5.73" requestID="1c673b77-709c-4c7a" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:55:43Z] clientIP="91.108.5.73" requestID="c88b8a7b-bb15-4b76" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:55:22Z] clientIP="91.108.5.73" requestID="719ae558-c5f5-4034" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:54:26.379421245Z] error: exit status 1
+[2026-03-17T22:54:26.344472878Z] error: failed to solve: process "/bin/sh -c git clone --depth 1 https://github.com/poppopjmp/spiderfoot.git /app/spiderfoot ||     (git submodule init && git submodule update --recursive)" did not complete successfully: exit code: 127
+[2026-03-17T22:54:26.344461918Z] --------------------
+[2026-03-17T22:54:26.344455088Z]   25 |     
+[2026-03-17T22:54:26.344448928Z]   24 | >>>     (git submodule init && git submodule update --recursive)
+[2026-03-17T22:54:26.344437917Z]   23 | >>> RUN git clone --depth 1 https://github.com/poppopjmp/spiderfoot.git /app/spiderfoot || \
+[2026-03-17T22:54:26.344430937Z]   22 |     # Initialize and update git submodule for SpiderFoot
+[2026-03-17T22:54:26.344423667Z] --------------------
+[2026-03-17T22:54:26.344400027Z] Dockerfile:23
+[2026-03-17T22:54:26.342762943Z] ------
+[2026-03-17T22:54:26.342757593Z] 0.070 /bin/sh: git: not found
+[2026-03-17T22:54:26.342751882Z] 0.070 /bin/sh: git: not found
+[2026-03-17T22:54:26.342743712Z]  > [11/15] RUN git clone --depth 1 https://github.com/poppopjmp/spiderfoot.git /app/spiderfoot ||     (git submodule init && git submodule update --recursive):
+[2026-03-17T22:54:26.342711632Z] ------
+[2026-03-17T22:54:26.325563435Z] #17 ERROR: process "/bin/sh -c git clone --depth 1 https://github.com/poppopjmp/spiderfoot.git /app/spiderfoot ||     (git submodule init && git submodule update --recursive)" did not complete successfully: exit code: 127
+[2026-03-17T22:54:26.325557565Z] #17 0.070 /bin/sh: git: not found
+[2026-03-17T22:54:26.325552565Z] #17 0.070 /bin/sh: git: not found
+[2026-03-17T22:54:26.325546935Z] #17 [11/15] RUN git clone --depth 1 https://github.com/poppopjmp/spiderfoot.git /app/spiderfoot ||     (git submodule init && git submodule update --recursive)
+[2026-03-17T22:54:26.325530744Z] 
+[2026-03-17T22:54:26.325525584Z] #16 DONE 0.0s
+[2026-03-17T22:54:26.325520374Z] #16 [10/15] COPY .env.production.example .env
+[2026-03-17T22:54:26.325514714Z] 
+[2026-03-17T22:54:26.325509704Z] #15 DONE 0.0s
+[2026-03-17T22:54:26.325503654Z] #15 [ 9/15] COPY public ./public/
+[2026-03-17T22:54:26.325457563Z] 
+[2026-03-17T22:54:26.210713367Z] #14 DONE 0.0s
+[2026-03-17T22:54:26.210706777Z] #14 [ 8/15] COPY src ./src/
+[2026-03-17T22:54:26.210697146Z] 
+[2026-03-17T22:54:26.210668736Z] #13 DONE 5.4s
+[2026-03-17T22:54:26.094108532Z] #13 5.333 
+[2026-03-17T22:54:26.094103072Z] #13 5.333 Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+[2026-03-17T22:54:26.094096162Z] #13 5.333 
+[2026-03-17T22:54:26.094090922Z] #13 5.333 Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+[2026-03-17T22:54:26.094085361Z] #13 5.333 
+[2026-03-17T22:54:26.094078781Z] #13 5.333 ✔ Generated Prisma Client (v6.19.2) to ./node_modules/@prisma/client in 502ms
+[2026-03-17T22:54:26.09403928Z] #13 5.333 
+[2026-03-17T22:54:24.024602916Z] #13 3.264 Prisma schema loaded from prisma/schema.prisma
+[2026-03-17T22:54:22Z] clientIP="91.108.5.73" requestID="0d270acb-3b88-46de" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:54:20.911546536Z] #13 [ 7/15] RUN npx prisma generate
+[2026-03-17T22:54:20.911499045Z] 
+[2026-03-17T22:54:20.759671327Z] #12 DONE 0.2s
+[2026-03-17T22:54:20.729098452Z] #12 [ 6/15] COPY prisma ./prisma/
+[2026-03-17T22:54:20.729067691Z] 
+[2026-03-17T22:54:20.577594341Z] #11 DONE 24.5s
+[2026-03-17T22:54:18Z] clientIP="91.108.5.73" requestID="f86dc021-b09a-4629" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:54:16.298084999Z] #11 20.07 npm notice
+[2026-03-17T22:54:16.298081699Z] #11 20.07 npm notice To update run: npm install -g npm@11.11.1
+[2026-03-17T22:54:16.298078138Z] #11 20.07 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.1
+[2026-03-17T22:54:16.298074868Z] #11 20.07 npm notice New major version of npm available! 10.8.2 -> 11.11.1
+[2026-03-17T22:54:16.298070908Z] #11 20.07 npm notice
+[2026-03-17T22:54:16.298066118Z] #11 20.07 found 0 vulnerabilities
+[2026-03-17T22:54:16.298062688Z] #11 20.07 
+[2026-03-17T22:54:16.298058428Z] #11 20.07   run `npm fund` for details
+[2026-03-17T22:54:16.298002537Z] #11 20.07 36 packages are looking for funding
+[2026-03-17T22:54:16.142728157Z] #11 20.07 
+[2026-03-17T22:54:16.142716847Z] #11 20.07 added 175 packages, and audited 176 packages in 20s
+[2026-03-17T22:54:16.142651426Z] #11 20.07 
+[2026-03-17T22:53:58.855824352Z] #11 2.784 npm warn EBADENGINE }
+[2026-03-17T22:53:58.855816862Z] #11 2.784 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+[2026-03-17T22:53:58.855808932Z] #11 2.784 npm warn EBADENGINE   required: { node: '>=22.0.0' },
+[2026-03-17T22:53:58.855800412Z] #11 2.784 npm warn EBADENGINE   package: 'ipwhois@1.0.3',
+[2026-03-17T22:53:58.855764571Z] #11 2.784 npm warn EBADENGINE Unsupported engine {
+[2026-03-17T22:53:56.384552842Z] #11 0.312 npm warn config only Use `--omit=dev` to omit dev dependencies from the install.
+[2026-03-17T22:53:56.223074803Z] #11 [ 5/15] RUN npm ci --only=production
+[2026-03-17T22:53:56.223068982Z] 
+[2026-03-17T22:53:56.223063012Z] #10 DONE 0.1s
+[2026-03-17T22:53:56.223056142Z] #10 [ 4/15] COPY package*.json ./
+[2026-03-17T22:53:56.223016411Z] 
+[2026-03-17T22:53:56.003705789Z] #9 DONE 2.6s
+[2026-03-17T22:53:55.848526971Z] #9 2.289 OK: 64 MiB in 41 packages
+[2026-03-17T22:53:55.678764789Z] #9 2.270 Executing busybox-1.37.0-r12.trigger
+[2026-03-17T22:53:55.543041675Z] #9 2.134 (26/26) Installing py3-pip (24.3.1-r0)
+[2026-03-17T22:53:55.543038225Z] #9 2.054 (25/26) Installing py3-setuptools (70.3.0-r0)
+[2026-03-17T22:53:55.543034845Z] #9 2.038 (24/26) Installing py3-packaging (24.2-r0)
+[2026-03-17T22:53:55.543031555Z] #9 2.038 (23/26) Installing python3-pyc (3.12.12-r0)
+[2026-03-17T22:53:55.543027615Z] #9 2.009 (22/26) Installing py3-packaging-pyc (24.2-r0)
+[2026-03-17T22:53:55.543003194Z] #9 1.989 (21/26) Installing py3-parsing-pyc (3.1.4-r0)
+[2026-03-17T22:53:55.379937682Z] #9 1.971 (20/26) Installing py3-parsing (3.1.4-r0)
+[2026-03-17T22:53:55.379907861Z] #9 1.825 (19/26) Installing py3-pip-pyc (24.3.1-r0)
+[2026-03-17T22:53:55.134602788Z] #9 1.726 (18/26) Installing py3-setuptools-pyc (70.3.0-r0)
+[2026-03-17T22:53:55.134579038Z] #9 1.726 (17/26) Installing pyc (3.12.12-r0)
+[2026-03-17T22:53:54.927642643Z] #9 1.519 (16/26) Installing python3-pycache-pyc0 (3.12.12-r0)
+[2026-03-17T22:53:54.606691145Z] #9 1.198 (15/26) Installing python3 (3.12.12-r0)
+[2026-03-17T22:53:54.606687715Z] #9 1.159 (14/26) Installing sqlite-libs (3.48.0-r4)
+[2026-03-17T22:53:54.606684365Z] #9 1.142 (13/26) Installing readline (8.2.13-r0)
+[2026-03-17T22:53:54.606680975Z] #9 1.131 (12/26) Installing libpanelw (6.5_p20241006-r3)
+[2026-03-17T22:53:54.606677775Z] #9 1.113 (11/26) Installing libncursesw (6.5_p20241006-r3)
+[2026-03-17T22:53:54.606673985Z] #9 1.096 (10/26) Installing ncurses-terminfo-base (6.5_p20241006-r3)
+[2026-03-17T22:53:54.606650315Z] #9 1.082 (9/26) Installing mpdecimal (4.0.0-r0)
+[2026-03-17T22:53:54.469472221Z] #9 1.061 (8/26) Installing xz-libs (5.6.3-r1)
+[2026-03-17T22:53:54.469468961Z] #9 1.049 (7/26) Installing gdbm (1.24-r0)
+[2026-03-17T22:53:54.469465691Z] #9 1.037 (6/26) Installing libffi (3.4.7-r0)
+[2026-03-17T22:53:54.469462301Z] #9 1.022 (5/26) Installing libexpat (2.7.4-r0)
+[2026-03-17T22:53:54.46945818Z] #9 1.010 (4/26) Installing libbz2 (1.0.8-r6)
+[2026-03-17T22:53:54.46943561Z] #9 0.985 (3/26) Installing openssl (3.3.6-r0)
+[2026-03-17T22:53:54.367209073Z] #9 0.958 (2/26) Upgrading libssl3 (3.3.3-r0 -> 3.3.6-r0)
+[2026-03-17T22:53:54.25648292Z] #9 0.848 (1/26) Upgrading libcrypto3 (3.3.3-r0 -> 3.3.6-r0)
+[2026-03-17T22:53:53.676940573Z] #9 0.268 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+[2026-03-17T22:53:53.640830071Z] #9 0.081 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+[2026-03-17T22:53:53.408954667Z] #9 [ 3/15] RUN apk add --no-cache openssl python3 py3-pip
+[2026-03-17T22:53:53.408932577Z] 
+[2026-03-17T22:53:53.408927887Z] #8 DONE 2.9s
+[2026-03-17T22:53:53.408922897Z] #8 transferring context: 1.53MB 0.1s done
+[2026-03-17T22:53:53.408917437Z] #8 [internal] load build context
+[2026-03-17T22:53:53.408910786Z] 
+[2026-03-17T22:53:53.408905156Z] #7 CACHED
+[2026-03-17T22:53:53.408899926Z] #7 extracting sha256:8cf24607cfe6e385d4263ceaa60aaa686dd8e9a6774bc977f71bf679496373e8 done
+[2026-03-17T22:53:53.408893876Z] #7 sha256:8cf24607cfe6e385d4263ceaa60aaa686dd8e9a6774bc977f71bf679496373e8 92B / 92B done
+[2026-03-17T22:53:53.408888546Z] #7 extracting sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 done
+[2026-03-17T22:53:53.408882856Z] #7 sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 446B / 446B done
+[2026-03-17T22:53:53.408859645Z] #7 extracting sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 0.1s done
+[2026-03-17T22:53:53.308829544Z] #7 extracting sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3
+[2026-03-17T22:53:53.308801604Z] #7 sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 1.26MB / 1.26MB 0.0s done
+[2026-03-17T22:53:53.203509603Z] #7 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 2.0s done
+[2026-03-17T22:53:51.317541136Z] #7 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e
+[2026-03-17T22:53:51.317506145Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 40.01MB / 40.01MB 0.5s done
+[2026-03-17T22:53:51.152547383Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 40.01MB / 40.01MB 0.5s
+[2026-03-17T22:53:51.002478731Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 27.26MB / 40.01MB 0.3s
+[2026-03-17T22:53:50.852529871Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 15.73MB / 40.01MB 0.2s
+[2026-03-17T22:53:50.697421484Z] #7 extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 0.1s done
+[2026-03-17T22:53:50.697417204Z] #7 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 3.64MB / 3.64MB 0.0s done
+[2026-03-17T22:53:50.697413174Z] #7 [ 2/15] WORKDIR /app
+[2026-03-17T22:53:50.697409334Z] 
+[2026-03-17T22:53:50.697405804Z] #6 DONE 0.0s
+[2026-03-17T22:53:50.697401734Z] #6 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e done
+[2026-03-17T22:53:50.697397724Z] #6 [ 1/15] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+[2026-03-17T22:53:50.697393014Z] 
+[2026-03-17T22:53:50.697389394Z] #5 DONE 0.0s
+[2026-03-17T22:53:50.697385514Z] #5 inferred cache manifest type: application/vnd.oci.image.manifest.v1+json done
+[2026-03-17T22:53:50.697381943Z] #5 importing cache manifest from local:17366883002397488441
+[2026-03-17T22:53:50.697378433Z] 
+[2026-03-17T22:53:50.697375443Z] #4 DONE 0.0s
+[2026-03-17T22:53:50.697371973Z] #4 transferring context: 2B done
+[2026-03-17T22:53:50.697368123Z] #4 [internal] load .dockerignore
+[2026-03-17T22:53:50.697346933Z] 
+[2026-03-17T22:53:50.478334256Z] #3 DONE 0.5s
+[2026-03-17T22:53:50.280402898Z] #3 [internal] load metadata for docker.io/library/node:18-alpine
+[2026-03-17T22:53:50.280398358Z] 
+[2026-03-17T22:53:50.280384098Z] #2 DONE 0.0s
+[2026-03-17T22:53:50.129780624Z] #2 [auth] library/node:pull render-prod/docker-mirror-repository/library/node:pull token for us-west1-docker.pkg.dev
+[2026-03-17T22:53:50.129777234Z] 
+[2026-03-17T22:53:50.129774134Z] #1 DONE 0.0s
+[2026-03-17T22:53:50.129769364Z] #1 transferring dockerfile: 1.12kB done
+[2026-03-17T22:53:50.129715173Z] #1 [internal] load build definition from Dockerfile
+[2026-03-17T22:53:45.530657665Z] [34m[1m==>(B[m [1mDownloaded 2.0GB in 9s. Extraction took 4s.(B[m
+[2026-03-17T22:53:34.671450563Z] [34m[1m==>(B[m [1mChecking out commit e02ef74e0f89f3ac35873b6675245681c340ed02 in branch main(B[m
+[2026-03-17T22:53:31.996451136Z] [34m[1m==>(B[m [1mCloning from https://github.com/ranoli90/tracelink-osint(B[m
+[2026-03-17T22:53:31.896920155Z] [34m[1m==>(B[m [1mDownloading cache...(B[m
+[2026-03-17T22:52:59Z] clientIP="91.108.5.73" requestID="2a65cd54-6398-4a4e" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:52:44Z] clientIP="91.108.5.73" requestID="78e28474-a27c-4755" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:51:23Z] clientIP="91.108.5.73" requestID="30c4054b-d5a6-4031" responseTimeMS=6 responseBytes=310 userAgent=""
+[2026-03-17T22:50:47Z] clientIP="91.108.5.73" requestID="6b28eda8-ea4a-4745" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:50:44.463297963Z] error: exit status 1
+[2026-03-17T22:50:44.431891812Z] error: failed to solve: process "/bin/sh -c pip3 install --no-cache-dir --break-system-packages -r requirements.txt" did not complete successfully: exit code: 1
+[2026-03-17T22:50:44.431887122Z] --------------------
+[2026-03-17T22:50:44.431877642Z]   27 |     # Install SpiderFoot CLI
+[2026-03-17T22:50:44.431805841Z]   26 |     
+[2026-03-17T22:50:44.431794831Z]   25 | >>> RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
+[2026-03-17T22:50:44.431786991Z]   24 |     WORKDIR /app/spiderfoot
+[2026-03-17T22:50:44.431780121Z]   23 |     # Install SpiderFoot dependencies
+[2026-03-17T22:50:44.431771121Z] --------------------
+[2026-03-17T22:50:44.43173925Z] Dockerfile:25
+[2026-03-17T22:50:44.429956039Z] ------
+[2026-03-17T22:50:44.429950569Z] 0.936 ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'
+[2026-03-17T22:50:44.429942059Z]  > [13/15] RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt:
+[2026-03-17T22:50:44.429913268Z] ------
+[2026-03-17T22:50:44.416139631Z] #19 ERROR: process "/bin/sh -c pip3 install --no-cache-dir --break-system-packages -r requirements.txt" did not complete successfully: exit code: 1
+[2026-03-17T22:50:44.276833762Z] #19 0.936 ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'
+[2026-03-17T22:50:43.491325235Z] #19 [13/15] RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
+[2026-03-17T22:50:43.491319465Z] 
+[2026-03-17T22:50:43.491314815Z] #18 DONE 0.0s
+[2026-03-17T22:50:43.491309285Z] #18 [12/15] WORKDIR /app/spiderfoot
+[2026-03-17T22:50:43.491303955Z] 
+[2026-03-17T22:50:43.491299255Z] #17 DONE 0.0s
+[2026-03-17T22:50:43.491293945Z] #17 [11/15] COPY .env.production.example .env
+[2026-03-17T22:50:43.491288955Z] 
+[2026-03-17T22:50:43.491284235Z] #16 DONE 0.0s
+[2026-03-17T22:50:43.491279025Z] #16 [10/15] COPY spiderfoot ./spiderfoot/
+[2026-03-17T22:50:43.491273595Z] 
+[2026-03-17T22:50:43.491268735Z] #15 DONE 0.0s
+[2026-03-17T22:50:43.491263365Z] #15 [ 9/15] COPY public ./public/
+[2026-03-17T22:50:43.491256944Z] 
+[2026-03-17T22:50:43.491251594Z] #14 DONE 0.0s
+[2026-03-17T22:50:43.491245424Z] #14 [ 8/15] COPY src ./src/
+[2026-03-17T22:50:43.491198284Z] 
+[2026-03-17T22:50:43.255398574Z] #13 DONE 6.1s
+[2026-03-17T22:50:42.828955832Z] #13 5.649 
+[2026-03-17T22:50:42.828949402Z] #13 5.649 Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+[2026-03-17T22:50:42.828942202Z] #13 5.649 
+[2026-03-17T22:50:42.828936972Z] #13 5.649 Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+[2026-03-17T22:50:42.828930532Z] #13 5.649 
+[2026-03-17T22:50:42.828923732Z] #13 5.649 ✔ Generated Prisma Client (v6.19.2) to ./node_modules/@prisma/client in 522ms
+[2026-03-17T22:50:42.828875271Z] #13 5.649 
+[2026-03-17T22:50:40.616501376Z] #13 3.437 Prisma schema loaded from prisma/schema.prisma
+[2026-03-17T22:50:37.330312605Z] #13 [ 7/15] RUN npx prisma generate
+[2026-03-17T22:50:37.330282485Z] 
+[2026-03-17T22:50:37.178205458Z] #12 DONE 0.2s
+[2026-03-17T22:50:37.114823276Z] #12 [ 6/15] COPY prisma ./prisma/
+[2026-03-17T22:50:37.114792496Z] 
+[2026-03-17T22:50:36.961999681Z] #11 DONE 21.5s
+[2026-03-17T22:50:35.610259275Z] #11 19.97 npm notice
+[2026-03-17T22:50:35.610182164Z] #11 19.97 npm notice To update run: npm install -g npm@11.11.1
+[2026-03-17T22:50:35.610051642Z] #11 19.97 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.1
+[2026-03-17T22:50:35.609976731Z] #11 19.97 npm notice New major version of npm available! 10.8.2 -> 11.11.1
+[2026-03-17T22:50:35.60988171Z] #11 19.97 npm notice
+[2026-03-17T22:50:35.609761148Z] #11 19.96 found 0 vulnerabilities
+[2026-03-17T22:50:35.609718278Z] #11 19.96 
+[2026-03-17T22:50:35.448075556Z] #11 19.95   run `npm fund` for details
+[2026-03-17T22:50:35.448071406Z] #11 19.95 36 packages are looking for funding
+[2026-03-17T22:50:35.448064756Z] #11 19.95 
+[2026-03-17T22:50:35.448039635Z] #11 19.95 added 175 packages, and audited 176 packages in 20s
+[2026-03-17T22:50:35.447997925Z] #11 19.95 
+[2026-03-17T22:50:18.265899922Z] #11 2.772 npm warn EBADENGINE }
+[2026-03-17T22:50:18.265892782Z] #11 2.772 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+[2026-03-17T22:50:18.265885262Z] #11 2.772 npm warn EBADENGINE   required: { node: '>=22.0.0' },
+[2026-03-17T22:50:18.265872922Z] #11 2.772 npm warn EBADENGINE   package: 'ipwhois@1.0.3',
+[2026-03-17T22:50:18.26580702Z] #11 2.772 npm warn EBADENGINE Unsupported engine {
+[2026-03-17T22:50:15.806555252Z] #11 0.315 npm warn config only Use `--omit=dev` to omit dev dependencies from the install.
+[2026-03-17T22:50:15.642440694Z] #11 [ 5/15] RUN npm ci --only=production
+[2026-03-17T22:50:15.642435574Z] 
+[2026-03-17T22:50:15.642430504Z] #10 DONE 0.1s
+[2026-03-17T22:50:15.642423974Z] #10 [ 4/15] COPY package*.json ./
+[2026-03-17T22:50:15.642384223Z] 
+[2026-03-17T22:50:15.420028825Z] #9 DONE 2.5s
+[2026-03-17T22:50:15.398403668Z] #9 2.338 OK: 64 MiB in 41 packages
+[2026-03-17T22:50:15.198409193Z] #9 2.289 Executing busybox-1.37.0-r12.trigger
+[2026-03-17T22:50:15.068553939Z] #9 2.159 (26/26) Installing py3-pip (24.3.1-r0)
+[2026-03-17T22:50:15.068550129Z] #9 2.064 (25/26) Installing py3-setuptools (70.3.0-r0)
+[2026-03-17T22:50:15.068546909Z] #9 2.047 (24/26) Installing py3-packaging (24.2-r0)
+[2026-03-17T22:50:15.068543609Z] #9 2.047 (23/26) Installing python3-pyc (3.12.12-r0)
+[2026-03-17T22:50:15.068540079Z] #9 2.032 (22/26) Installing py3-packaging-pyc (24.2-r0)
+[2026-03-17T22:50:15.068516519Z] #9 2.014 (21/26) Installing py3-parsing-pyc (3.1.4-r0)
+[2026-03-17T22:50:14.906643949Z] #9 1.997 (20/26) Installing py3-parsing (3.1.4-r0)
+[2026-03-17T22:50:14.906618178Z] #9 1.850 (19/26) Installing py3-pip-pyc (24.3.1-r0)
+[2026-03-17T22:50:14.665743079Z] #9 1.756 (18/26) Installing py3-setuptools-pyc (70.3.0-r0)
+[2026-03-17T22:50:14.665717138Z] #9 1.756 (17/26) Installing pyc (3.12.12-r0)
+[2026-03-17T22:50:14.452067724Z] #9 1.543 (16/26) Installing python3-pycache-pyc0 (3.12.12-r0)
+[2026-03-17T22:50:14.123464202Z] #9 1.214 (15/26) Installing python3 (3.12.12-r0)
+[2026-03-17T22:50:14.123459712Z] #9 1.177 (14/26) Installing sqlite-libs (3.48.0-r4)
+[2026-03-17T22:50:14.123445491Z] #9 1.159 (13/26) Installing readline (8.2.13-r0)
+[2026-03-17T22:50:14.123441391Z] #9 1.149 (12/26) Installing libpanelw (6.5_p20241006-r3)
+[2026-03-17T22:50:14.123437191Z] #9 1.133 (11/26) Installing libncursesw (6.5_p20241006-r3)
+[2026-03-17T22:50:14.123433171Z] #9 1.114 (10/26) Installing ncurses-terminfo-base (6.5_p20241006-r3)
+[2026-03-17T22:50:14.123408391Z] #9 1.098 (9/26) Installing mpdecimal (4.0.0-r0)
+[2026-03-17T22:50:13.991432363Z] #9 1.082 (8/26) Installing xz-libs (5.6.3-r1)
+[2026-03-17T22:50:13.991428033Z] #9 1.069 (7/26) Installing gdbm (1.24-r0)
+[2026-03-17T22:50:13.991423793Z] #9 1.057 (6/26) Installing libffi (3.4.7-r0)
+[2026-03-17T22:50:13.991419783Z] #9 1.042 (5/26) Installing libexpat (2.7.4-r0)
+[2026-03-17T22:50:13.991415322Z] #9 1.030 (4/26) Installing libbz2 (1.0.8-r6)
+[2026-03-17T22:50:13.991388642Z] #9 1.003 (3/26) Installing openssl (3.3.6-r0)
+[2026-03-17T22:50:13.888866313Z] #9 0.980 (2/26) Upgrading libssl3 (3.3.3-r0 -> 3.3.6-r0)
+[2026-03-17T22:50:13.779492353Z] #9 0.870 (1/26) Upgrading libcrypto3 (3.3.3-r0 -> 3.3.6-r0)
+[2026-03-17T22:50:13.16788864Z] #9 0.259 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+[2026-03-17T22:50:12.990367222Z] #9 0.081 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+[2026-03-17T22:50:12.990364001Z] #9 [ 3/15] RUN apk add --no-cache openssl python3 py3-pip
+[2026-03-17T22:50:12.990359031Z] 
+[2026-03-17T22:50:12.990336431Z] #8 DONE 3.1s
+[2026-03-17T22:50:12.990331241Z] #8 transferring context: 1.53MB 0.1s done
+[2026-03-17T22:50:12.990325321Z] #8 [internal] load build context
+[2026-03-17T22:50:12.99031981Z] 
+[2026-03-17T22:50:12.99031489Z] #7 CACHED
+[2026-03-17T22:50:12.99030955Z] #7 extracting sha256:8cf24607cfe6e385d4263ceaa60aaa686dd8e9a6774bc977f71bf679496373e8 done
+[2026-03-17T22:50:12.99030439Z] #7 sha256:8cf24607cfe6e385d4263ceaa60aaa686dd8e9a6774bc977f71bf679496373e8 92B / 92B done
+[2026-03-17T22:50:12.99029833Z] #7 extracting sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 0.0s done
+[2026-03-17T22:50:12.990264699Z] #7 sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 446B / 446B done
+[2026-03-17T22:50:12.856950999Z] #7 extracting sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 0.1s done
+[2026-03-17T22:50:12.856906748Z] #7 sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 1.26MB / 1.26MB 0.1s done
+[2026-03-17T22:50:12.726155225Z] #7 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 2.3s done
+[2026-03-17T22:50:10.577028186Z] #7 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e
+[2026-03-17T22:50:10.576993315Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 40.01MB / 40.01MB 0.5s done
+[2026-03-17T22:50:10.41417977Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 40.01MB / 40.01MB 0.5s
+[2026-03-17T22:50:10.288315589Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 29.38MB / 40.01MB 0.3s
+[2026-03-17T22:50:10.113562087Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 14.68MB / 40.01MB 0.2s
+[2026-03-17T22:50:09.956382707Z] #7 extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 0.1s done
+[2026-03-17T22:50:09.956377197Z] #7 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 3.64MB / 3.64MB 0.0s done
+[2026-03-17T22:50:09.956371207Z] #7 [ 2/15] WORKDIR /app
+[2026-03-17T22:50:09.956365677Z] 
+[2026-03-17T22:50:09.956361077Z] #6 DONE 0.0s
+[2026-03-17T22:50:09.956356077Z] #6 inferred cache manifest type: application/vnd.oci.image.manifest.v1+json done
+[2026-03-17T22:50:09.956350627Z] #6 importing cache manifest from local:17366883002397488441
+[2026-03-17T22:50:09.956345186Z] 
+[2026-03-17T22:50:09.956340596Z] #5 DONE 0.0s
+[2026-03-17T22:50:09.956334856Z] #5 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e done
+[2026-03-17T22:50:09.956329676Z] #5 [ 1/15] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+[2026-03-17T22:50:09.956323536Z] 
+[2026-03-17T22:50:09.956318676Z] #4 DONE 0.0s
+[2026-03-17T22:50:09.956313316Z] #4 transferring context: 2B done
+[2026-03-17T22:50:09.956307586Z] #4 [internal] load .dockerignore
+[2026-03-17T22:50:09.956269745Z] 
+[2026-03-17T22:50:09.724417091Z] #2 DONE 0.6s
+[2026-03-17T22:50:09.637477703Z] #2 [internal] load metadata for docker.io/library/node:18-alpine
+[2026-03-17T22:50:09.637448252Z] 
+[2026-03-17T22:50:09.487216768Z] #3 DONE 0.0s
+[2026-03-17T22:50:09.487211747Z] #3 [auth] library/node:pull render-prod/docker-mirror-repository/library/node:pull token for us-west1-docker.pkg.dev
+[2026-03-17T22:50:09.487207697Z] 
+[2026-03-17T22:50:09.487171016Z] #2 ...
+[2026-03-17T22:50:09.299256962Z] #2 [internal] load metadata for docker.io/library/node:18-alpine
+[2026-03-17T22:50:09.299252972Z] 
+[2026-03-17T22:50:09.299248992Z] #1 DONE 0.0s
+[2026-03-17T22:50:09.299242532Z] #1 transferring dockerfile: 945B done
+[2026-03-17T22:50:09.29916492Z] #1 [internal] load build definition from Dockerfile
+[2026-03-17T22:49:49Z] clientIP="91.108.5.73" requestID="10e26c69-c2c0-4f73" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:49:33Z] clientIP="91.108.5.73" requestID="9d871fe5-eda9-41ab" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:48:14Z] clientIP="91.108.5.73" requestID="31d432c4-a490-48da" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:47:45.966892747Z] [34m[1m==>(B[m [1mDownloaded 2.0GB in 10s. Extraction took 4s.(B[m
+[2026-03-17T22:47:40Z] clientIP="91.108.5.73" requestID="6fc97bc4-1b4a-40db" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:47:32.479265413Z] [34m[1m==>(B[m [1mChecking out commit a5f379426d5eb7244b60078156bf264331f2e9fd in branch main(B[m
+[2026-03-17T22:47:31.111961609Z] [34m[1m==>(B[m [1mCloning from https://github.com/ranoli90/tracelink-osint(B[m
+[2026-03-17T22:47:31.040684507Z] [34m[1m==>(B[m [1mDownloading cache...(B[m
+[2026-03-17T22:46:33Z] clientIP="91.108.5.73" requestID="025006fa-398a-45fb" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:46:01.514238535Z] error: exit status 1
+[2026-03-17T22:46:01.48187618Z] error: failed to solve: process "/bin/sh -c pip3 install --no-cache-dir -r requirements.txt" did not complete successfully: exit code: 1
+[2026-03-17T22:46:01.48186589Z] --------------------
+[2026-03-17T22:46:01.48185959Z]   27 |     # Install SpiderFoot CLI
+[2026-03-17T22:46:01.48185325Z]   26 |     
+[2026-03-17T22:46:01.48184253Z]   25 | >>> RUN pip3 install --no-cache-dir -r requirements.txt
+[2026-03-17T22:46:01.48179591Z]   24 |     WORKDIR /app/spiderfoot
+[2026-03-17T22:46:01.48178924Z]   23 |     # Install SpiderFoot dependencies
+[2026-03-17T22:46:01.48178096Z] --------------------
+[2026-03-17T22:46:01.48175172Z] Dockerfile:25
+[2026-03-17T22:46:01.480258179Z] ------
+[2026-03-17T22:46:01.480250609Z] 0.989 hint: See PEP 668 for the detailed specification.
+[2026-03-17T22:46:01.480242729Z] 0.989 note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+[2026-03-17T22:46:01.480231629Z] 0.989 
+[2026-03-17T22:46:01.480224258Z] 0.989     pipx package).
+[2026-03-17T22:46:01.480214588Z] 0.989     To automatically manage virtual environments, consider using pipx (from the
+[2026-03-17T22:46:01.480206248Z] 0.989     
+[2026-03-17T22:46:01.480198968Z] 0.989     the activate file.
+[2026-03-17T22:46:01.480190798Z] 0.989     The virtual environment is not deleted, and can be re-entered by re-sourcing
+[2026-03-17T22:46:01.480183368Z] 0.989     
+[2026-03-17T22:46:01.480176678Z] 0.989     deactivate
+[2026-03-17T22:46:01.480166548Z]  > [13/15] RUN pip3 install --no-cache-dir -r requirements.txt:
+[2026-03-17T22:46:01.480128558Z] ------
+[2026-03-17T22:46:01.458717283Z] #19 ERROR: process "/bin/sh -c pip3 install --no-cache-dir -r requirements.txt" did not complete successfully: exit code: 1
+[2026-03-17T22:46:01.33522728Z] #19 0.989 hint: See PEP 668 for the detailed specification.
+[2026-03-17T22:46:01.33522203Z] #19 0.989 note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+[2026-03-17T22:46:01.335216249Z] #19 0.989 
+[2026-03-17T22:46:01.335212979Z] #19 0.989     pipx package).
+[2026-03-17T22:46:01.335209609Z] #19 0.989     To automatically manage virtual environments, consider using pipx (from the
+[2026-03-17T22:46:01.335206619Z] #19 0.989     
+[2026-03-17T22:46:01.335203549Z] #19 0.989     the activate file.
+[2026-03-17T22:46:01.335200359Z] #19 0.989     The virtual environment is not deleted, and can be re-entered by re-sourcing
+[2026-03-17T22:46:01.335197189Z] #19 0.989     
+[2026-03-17T22:46:01.335193959Z] #19 0.989     deactivate
+[2026-03-17T22:46:01.335190689Z] #19 0.989     
+[2026-03-17T22:46:01.335166489Z] #19 0.989     To exit the virtual environment, run:
+[2026-03-17T22:46:01.335161239Z] #19 0.989     
+[2026-03-17T22:46:01.335155979Z] #19 0.989     pip install mypackage
+[2026-03-17T22:46:01.335150739Z] #19 0.989     . /path/to/venv/bin/activate
+[2026-03-17T22:46:01.335144939Z] #19 0.989     python3 -m venv /path/to/venv
+[2026-03-17T22:46:01.335139319Z] #19 0.989     
+[2026-03-17T22:46:01.335133969Z] #19 0.989     environment, e.g.:
+[2026-03-17T22:46:01.335128339Z] #19 0.989     "apk add py3-somepackage"), please consider installing it inside a virtual
+[2026-03-17T22:46:01.335122789Z] #19 0.989     If the package in question is not packaged already (and hence installable via
+[2026-03-17T22:46:01.335117599Z] #19 0.989     
+[2026-03-17T22:46:01.335111719Z] #19 0.989     package manager (apk) only.
+[2026-03-17T22:46:01.335105929Z] #19 0.989     The system-wide python installation should be maintained using the system
+[2026-03-17T22:46:01.335100299Z] #19 0.989 ╰─> 
+[2026-03-17T22:46:01.335094139Z] #19 0.989 × This environment is externally managed
+[2026-03-17T22:46:01.335086599Z] #19 0.989 
+[2026-03-17T22:46:01.335038348Z] #19 0.989 error: externally-managed-environment
+[2026-03-17T22:46:00.496733422Z] #19 [13/15] RUN pip3 install --no-cache-dir -r requirements.txt
+[2026-03-17T22:46:00.496727982Z] 
+[2026-03-17T22:46:00.496723092Z] #18 DONE 0.0s
+[2026-03-17T22:46:00.496717452Z] #18 [12/15] WORKDIR /app/spiderfoot
+[2026-03-17T22:46:00.496711012Z] 
+[2026-03-17T22:46:00.496706122Z] #17 DONE 0.0s
+[2026-03-17T22:46:00.496700282Z] #17 [11/15] COPY .env.production.example .env
+[2026-03-17T22:46:00.496693522Z] 
+[2026-03-17T22:46:00.496687412Z] #16 DONE 0.0s
+[2026-03-17T22:46:00.496679532Z] #16 [10/15] COPY spiderfoot ./spiderfoot/
+[2026-03-17T22:46:00.496641851Z] 
+[2026-03-17T22:46:00.292326577Z] #15 DONE 0.0s
+[2026-03-17T22:46:00.292320857Z] #15 [ 9/15] COPY public ./public/
+[2026-03-17T22:46:00.292313947Z] 
+[2026-03-17T22:46:00.292308537Z] #14 DONE 0.1s
+[2026-03-17T22:46:00.292298787Z] #14 [ 8/15] COPY src ./src/
+[2026-03-17T22:46:00.292262626Z] 
+[2026-03-17T22:46:00.163414016Z] #13 DONE 6.7s
+[2026-03-17T22:45:59.326409326Z] #13 5.820 
+[2026-03-17T22:45:59.326402836Z] #13 5.820 Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+[2026-03-17T22:45:59.326395276Z] #13 5.820 
+[2026-03-17T22:45:59.326388516Z] #13 5.820 Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+[2026-03-17T22:45:59.326376706Z] #13 5.820 
+[2026-03-17T22:45:59.326366136Z] #13 5.820 ✔ Generated Prisma Client (v6.19.2) to ./node_modules/@prisma/client in 635ms
+[2026-03-17T22:45:59.326301715Z] #13 5.820 
+[2026-03-17T22:45:57.00648912Z] #13 3.500 Prisma schema loaded from prisma/schema.prisma
+[2026-03-17T22:45:54Z] clientIP="91.108.5.73" requestID="2264d9fb-62c4-4b3f" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:45:53.657192377Z] #13 [ 7/15] RUN npx prisma generate
+[2026-03-17T22:45:53.657147627Z] 
+[2026-03-17T22:45:53.505133667Z] #12 DONE 0.2s
+[2026-03-17T22:45:53.424603276Z] #12 [ 6/15] COPY prisma ./prisma/
+[2026-03-17T22:45:53.424568385Z] 
+[2026-03-17T22:45:53.272981529Z] #11 DONE 20.7s
+[2026-03-17T22:45:53.250702791Z] #11 20.53 npm notice
+[2026-03-17T22:45:53.250699761Z] #11 20.53 npm notice To update run: npm install -g npm@11.11.1
+[2026-03-17T22:45:53.250695871Z] #11 20.53 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.1
+[2026-03-17T22:45:53.250692661Z] #11 20.53 npm notice New major version of npm available! 10.8.2 -> 11.11.1
+[2026-03-17T22:45:53.250688651Z] #11 20.53 npm notice
+[2026-03-17T22:45:53.250684411Z] #11 20.52 found 0 vulnerabilities
+[2026-03-17T22:45:53.250681051Z] #11 20.52 
+[2026-03-17T22:45:53.250677011Z] #11 20.52   run `npm fund` for details
+[2026-03-17T22:45:53.250653961Z] #11 20.52 36 packages are looking for funding
+[2026-03-17T22:45:53.249529263Z] #11 20.52 
+[2026-03-17T22:45:53.092525138Z] #11 20.52 added 175 packages, and audited 176 packages in 20s
+[2026-03-17T22:45:53.092478398Z] #11 20.52 
+[2026-03-17T22:45:35.145455642Z] #11 2.574 npm warn EBADENGINE }
+[2026-03-17T22:45:35.145450162Z] #11 2.574 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+[2026-03-17T22:45:35.145444382Z] #11 2.574 npm warn EBADENGINE   required: { node: '>=22.0.0' },
+[2026-03-17T22:45:35.145438172Z] #11 2.574 npm warn EBADENGINE   package: 'ipwhois@1.0.3',
+[2026-03-17T22:45:35.145399572Z] #11 2.574 npm warn EBADENGINE Unsupported engine {
+[2026-03-17T22:45:32.870253851Z] #11 0.299 npm warn config only Use `--omit=dev` to omit dev dependencies from the install.
+[2026-03-17T22:45:32.721573181Z] #11 [ 5/15] RUN npm ci --only=production
+[2026-03-17T22:45:32.721568111Z] 
+[2026-03-17T22:45:32.721563131Z] #10 DONE 0.1s
+[2026-03-17T22:45:32.721556961Z] #10 [ 4/15] COPY package*.json ./
+[2026-03-17T22:45:32.72151282Z] 
+[2026-03-17T22:45:32.509882366Z] #9 DONE 2.7s
+[2026-03-17T22:45:32.421585862Z] #9 2.462 OK: 64 MiB in 41 packages
+[2026-03-17T22:45:32.252772166Z] #9 2.443 Executing busybox-1.37.0-r12.trigger
+[2026-03-17T22:45:32.128618561Z] #9 2.319 (26/26) Installing py3-pip (24.3.1-r0)
+[2026-03-17T22:45:32.128613811Z] #9 2.244 (25/26) Installing py3-setuptools (70.3.0-r0)
+[2026-03-17T22:45:32.128609781Z] #9 2.230 (24/26) Installing py3-packaging (24.2-r0)
+[2026-03-17T22:45:32.128605931Z] #9 2.230 (23/26) Installing python3-pyc (3.12.12-r0)
+[2026-03-17T22:45:32.128602451Z] #9 2.216 (22/26) Installing py3-packaging-pyc (24.2-r0)
+[2026-03-17T22:45:32.128578321Z] #9 2.201 (21/26) Installing py3-parsing-pyc (3.1.4-r0)
+[2026-03-17T22:45:31.995712767Z] #9 2.186 (20/26) Installing py3-parsing (3.1.4-r0)
+[2026-03-17T22:45:31.995691247Z] #9 2.056 (19/26) Installing py3-pip-pyc (24.3.1-r0)
+[2026-03-17T22:45:31.780396572Z] #9 1.971 (18/26) Installing py3-setuptools-pyc (70.3.0-r0)
+[2026-03-17T22:45:31.780372842Z] #9 1.971 (17/26) Installing pyc (3.12.12-r0)
+[2026-03-17T22:45:31.578275006Z] #9 1.769 (16/26) Installing python3-pycache-pyc0 (3.12.12-r0)
+[2026-03-17T22:45:31.408847229Z] #9 1.449 (15/26) Installing python3 (3.12.12-r0)
+[2026-03-17T22:45:31.408842589Z] #9 1.416 (14/26) Installing sqlite-libs (3.48.0-r4)
+[2026-03-17T22:45:31.408830209Z] #9 1.402 (13/26) Installing readline (8.2.13-r0)
+[2026-03-17T22:45:31.408785859Z] #9 1.391 (12/26) Installing libpanelw (6.5_p20241006-r3)
+[2026-03-17T22:45:31.185910874Z] #9 1.377 (11/26) Installing libncursesw (6.5_p20241006-r3)
+[2026-03-17T22:45:31.185907044Z] #9 1.361 (10/26) Installing ncurses-terminfo-base (6.5_p20241006-r3)
+[2026-03-17T22:45:31.185903284Z] #9 1.350 (9/26) Installing mpdecimal (4.0.0-r0)
+[2026-03-17T22:45:31.185900103Z] #9 1.336 (8/26) Installing xz-libs (5.6.3-r1)
+[2026-03-17T22:45:31.185896673Z] #9 1.327 (7/26) Installing gdbm (1.24-r0)
+[2026-03-17T22:45:31.185893263Z] #9 1.317 (6/26) Installing libffi (3.4.7-r0)
+[2026-03-17T22:45:31.185889773Z] #9 1.306 (5/26) Installing libexpat (2.7.4-r0)
+[2026-03-17T22:45:31.185869113Z] #9 1.295 (4/26) Installing libbz2 (1.0.8-r6)
+[2026-03-17T22:45:31.083724818Z] #9 1.274 (3/26) Installing openssl (3.3.6-r0)
+[2026-03-17T22:45:31.083703078Z] #9 1.254 (2/26) Upgrading libssl3 (3.3.3-r0 -> 3.3.6-r0)
+[2026-03-17T22:45:30.970247947Z] #9 1.161 (1/26) Upgrading libcrypto3 (3.3.3-r0 -> 3.3.6-r0)
+[2026-03-17T22:45:30.221667268Z] #9 0.412 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+[2026-03-17T22:45:29.901580118Z] #9 0.092 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+[2026-03-17T22:45:29.901558358Z] #9 [ 3/15] RUN apk add --no-cache openssl python3 py3-pip
+[2026-03-17T22:45:29.901552918Z] 
+[2026-03-17T22:45:29.901548188Z] #8 DONE 2.6s
+[2026-03-17T22:45:29.901542368Z] #8 transferring context: 1.53MB 0.1s done
+[2026-03-17T22:45:29.901536528Z] #8 [internal] load build context
+[2026-03-17T22:45:29.901530898Z] 
+[2026-03-17T22:45:29.901526068Z] #7 CACHED
+[2026-03-17T22:45:29.901520108Z] #7 extracting sha256:8cf24607cfe6e385d4263ceaa60aaa686dd8e9a6774bc977f71bf679496373e8 done
+[2026-03-17T22:45:29.901482338Z] #7 sha256:8cf24607cfe6e385d4263ceaa60aaa686dd8e9a6774bc977f71bf679496373e8 92B / 92B done
+[2026-03-17T22:45:29.78641219Z] #7 extracting sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 0.0s done
+[2026-03-17T22:45:29.78640583Z] #7 sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 446B / 446B done
+[2026-03-17T22:45:29.78639844Z] #7 extracting sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 0.1s done
+[2026-03-17T22:45:29.78636783Z] #7 sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 1.26MB / 1.26MB 0.0s done
+[2026-03-17T22:45:29.641580784Z] #7 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 1.8s done
+[2026-03-17T22:45:27.974017367Z] #7 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e
+[2026-03-17T22:45:27.821855787Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 40.01MB / 40.01MB 0.4s done
+[2026-03-17T22:45:27.694104579Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 30.41MB / 40.01MB 0.3s
+[2026-03-17T22:45:27.544156655Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 16.78MB / 40.01MB 0.2s
+[2026-03-17T22:45:27.386884721Z] #7 extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 0.1s done
+[2026-03-17T22:45:27.386880351Z] #7 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 3.64MB / 3.64MB 0.1s done
+[2026-03-17T22:45:27.386876011Z] #7 [ 2/15] WORKDIR /app
+[2026-03-17T22:45:27.386871801Z] 
+[2026-03-17T22:45:27.386868171Z] #6 DONE 0.0s
+[2026-03-17T22:45:27.386864361Z] #6 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e done
+[2026-03-17T22:45:27.386860041Z] #6 [ 1/15] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+[2026-03-17T22:45:27.386853171Z] 
+[2026-03-17T22:45:27.386849461Z] #5 DONE 0.0s
+[2026-03-17T22:45:27.386845031Z] #5 inferred cache manifest type: application/vnd.oci.image.manifest.v1+json done
+[2026-03-17T22:45:27.3868001Z] #5 importing cache manifest from local:17366883002397488441
+[2026-03-17T22:45:27.38679538Z] 
+[2026-03-17T22:45:27.38679158Z] #4 DONE 0.0s
+[2026-03-17T22:45:27.38678732Z] #4 transferring context: 2B done
+[2026-03-17T22:45:27.38678128Z] #4 [internal] load .dockerignore
+[2026-03-17T22:45:27.38675041Z] 
+[2026-03-17T22:45:27.155908909Z] #2 DONE 0.6s
+[2026-03-17T22:45:27.041273868Z] #2 [internal] load metadata for docker.io/library/node:18-alpine
+[2026-03-17T22:45:27.041231048Z] 
+[2026-03-17T22:45:26.89198658Z] #3 DONE 0.0s
+[2026-03-17T22:45:26.891979329Z] #3 [auth] library/node:pull render-prod/docker-mirror-repository/library/node:pull token for us-west1-docker.pkg.dev
+[2026-03-17T22:45:26.891972649Z] 
+[2026-03-17T22:45:26.891949199Z] #2 ...
+[2026-03-17T22:45:26.719180106Z] #2 [internal] load metadata for docker.io/library/node:18-alpine
+[2026-03-17T22:45:26.719175686Z] 
+[2026-03-17T22:45:26.719171326Z] #1 DONE 0.0s
+[2026-03-17T22:45:26.719164416Z] #1 transferring dockerfile: 882B done
+[2026-03-17T22:45:26.719097746Z] #1 [internal] load build definition from Dockerfile
+[2026-03-17T22:45:22.378071157Z] [34m[1m==>(B[m [1mDownloaded 2.0GB in 6s. Extraction took 3s.(B[m
+[2026-03-17T22:45:12.745447565Z] [34m[1m==>(B[m [1mChecking out commit d19dfc8ca42df5520c8066574ac41801757f993e in branch main(B[m
+[2026-03-17T22:45:11.452979187Z] [34m[1m==>(B[m [1mCloning from https://github.com/ranoli90/tracelink-osint(B[m
+[2026-03-17T22:45:11.3792628Z] [34m[1m==>(B[m [1mDownloading cache...(B[m
+[2026-03-17T22:45:07Z] clientIP="91.108.5.73" requestID="83aaa9d1-2703-45ca" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:44:56.199716664Z] #11 2.722 npm warn EBADENGINE }
+[2026-03-17T22:44:56.199711054Z] #11 2.722 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+[2026-03-17T22:44:56.199704644Z] #11 2.722 npm warn EBADENGINE   required: { node: '>=22.0.0' },
+[2026-03-17T22:44:56.199698474Z] #11 2.722 npm warn EBADENGINE   package: 'ipwhois@1.0.3',
+[2026-03-17T22:44:56.199665143Z] #11 2.722 npm warn EBADENGINE Unsupported engine {
+[2026-03-17T22:44:53.787332279Z] #11 0.310 npm warn config only Use `--omit=dev` to omit dev dependencies from the install.
+[2026-03-17T22:44:53.628148597Z] #11 [ 5/15] RUN npm ci --only=production
+[2026-03-17T22:44:53.628112796Z] 
+[2026-03-17T22:44:53.476167092Z] #10 DONE 0.4s
+[2026-03-17T22:44:53.272748334Z] #10 [ 4/15] COPY package*.json ./
+[2026-03-17T22:44:53.272713693Z] 
+[2026-03-17T22:44:53.120011004Z] #9 DONE 3.2s
+[2026-03-17T22:44:52.238362626Z] #9 2.185 OK: 64 MiB in 41 packages
+[2026-03-17T22:44:52.065937573Z] #9 2.163 Executing busybox-1.37.0-r12.trigger
+[2026-03-17T22:44:51.932372426Z] #9 2.030 (26/26) Installing py3-pip (24.3.1-r0)
+[2026-03-17T22:44:51.932368575Z] #9 1.943 (25/26) Installing py3-setuptools (70.3.0-r0)
+[2026-03-17T22:44:51.932360685Z] #9 1.928 (24/26) Installing py3-packaging (24.2-r0)
+[2026-03-17T22:44:51.932357205Z] #9 1.928 (23/26) Installing python3-pyc (3.12.12-r0)
+[2026-03-17T22:44:51.932353125Z] #9 1.913 (22/26) Installing py3-packaging-pyc (24.2-r0)
+[2026-03-17T22:44:51.932318144Z] #9 1.897 (21/26) Installing py3-parsing-pyc (3.1.4-r0)
+[2026-03-17T22:44:51.784994185Z] #9 1.882 (20/26) Installing py3-parsing (3.1.4-r0)
+[2026-03-17T22:44:51.784967805Z] #9 1.748 (19/26) Installing py3-pip-pyc (24.3.1-r0)
+[2026-03-17T22:44:51.559710789Z] #9 1.657 (18/26) Installing py3-setuptools-pyc (70.3.0-r0)
+[2026-03-17T22:44:51.559678628Z] #9 1.657 (17/26) Installing pyc (3.12.12-r0)
+[2026-03-17T22:44:51.353222727Z] #9 1.450 (16/26) Installing python3-pycache-pyc0 (3.12.12-r0)
+[2026-03-17T22:44:51.168745456Z] #9 1.115 (15/26) Installing python3 (3.12.12-r0)
+[2026-03-17T22:44:51.168742246Z] #9 1.082 (14/26) Installing sqlite-libs (3.48.0-r4)
+[2026-03-17T22:44:51.168738616Z] #9 1.069 (13/26) Installing readline (8.2.13-r0)
+[2026-03-17T22:44:51.168733066Z] #9 1.060 (12/26) Installing libpanelw (6.5_p20241006-r3)
+[2026-03-17T22:44:51.168707726Z] #9 1.045 (11/26) Installing libncursesw (6.5_p20241006-r3)
+[2026-03-17T22:44:50.932091967Z] #9 1.029 (10/26) Installing ncurses-terminfo-base (6.5_p20241006-r3)
+[2026-03-17T22:44:50.932086377Z] #9 1.018 (9/26) Installing mpdecimal (4.0.0-r0)
+[2026-03-17T22:44:50.932083147Z] #9 1.004 (8/26) Installing xz-libs (5.6.3-r1)
+[2026-03-17T22:44:50.932079966Z] #9 0.995 (7/26) Installing gdbm (1.24-r0)
+[2026-03-17T22:44:50.932076566Z] #9 0.985 (6/26) Installing libffi (3.4.7-r0)
+[2026-03-17T22:44:50.932073326Z] #9 0.975 (5/26) Installing libexpat (2.7.4-r0)
+[2026-03-17T22:44:50.932069496Z] #9 0.965 (4/26) Installing libbz2 (1.0.8-r6)
+[2026-03-17T22:44:50.932045186Z] #9 0.941 (3/26) Installing openssl (3.3.6-r0)
+[2026-03-17T22:44:50.821682944Z] #9 0.919 (2/26) Upgrading libssl3 (3.3.3-r0 -> 3.3.6-r0)
+[2026-03-17T22:44:50.71705126Z] #9 0.814 (1/26) Upgrading libcrypto3 (3.3.3-r0 -> 3.3.6-r0)
+[2026-03-17T22:44:50.171292965Z] #9 0.269 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+[2026-03-17T22:44:49.997630446Z] #9 0.095 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+[2026-03-17T22:44:49.997627116Z] #9 [ 3/15] RUN apk add --no-cache openssl python3 py3-pip
+[2026-03-17T22:44:49.997623406Z] 
+[2026-03-17T22:44:49.997620276Z] #8 DONE 3.4s
+[2026-03-17T22:44:49.997597486Z] #8 transferring context: 1.53MB 0.1s done
+[2026-03-17T22:44:49.997591636Z] #8 [internal] load build context
+[2026-03-17T22:44:49.997585496Z] 
+[2026-03-17T22:44:49.997580705Z] #7 CACHED
+[2026-03-17T22:44:49.997575125Z] #7 extracting sha256:8cf24607cfe6e385d4263ceaa60aaa686dd8e9a6774bc977f71bf679496373e8 0.0s done
+[2026-03-17T22:44:49.997570055Z] #7 sha256:8cf24607cfe6e385d4263ceaa60aaa686dd8e9a6774bc977f71bf679496373e8 92B / 92B done
+[2026-03-17T22:44:49.997564575Z] #7 extracting sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 0.0s done
+[2026-03-17T22:44:49.997532654Z] #7 sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 446B / 446B done
+[2026-03-17T22:44:49.830728426Z] #7 extracting sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 0.3s done
+[2026-03-17T22:44:49.723109291Z] #7 extracting sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3
+[2026-03-17T22:44:49.56793005Z] #7 sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 1.26MB / 1.26MB 0.1s done
+[2026-03-17T22:44:49.462872327Z] #7 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 2.3s done
+[2026-03-17T22:44:47.289928276Z] #7 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e
+[2026-03-17T22:44:47.289903265Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 40.01MB / 40.01MB 0.5s done
+[2026-03-17T22:44:47.102885922Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 40.01MB / 40.01MB 0.5s
+[2026-03-17T22:44:46.962838592Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 29.67MB / 40.01MB 0.3s
+[2026-03-17T22:44:46.802891704Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 16.78MB / 40.01MB 0.2s
+[2026-03-17T22:44:46.646144432Z] #7 extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 0.2s done
+[2026-03-17T22:44:46.638956265Z] #7 extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870
+[2026-03-17T22:44:46.487079682Z] #7 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 3.64MB / 3.64MB 0.1s done
+[2026-03-17T22:44:46.487073072Z] #7 [ 2/15] WORKDIR /app
+[2026-03-17T22:44:46.487066492Z] 
+[2026-03-17T22:44:46.487060582Z] #6 DONE 0.0s
+[2026-03-17T22:44:46.487054251Z] #6 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e done
+[2026-03-17T22:44:46.487048281Z] #6 [ 1/15] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+[2026-03-17T22:44:46.487042491Z] 
+[2026-03-17T22:44:46.487037381Z] #5 DONE 0.0s
+[2026-03-17T22:44:46.487032001Z] #5 inferred cache manifest type: application/vnd.oci.image.manifest.v1+json done
+[2026-03-17T22:44:46.487026241Z] #5 importing cache manifest from local:17366883002397488441
+[2026-03-17T22:44:46.487020021Z] 
+[2026-03-17T22:44:46.487013561Z] #4 DONE 0.0s
+[2026-03-17T22:44:46.48700673Z] #4 transferring context: 2B done
+[2026-03-17T22:44:46.48699894Z] #4 [internal] load .dockerignore
+[2026-03-17T22:44:46.48696538Z] 
+[2026-03-17T22:44:46.375163668Z] #3 DONE 0.5s
+[2026-03-17T22:44:46.184314827Z] #3 [internal] load metadata for docker.io/library/node:18-alpine
+[2026-03-17T22:44:46.184304567Z] 
+[2026-03-17T22:44:46.184242226Z] #2 DONE 0.0s
+[2026-03-17T22:44:46.033757841Z] #2 [auth] library/node:pull render-prod/docker-mirror-repository/library/node:pull token for us-west1-docker.pkg.dev
+[2026-03-17T22:44:46.033752971Z] 
+[2026-03-17T22:44:46.033748031Z] #1 DONE 0.0s
+[2026-03-17T22:44:46.033720041Z] #1 transferring dockerfile: 882B done
+[2026-03-17T22:44:46.033074007Z] #1 [internal] load build definition from Dockerfile
+[2026-03-17T22:44:44.692064644Z] [34m[1m==>(B[m [1mDownloaded 2.0GB in 11s. Extraction took 3s.(B[m
+[2026-03-17T22:44:31.984988091Z] [34m[1m==>(B[m [1mChecking out commit ec937dd1c510dcb13b493799ef2b148af93f882d in branch main(B[m
+[2026-03-17T22:44:29.352716436Z] [34m[1m==>(B[m [1mCloning from https://github.com/ranoli90/tracelink-osint(B[m
+[2026-03-17T22:44:29.28218146Z] [34m[1m==>(B[m [1mDownloading cache...(B[m
+[2026-03-17T22:44:26Z] clientIP="91.108.5.73" requestID="4ac87eb9-8da7-4669" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:43:43Z] clientIP="91.108.5.73" requestID="753b517a-e3f6-4730" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:43:08Z] clientIP="91.108.5.73" requestID="a00a74f3-5d27-4d59" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:42:19Z] clientIP="91.108.5.73" requestID="aecf1a58-8d80-42ad" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:41:20Z] clientIP="91.108.5.73" requestID="8062f486-46e2-45f1" responseTimeMS=8 responseBytes=310 userAgent=""
+[2026-03-17T22:40:45Z] clientIP="91.108.5.73" requestID="c15c506d-b631-4d27" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:39:46Z] clientIP="91.108.5.73" requestID="9fa3c4f2-0d8e-463d" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:39:09Z] clientIP="91.108.5.73" requestID="11a6742f-54a6-41ba" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:38:15Z] clientIP="91.108.5.73" requestID="e57cb15e-d424-49f8" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:37:08Z] clientIP="91.108.5.73" requestID="bda01175-383a-4434" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:36:23Z] clientIP="91.108.5.73" requestID="8a9579a4-01e4-4796" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:35:39Z] clientIP="91.108.5.73" requestID="c50ae4b5-6f3b-42a1" responseTimeMS=12 responseBytes=310 userAgent=""
+[2026-03-17T22:35:16Z] clientIP="91.108.5.73" requestID="3f10add2-6a6e-4c26" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:34:08Z] clientIP="91.108.5.73" requestID="c31a2e32-2b4d-48e2" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:33:47Z] clientIP="91.108.5.73" requestID="6adc2990-0e09-40fa" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:33:01Z] clientIP="91.108.5.73" requestID="9579c708-c7e4-4ec0" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:32:44Z] clientIP="91.108.5.73" requestID="7ce53dd1-a4b0-4460" responseTimeMS=36 responseBytes=310 userAgent=""
+[2026-03-17T22:31:37Z] clientIP="91.108.5.73" requestID="2a27e2be-69c5-4bd0" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:31:29Z] clientIP="91.108.5.73" requestID="b03a4565-1953-44f9" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:30:09Z] clientIP="91.108.5.73" requestID="eb6a6e15-754e-406d" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:29:55Z] clientIP="91.108.5.73" requestID="77379f8e-d23c-497a" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:28:42Z] clientIP="91.108.5.73" requestID="4f254f7d-a50c-463c" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:28:37Z] clientIP="91.108.5.73" requestID="fc42be1c-d2d7-48a6" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:27:16Z] clientIP="91.108.5.73" requestID="eb99ce3a-fe98-4eab" responseTimeMS=6 responseBytes=310 userAgent=""
+[2026-03-17T22:27:12Z] clientIP="91.108.5.73" requestID="b8846678-7163-4b54" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:26:06Z] clientIP="91.108.5.73" requestID="68ad6d07-24e1-40b3" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:25:58Z] clientIP="91.108.5.73" requestID="a5e7f368-c2af-4344" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:24:06Z] clientIP="91.108.5.73" requestID="c7573611-9fcc-4b75" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:23:24Z] clientIP="91.108.5.73" requestID="6ed2a46a-127b-49b9" responseTimeMS=6 responseBytes=310 userAgent=""
+[2026-03-17T22:22:20Z] clientIP="91.108.5.73" requestID="0b54d0a4-6311-4822" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:20:59Z] clientIP="91.108.5.73" requestID="00072832-1cea-4a2a" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:19:41Z] clientIP="91.108.5.73" requestID="19858796-b0cf-4046" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:19:16Z] clientIP="91.108.5.73" requestID="050e557e-c8a3-45a5" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:18:40Z] clientIP="91.108.5.73" requestID="adc302af-b89c-4b63" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:18:08Z] clientIP="91.108.5.73" requestID="d686ccf8-82f2-4a3b" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:17:01Z] clientIP="91.108.5.73" requestID="a2b8897d-c761-41bb" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:16:46Z] clientIP="91.108.5.73" requestID="9aab8967-2bcf-42bb" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:15:59Z] clientIP="91.108.5.73" requestID="a54d07de-9066-4ffa" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:15:22Z] clientIP="91.108.5.73" requestID="2daafb21-2f99-4ca7" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:14:39Z] clientIP="91.108.5.73" requestID="b21f820b-3490-4e88" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:13:57Z] clientIP="91.108.5.73" requestID="2e6322af-a840-458c" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:12:57Z] clientIP="91.108.5.73" requestID="64f1b8b5-86d2-4994" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:12:27Z] clientIP="91.108.5.73" requestID="997a0e34-d9c2-46ba" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:11:34Z] clientIP="91.108.5.73" requestID="fd1ae56e-2ab8-41fc" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:11:14Z] clientIP="91.108.5.73" requestID="1b8eebb4-4fd3-4ff9" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:09:56Z] clientIP="91.108.5.73" requestID="fc5d1d54-c4d4-487f" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:09:37Z] clientIP="91.108.5.73" requestID="8d8484fa-d531-4296" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T22:08:17Z] clientIP="91.108.5.73" requestID="7609b1ae-a3b7-4d52" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:08:07Z] clientIP="91.108.5.73" requestID="38737677-b266-4d3b" responseTimeMS=7 responseBytes=310 userAgent=""
+[2026-03-17T22:06:33Z] clientIP="91.108.5.73" requestID="1e023887-3b22-47fd" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:06:27Z] clientIP="91.108.5.73" requestID="16fcfb55-1339-4a5c" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T22:05:02Z] clientIP="91.108.5.73" requestID="463ca070-dc4e-4eed" responseTimeMS=6 responseBytes=310 userAgent=""
+[2026-03-17T22:04:49Z] clientIP="91.108.5.73" requestID="f70d9c5b-121d-4f41" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:03:18Z] clientIP="91.108.5.73" requestID="dee35250-da58-40e3" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:02:55Z] clientIP="91.108.5.73" requestID="3f318bc9-23b6-42f2" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:02:12Z] clientIP="91.108.5.73" requestID="f8cf3cbe-06b9-424b" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T22:01:17Z] clientIP="91.108.5.73" requestID="bc6f4760-e687-4542" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T22:00:29Z] clientIP="91.108.5.73" requestID="69901b95-1dce-4e84" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T21:59:18Z] clientIP="91.108.5.73" requestID="bf61c53a-1be1-40a3" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T21:58:32Z] clientIP="91.108.5.73" requestID="7ef63971-3666-4742" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T21:58:07Z] clientIP="91.108.5.73" requestID="ece73cd0-89e3-444c" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T21:57:17Z] clientIP="91.108.5.73" requestID="029fbc63-ec99-4c5a" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T21:56:29Z] clientIP="91.108.5.73" requestID="66e81bca-da0e-4ac3" responseTimeMS=22 responseBytes=310 userAgent=""
+[2026-03-17T21:55:19Z] clientIP="91.108.5.73" requestID="3adc1d5e-bca2-4d62" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T21:55:19Z] clientIP="91.108.5.73" requestID="0e29dabb-720e-4f6b" responseTimeMS=6 responseBytes=310 userAgent=""
+[2026-03-17T21:54:01Z] clientIP="91.108.5.73" requestID="ecb94e23-6fe0-4b77" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T21:53:31.730257354Z] [0;32m[1m==> [0m[1mDocs on specifying a port: https://render.com/docs/web-services#port-binding[0m
+[2026-03-17T21:53:31.583613006Z] [0;32m[1m==> [0m[1mDetected service running on port 10000[0m
+[2026-03-17T21:53:21Z] clientIP="91.108.5.73" requestID="50d3a84d-647c-4c74" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T21:52:42Z] clientIP="91.108.5.73" requestID="6a8fdca0-39ff-4015" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T21:51:42Z] clientIP="91.108.5.73" requestID="7b7eb4e0-39e1-4051" responseTimeMS=2 responseBytes=310 userAgent=""
+[2026-03-17T21:51:42Z] clientIP="91.108.5.73" requestID="6863f718-ad62-4c8e" responseTimeMS=4 responseBytes=310 userAgent=""
+[2026-03-17T21:50:27Z] clientIP="91.108.5.73" requestID="038423b9-a617-436d" responseTimeMS=3 responseBytes=310 userAgent=""
+[2026-03-17T21:50:02Z] clientIP="91.108.5.73" requestID="11a9af34-4f66-47b9" responseTimeMS=5 responseBytes=310 userAgent=""
+[2026-03-17T21:49:21.370913987Z] Server closed
+[2026-03-17T21:49:21.37033314Z] Shutting down gracefully...
+[2026-03-17T21:48:35Z] clientIP="91.108.5.73" requestID="2df1002f-b97b-4a33" responseTimeMS=23 responseBytes=310 userAgent=""
+[2026-03-17T21:48:20.809686147Z] Dashboard: http://localhost:10000/admin
+[2026-03-17T21:48:20.809353187Z] TraceLink server running on port 10000
+[2026-03-17T21:48:20.808362896Z] Loaded 3275050 city IPv4 ranges
+[2026-03-17T21:48:11.937319884Z] Loading DB-IP city IPv4 database from npm package...
+[2026-03-17T21:48:11.937248479Z] Loaded 230443 IPv6 ranges
+[2026-03-17T21:48:11.626029571Z] Loading IPv6 CC0 database from npm package...
+[2026-03-17T21:48:11.625940276Z] Loaded 322198 IPv4 ranges
+[2026-03-17T21:48:11.131959423Z] Loading IPv4 CC0 database from npm package...
+[2026-03-17T21:48:11.127951848Z] Telegram bot webhook enabled
+[2026-03-17T21:48:07Z] clientIP="91.108.5.73" requestID="fa1c3649-8bd9-4d1c" responseTimeMS=19 responseBytes=310 userAgent=""
+[2026-03-17T21:47:50.680705667Z] [0;34m[1m==> [0m[1mDocs on specifying a port: https://render.com/docs/web-services#port-binding[0m
+[2026-03-17T21:47:50.617446423Z] [0;34m[1m==> [0m[1mNew primary port detected: 10000. Restarting deploy to update network configuration...[0m
+[2026-03-17T21:47:12.987530864Z] Dashboard: http://localhost:10000/admin
+[2026-03-17T21:47:12.987164344Z] TraceLink server running on port 10000
+[2026-03-17T21:47:12.986252427Z] Loaded 3275050 city IPv4 ranges
+[2026-03-17T21:47:08.072131695Z] [0;32m[1m==> [0m[1m///////////////////////////////////////////////////////////[0m
+[2026-03-17T21:47:08.069237212Z] [0;32m[1m==> [0m[1m[0m
+[2026-03-17T21:47:08.06608629Z] [0;32m[1m==> [0m[1mAvailable at your primary URL https://osint-api-6t21.onrender.com[0m
+[2026-03-17T21:47:08.060637518Z] [0;32m[1m==> [0m[1m[0m
+[2026-03-17T21:47:08.057723073Z] [0;32m[1m==> [0m[1m///////////////////////////////////////////////////////////[0m
+[2026-03-17T21:47:08.054322874Z] [0;32m[1m==> [0m[1m[0m
+[2026-03-17T21:47:08Z] clientIP="34.83.16.143" requestID="ee336b8f-8e1b-458c" responseTimeMS=17 responseBytes=223158 userAgent="Go-http-client/2.0"
+[2026-03-17T21:47:07.941132045Z] [0;32m[1m==> [0m[1mYour service is live 🎉[0m
+[2026-03-17T21:47:04.720754219Z] Loading DB-IP city IPv4 database from npm package...
+[2026-03-17T21:47:04.720713388Z] Loaded 230443 IPv6 ranges
+[2026-03-17T21:47:04.421894001Z] Loading IPv6 CC0 database from npm package...
+[2026-03-17T21:47:04.42182693Z] Loaded 322198 IPv4 ranges
+[2026-03-17T21:47:03.901013507Z] Loading IPv4 CC0 database from npm package...
+[2026-03-17T21:47:03.898589367Z] Telegram bot webhook enabled
+[2026-03-17T21:47:03Z] clientIP="91.108.5.73" requestID="4d8bbaaf-e4fc-4f63" responseTimeMS=373 responseBytes=223158 userAgent=""
+[2026-03-17T21:46:59Z] clientIP="91.108.5.73" requestID="8162eb74-c196-463f" responseTimeMS=16 responseBytes=223158 userAgent=""
+[2026-03-17T21:46:43.361801234Z] [0;34m[1m==> [0m[1mSetting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance[0m
+[2026-03-17T21:46:43.297417726Z] [0;34m[1m==> [0m[1mDeploying...[0m
+[2026-03-17T21:46:40.669527328Z] Upload succeeded
+[2026-03-17T21:46:20.694065637Z] Pushing image to registry...
+[2026-03-17T21:46:20.067541445Z] #18 DONE 9.6s
+[2026-03-17T21:46:20.067513464Z] #18 writing cache image manifest sha256:bc3cfc2321719fc2ccbb86fab18ab7fcbe8359c3d4fec984cb1b79fe30a73bc2 done
+[2026-03-17T21:46:10.463367484Z] #18 preparing build cache for export
+[2026-03-17T21:46:10.463361054Z] #18 exporting cache to client directory
+[2026-03-17T21:46:10.463353144Z] 
+[2026-03-17T21:46:10.463321883Z] #17 DONE 53.9s
+[2026-03-17T21:45:56.45977842Z] #17 exporting config sha256:437cb99a9c8f73d29237deeed6deaefe7399395fce3e34ad95aef8899001b302 done
+[2026-03-17T21:45:56.459737879Z] #17 exporting manifest sha256:c677f081cea75aceb01b2bf53446569da436141cd68bb4180608323e5af87c82 done
+[2026-03-17T21:45:56.266093956Z] #17 exporting layers 39.7s done
+[2026-03-17T21:45:20Z] clientIP="91.108.5.73" requestID="26ebd34f-efeb-4fca" responseTimeMS=311 responseBytes=223158 userAgent=""
+[2026-03-17T21:45:16.72709755Z] #17 exporting layers
+[2026-03-17T21:45:16.72709391Z] #17 exporting to docker image format
+[2026-03-17T21:45:16.727090799Z] 
+[2026-03-17T21:45:16.727087899Z] #16 DONE 0.0s
+[2026-03-17T21:45:16.727084709Z] #16 [10/10] COPY .env.production.example .env
+[2026-03-17T21:45:16.727080499Z] 
+[2026-03-17T21:45:16.727054608Z] #15 DONE 0.0s
+[2026-03-17T21:45:16.727048428Z] #15 [ 9/10] COPY public ./public/
+[2026-03-17T21:45:16.727041548Z] 
+[2026-03-17T21:45:16.727035828Z] #14 DONE 0.0s
+[2026-03-17T21:45:16.727028258Z] #14 [ 8/10] COPY src ./src/
+[2026-03-17T21:45:16.726982656Z] 
+[2026-03-17T21:45:16.514601029Z] #13 DONE 6.1s
+[2026-03-17T21:45:16.216345694Z] #13 5.761 
+[2026-03-17T21:45:16.216339813Z] #13 5.761 Tip: Want to turn off tips and other hints? https://pris.ly/tip-4-nohints
+[2026-03-17T21:45:16.216334723Z] #13 5.761 
+[2026-03-17T21:45:16.216329423Z] #13 5.761 Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+[2026-03-17T21:45:16.216324183Z] #13 5.761 
+[2026-03-17T21:45:16.216318503Z] #13 5.761 ✔ Generated Prisma Client (v6.19.2) to ./node_modules/@prisma/client in 564ms
+[2026-03-17T21:45:16.216282702Z] #13 5.761 
+[2026-03-17T21:45:13.879634743Z] #13 3.425 Prisma schema loaded from prisma/schema.prisma
+[2026-03-17T21:45:10.60555804Z] #13 [ 7/10] RUN npx prisma generate
+[2026-03-17T21:45:10.605527379Z] 
+[2026-03-17T21:45:10.453607602Z] #12 DONE 0.2s
+[2026-03-17T21:45:10.377719176Z] #12 [ 6/10] COPY prisma ./prisma/
+[2026-03-17T21:45:10.377687775Z] 
+[2026-03-17T21:45:10.226195261Z] #11 DONE 22.5s
+[2026-03-17T21:45:09.659257946Z] #11 21.77 npm notice
+[2026-03-17T21:45:09.659253176Z] #11 21.77 npm notice To update run: npm install -g npm@11.11.1
+[2026-03-17T21:45:09.659248086Z] #11 21.77 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.1
+[2026-03-17T21:45:09.659243065Z] #11 21.77 npm notice New major version of npm available! 10.8.2 -> 11.11.1
+[2026-03-17T21:45:09.659237535Z] #11 21.77 npm notice
+[2026-03-17T21:45:09.659231925Z] #11 21.77 found 0 vulnerabilities
+[2026-03-17T21:45:09.659208114Z] #11 21.77 
+[2026-03-17T21:45:09.503279776Z] #11 21.77   run `npm fund` for details
+[2026-03-17T21:45:09.503274106Z] #11 21.77 36 packages are looking for funding
+[2026-03-17T21:45:09.503267086Z] #11 21.77 
+[2026-03-17T21:45:09.503259515Z] #11 21.77 added 175 packages, and audited 176 packages in 22s
+[2026-03-17T21:45:09.503213924Z] #11 21.77 
+[2026-03-17T21:45:01Z] clientIP="91.108.5.73" requestID="7841b15c-125c-4c04" responseTimeMS=18 responseBytes=223158 userAgent=""
+[2026-03-17T21:44:50.734868714Z] #11 2.999 npm warn EBADENGINE }
+[2026-03-17T21:44:50.734861103Z] #11 2.999 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+[2026-03-17T21:44:50.734853653Z] #11 2.999 npm warn EBADENGINE   required: { node: '>=22.0.0' },
+[2026-03-17T21:44:50.734847153Z] #11 2.999 npm warn EBADENGINE   package: 'ipwhois@1.0.3',
+[2026-03-17T21:44:50.734810462Z] #11 2.999 npm warn EBADENGINE Unsupported engine {
+[2026-03-17T21:44:48.072031237Z] #11 0.336 npm warn config only Use `--omit=dev` to omit dev dependencies from the install.
+[2026-03-17T21:44:47.887081552Z] #11 [ 5/10] RUN npm ci --only=production
+[2026-03-17T21:44:47.887075322Z] 
+[2026-03-17T21:44:47.887069272Z] #10 DONE 0.0s
+[2026-03-17T21:44:47.887060972Z] #10 [ 4/10] COPY package*.json ./
+[2026-03-17T21:44:47.88701431Z] 
+[2026-03-17T21:44:47.696127556Z] #9 DONE 1.6s
+[2026-03-17T21:44:47.340775576Z] #9 1.071 OK: 11 MiB in 18 packages
+[2026-03-17T21:44:47.340771735Z] #9 1.051 Executing busybox-1.37.0-r12.trigger
+[2026-03-17T21:44:47.340737594Z] #9 1.027 (3/3) Installing openssl (3.3.6-r0)
+[2026-03-17T21:44:47.126234425Z] #9 1.007 (2/3) Upgrading libssl3 (3.3.3-r0 -> 3.3.6-r0)
+[2026-03-17T21:44:46.995540312Z] #9 0.876 (1/3) Upgrading libcrypto3 (3.3.3-r0 -> 3.3.6-r0)
+[2026-03-17T21:44:46.401586874Z] #9 0.283 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+[2026-03-17T21:44:46.221248429Z] #9 0.102 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+[2026-03-17T21:44:46.221243869Z] #9 [ 3/10] RUN apk add --no-cache openssl
+[2026-03-17T21:44:46.221219868Z] 
+[2026-03-17T21:44:46.221187397Z] #7 CACHED
+[2026-03-17T21:44:46.11748195Z] #7 extracting sha256:8cf24607cfe6e385d4263ceaa60aaa686dd8e9a6774bc977f71bf679496373e8 0.0s done
+[2026-03-17T21:44:46.117476149Z] #7 sha256:8cf24607cfe6e385d4263ceaa60aaa686dd8e9a6774bc977f71bf679496373e8 92B / 92B done
+[2026-03-17T21:44:46.117470699Z] #7 extracting sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 0.0s done
+[2026-03-17T21:44:46.117465309Z] #7 sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 446B / 446B done
+[2026-03-17T21:44:46.117459759Z] #7 [ 2/10] WORKDIR /app
+[2026-03-17T21:44:46.117453729Z] 
+[2026-03-17T21:44:46.117448449Z] #8 DONE 3.2s
+[2026-03-17T21:44:46.117442628Z] #8 transferring context: 1.53MB 0.0s done
+[2026-03-17T21:44:46.117436488Z] #8 [internal] load build context
+[2026-03-17T21:44:46.117429468Z] 
+[2026-03-17T21:44:46.117399777Z] #7 ...
+[2026-03-17T21:44:46.01469294Z] #7 extracting sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 0.1s done
+[2026-03-17T21:44:46.014657889Z] #7 sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 1.26MB / 1.26MB 0.0s done
+[2026-03-17T21:44:45.834839069Z] #7 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 2.3s done
+[2026-03-17T21:44:43.694373019Z] #7 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e
+[2026-03-17T21:44:43.541100073Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 40.01MB / 40.01MB 0.4s done
+[2026-03-17T21:44:43.415690509Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 30.41MB / 40.01MB 0.3s
+[2026-03-17T21:44:43.266229428Z] #7 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 14.68MB / 40.01MB 0.2s
+[2026-03-17T21:44:43.108740894Z] #7 extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 0.2s done
+[2026-03-17T21:44:43.078174829Z] #7 extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870
+[2026-03-17T21:44:42.92842566Z] #7 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 3.64MB / 3.64MB 0.1s done
+[2026-03-17T21:44:42.928420379Z] #7 [ 2/10] WORKDIR /app
+[2026-03-17T21:44:42.928415319Z] 
+[2026-03-17T21:44:42.928410919Z] #6 DONE 0.0s
+[2026-03-17T21:44:42.928406599Z] #6 inferred cache manifest type: application/vnd.oci.image.manifest.v1+json done
+[2026-03-17T21:44:42.928401089Z] #6 importing cache manifest from local:12676177849903820241
+[2026-03-17T21:44:42.928395009Z] 
+[2026-03-17T21:44:42.928391058Z] #5 DONE 0.0s
+[2026-03-17T21:44:42.928386608Z] #5 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e done
+[2026-03-17T21:44:42.928381408Z] #5 [ 1/10] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+[2026-03-17T21:44:42.928375588Z] 
+[2026-03-17T21:44:42.928371048Z] #4 DONE 0.0s
+[2026-03-17T21:44:42.928365748Z] #4 transferring context: 2B done
+[2026-03-17T21:44:42.928360458Z] #4 [internal] load .dockerignore
+[2026-03-17T21:44:42.928322146Z] 
+[2026-03-17T21:44:42.824462825Z] #3 DONE 0.5s
+[2026-03-17T21:44:42.598571912Z] #3 [internal] load metadata for docker.io/library/node:18-alpine
+[2026-03-17T21:44:42.598566371Z] 
+[2026-03-17T21:44:42.59852498Z] #2 DONE 0.0s
+[2026-03-17T21:44:42.447539943Z] #2 [auth] library/node:pull render-prod/docker-mirror-repository/library/node:pull token for us-west1-docker.pkg.dev
+[2026-03-17T21:44:42.447535693Z] 
+[2026-03-17T21:44:42.447531413Z] #1 DONE 0.0s
+[2026-03-17T21:44:42.447525573Z] #1 transferring dockerfile: 527B done
+[2026-03-17T21:44:42.447467631Z] #1 [internal] load build definition from Dockerfile
+[2026-03-17T21:44:36.909646289Z] [34m[1m==>(B[m [1mDownloaded 1.4GB in 8s. Extraction took 3s.(B[m
+[2026-03-17T21:44:27.123779737Z] [34m[1m==>(B[m [1mChecking out commit df1565797213104fad8647709194101b7c60e1dd in branch main(B[m
+[2026-03-17T21:44:25.650631223Z] [34m[1m==>(B[m [1mCloning from https://github.com/ranoli90/tracelink-osint(B[m
+[2026-03-17T21:44:25.504530435Z] [34m[1m==>(B[m [1mDownloading cache...(B[m
+[2026-03-17T21:43:54Z] clientIP="91.108.5.73" requestID="0375a73b-022e-48fc" responseTimeMS=2 responseBytes=223158 userAgent=""
+[2026-03-17T21:43:51Z] clientIP="18.188.150.52" requestID="39621fa2-caa7-4239" responseTimeMS=16 responseBytes=223158 userAgent="curl/8.16.0"
+[2026-03-17T21:43:21.625160198Z] Node.js v18.20.8
+[2026-03-17T21:43:21.625158087Z] 
+[2026-03-17T21:43:21.625156118Z] }
+[2026-03-17T21:43:21.625153947Z]   errorCode: undefined
+[2026-03-17T21:43:21.625151287Z]   clientVersion: '5.22.0',
+[2026-03-17T21:43:21.625148707Z]     at async _r.instantiateLibrary (/app/node_modules/@prisma/client/runtime/library.js:111:12599) {
+[2026-03-17T21:43:21.625146237Z]     at async _r.loadEngine (/app/node_modules/@prisma/client/runtime/library.js:112:448)
+[2026-03-17T21:43:21.625144057Z]     at Object.loadLibrary (/app/node_modules/@prisma/client/runtime/library.js:111:10243)
+[2026-03-17T21:43:21.625141257Z] Details: Error loading shared library libssl.so.1.1: No such file or directory (needed by /app/node_modules/.prisma/client/libquery_engine-linux-musl.so.node)
+[2026-03-17T21:43:21.625138427Z] 
+[2026-03-17T21:43:21.625136437Z] The Prisma engines do not seem to be compatible with your system. Please refer to the documentation about Prisma's system requirements: https://pris.ly/d/system-requirements
+[2026-03-17T21:43:21.625133767Z] PrismaClientInitializationError: Unable to require(`/app/node_modules/.prisma/client/libquery_engine-linux-musl.so.node`).
+[2026-03-17T21:43:21.625130817Z] 
+[2026-03-17T21:43:21.625128347Z]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+[2026-03-17T21:43:21.625099786Z] ${r}`,A(n,!0));this.name="RequestError";this.code="P5010"}};w(kr,"RequestError");async function ct(e,t,r=n=>n){let n=t.clientVersion;try{return typeof fetch=="function"?await r(fetch)(e,t):await r(to)(e,t)}catch(i){let o=i.message??"Unknown error";throw new kr(o,{clientVersion:n})}}function im(e){return{...e.headers,"Content-Type":"application/json"}}function om(e){return{method:e.method,headers:im(e)}}function sm(e,t){return{text:()=>Promise.resolve(Buffer.concat(e).toString()),json:()=>Promise.resolve().then(()=>JSON.parse(Buffer.concat(e).toString())),ok:t.statusCode>=200&&t.statusCode<=299,status:t.statusCode,url:t.url,headers:new ro(t.headers)}}async function to(e,t={}){let r=am("https"),n=om(t),i=[],{origin:o}=new URL(e);return new Promise((s,a)=>{let l=r.request(e,n,u=>{let{statusCode:c,headers:{location:p}}=u;c>=301&&c<=399&&p&&(p.startsWith("http")===!1?s(to(`${o}${p}`,t)):s(to(p,t))),u.on("data",d=>i.push(d)),u.on("end",()=>s(sm(i,u))),u.on("error",a)});l.on("error",a),l.end(t.body??"")})}var am=typeof require<"u"?require:()=>{},ro=class{constructor(t={}){this.headers=new Map;for(let[r,n]of Object.entries(t))if(typeof n=="string")this.headers.set(r,n);else if(Array.isArray(n))for(let i of n)this.headers.set(r,i)}append(t,r){this.headers.set(t,r)}delete(t){this.headers.delete(t)}get(t){return this.headers.get(t)??null}has(t){return this.headers.has(t)}set(t,r){this.headers.set(t,r)}forEach(t,r){for(let[n,i]of this.headers)t.call(r,i,n,this)}};var lm=/^[1-9][0-9]*\.[0-9]+\.[0-9]+$/,ll=L("prisma:client:dataproxyEngine");async function um(e,t){let r=al["@prisma/engines-version"],n=t.clientVersion??"unknown";if(process.env.PRISMA_CLIENT_DATA_PROXY_CLIENT_VERSION)return process.env.PRISMA_CLIENT_DATA_PROXY_CLIENT_VERSION;if(e.includes("accelerate")&&n!=="0.0.0"&&n!=="in-memory")return n;let[i,o]=n?.split("-")??[];if(o===void 0&&lm.test(i))return i;if(o!==void 0||n==="0.0.0"||n==="in-memory"){if(e.startsWith("localhost")||e.startsWith("127.0.0.1"))return"0.0.0";let[s]=r.split("-")??[],[a,l,u]=s.split("."),c=cm(`<=${a}.${l}.${u}`),p=await ct(c,{clientVersion:n});if(!p.ok)throw new Error(`Failed to fetch stable Prisma version, unpkg.com status ${p.status} ${p.statusText}, response body: ${await p.text()||"<empty body>"}`);let d=await p.text();ll("length of body fetched from unpkg.com",d.length);let f;try{f=JSON.parse(d)}catch(g){throw console.error("JSON.parse error: body fetched from unpkg.com: ",d),g}return f.version}throw new lt("Only `major.minor.patch` versions are supported by Accelerate.",{clientVersion:n})}async function ul(e,t){let r=await um(e,t);return ll("version",r),r}function cm(e){return encodeURI(`https://unpkg.com/prisma@${e}/package.json`)}var cl=3,no=L("prisma:client:dataproxyEngine"),io=class{constructor({apiKey:t,tracingHelper:r,logLevel:n,logQueries:i,engineHash:o}){this.apiKey=t,this.tracingHelper=r,this.logLevel=n,this.logQueries=i,this.engineHash=o}build({traceparent:t,interactiveTransaction:r}={}){let n={Authorization:`Bearer ${this.apiKey}`,"Prisma-Engine-Hash":this.engineHash};this.tracingHelper.isEnabled()&&(n.traceparent=t??this.tracingHelper.getTraceParent()),r&&(n["X-transaction-id"]=r.id);let i=this.buildCaptureSettings();return i.length>0&&(n["X-capture-telemetry"]=i.join(", ")),n}buildCaptureSettings(){let t=[];return this.tracingHelper.isEnabled()&&t.push("tracing"),this.logLevel&&t.push(this.logLevel),this.logQueries&&t.push("query"),t}},Dr=class{constructor(t){this.name="DataProxyEngine";ol(t),this.config=t,this.env={...t.env,...typeof process<"u"?process.env:{}},this.inlineSchema=il(t.inlineSchema),this.inlineDatasources=t.inlineDatasources,this.inlineSchemaHash=t.inlineSchemaHash,this.clientVersion=t.clientVersion,this.engineHash=t.engineVersion,this.logEmitter=t.logEmitter,this.tracingHelper=t.tracingHelper}apiKey(){return this.headerBuilder.apiKey}version(){return this.engineHash}async start(){this.startPromise!==void 0&&await this.startPromise,this.startPromise=(async()=>{let[t,r]=this.extractHostAndApiKey();this.host=t,this.headerBuilder=new io({apiKey:r,tracingHelper:this.tracingHelper,logLevel:this.config.logLevel,logQueries:this.config.logQueries,engineHash:this.engineHash}),this.remoteClientVersion=await ul(t,this.config),no("host",this.host)})(),await this.startPromise}async stop(){}propagateResponseExtensions(t){t?.logs?.length&&t.logs.forEach(r=>{switch(r.level){case"debug":case"error":case"trace":case"warn":case"info":break;case"query":{let n=typeof r.attributes.query=="string"?r.attributes.query:"";if(!this.tracingHelper.isEnabled()){let[i]=n.split("/* traceparent");n=i}this.logEmitter.emit("query",{query:n,timestamp:sl(r.timestamp),duration:Number(r.attributes.duration_ms),params:r.attributes.params,target:r.attributes.target})}}}),t?.traces?.length&&this.tracingHelper.createEngineSpan({span:!0,spans:t.traces})}onBeforeExit(){throw new Error('"beforeExit" hook is not applicable to the remote query engine')}async url(t){return await this.start(),`https://${this.host}/${this.remoteClientVersion}/${this.inlineSchemaHash}/${t}`}async uploadSchema(){let t={name:"schemaUpload",internal:!0};return this.tracingHelper.runInChildSpan(t,async()=>{let r=await ct(await this.url("schema"),{method:"PUT",headers:this.headerBuilder.build(),body:this.inlineSchema,clientVersion:this.clientVersion});r.ok||no("schema response status",r.status);let n=await Or(r,this.clientVersion);if(n)throw this.logEmitter.emit("warn",{message:`Error while uploading schema: ${n.message}`,timestamp:new Date,target:""}),n;this.logEmitter.emit("info",{message:`Schema (re)uploaded (hash: ${this.inlineSchemaHash})`,timestamp:new Date,target:""})})}request(t,{traceparent:r,interactiveTransaction:n,customDataProxyFetch:i}){return this.requestInternal({body:t,traceparent:r,interactiveTransaction:n,customDataProxyFetch:i})}async requestBatch(t,{traceparent:r,transaction:n,customDataProxyFetch:i}){let o=n?.kind==="itx"?n.options:void 0,s=Ft(t,n),{batchResult:a,elapsed:l}=await this.requestInternal({body:s,customDataProxyFetch:i,interactiveTransaction:o,traceparent:r});return a.map(u=>"errors"in u&&u.errors.length>0?st(u.errors[0],this.clientVersion,this.config.activeProvider):{data:u,elapsed:l})}requestInternal({body:t,traceparent:r,customDataProxyFetch:n,interactiveTransaction:i}){return this.withRetry({actionGerund:"querying",callback:async({logHttpCall:o})=>{let s=i?`${i.payload.endpoint}/graphql`:await this.url("graphql");o(s);let a=await ct(s,{method:"POST",headers:this.headerBuilder.build({traceparent:r,interactiveTransaction:i}),body:JSON.stringify(t),clientVersion:this.clientVersion},n);a.ok||no("graphql response status",a.status),await this.handleError(await Or(a,this.clientVersion));let l=await a.json(),u=l.extensions;if(u&&this.propagateResponseExtensions(u),l.errors)throw l.errors.length===1?st(l.errors[0],this.config.clientVersion,this.config.activeProvider):new B(l.errors,{clientVersion:this.config.clientVersion});return l}})}async transaction(t,r,n){let i={start:"starting",commit:"committing",rollback:"rolling back"};return this.withRetry({actionGerund:`${i[t]} transaction`,callback:async({logHttpCall:o})=>{if(t==="start"){let s=JSON.stringify({max_wait:n.maxWait,timeout:n.timeout,isolation_level:n.isolationLevel}),a=await this.url("transaction/start");o(a);let l=await ct(a,{method:"POST",headers:this.headerBuilder.build({traceparent:r.traceparent}),body:s,clientVersion:this.clientVersion});await this.handleError(await Or(l,this.clientVersion));let u=await l.json(),c=u.extensions;c&&this.propagateResponseExtensions(c);let p=u.id,d=u["data-proxy"].endpoint;return{id:p,payload:{endpoint:d}}}else{let s=`${n.payload.endpoint}/${t}`;o(s);let a=await ct(s,{method:"POST",headers:this.headerBuilder.build({traceparent:r.traceparent}),clientVersion:this.clientVersion});await this.handleError(await Or(a,this.clientVersion));let u=(await a.json()).extensions;u&&this.propagateResponseExtensions(u);return}}})}extractHostAndApiKey(){let t={clientVersion:this.clientVersion},r=Object.keys(this.inlineDatasources)[0],n=Nt({inlineDatasources:this.inlineDatasources,overrideDatasources:this.config.overrideDatasources,clientVersion:this.clientVersion,env:this.env}),i;try{i=new URL(n)}catch{throw new at(`Error validating datasource \`${r}\`: the URL must start with the protocol \`prisma://\``,t)}let{protocol:o,host:s,searchParams:a}=i;if(o!=="prisma:"&&o!=="prisma+postgres:")throw new at(`Error validating datasource \`${r}\`: the URL must start with the protocol \`prisma://\``,t);let l=a.get("api_key");if(l===null||l.length<1)throw new at(`Error validating datasource \`${r}\`: the URL must contain a valid API key`,t);return[s,l]}metrics(){throw new lt("Metrics are not yet supported for Accelerate",{clientVersion:this.clientVersion})}async withRetry(t){for(let r=0;;r++){let n=i=>{this.logEmitter.emit("info",{message:`Calling ${i} (n=${r})`,timestamp:new Date,target:""})};try{return await t.callback({logHttpCall:n})}catch(i){if(!(i instanceof se)||!i.isRetryable)throw i;if(r>=cl)throw i instanceof Mt?i.cause:i;this.logEmitter.emit("warn",{message:`Attempt ${r+1}/${cl} failed for ${t.actionGerund}: ${i.message??"(unknown)"}`,timestamp:new Date,target:""});let o=await nl(r);this.logEmitter.emit("warn",{message:`Retrying after ${o}ms`,timestamp:new Date,target:""})}}}async handleError(t){if(t instanceof ut)throw await this.uploadSchema(),new Mt({clientVersion:this.clientVersion,cause:t});if(t)throw t}applyPendingMigrations(){throw new Error("Method not implemented.")}};function pl(e){if(e?.kind==="itx")return e.options.id}var so=k(require("os")),dl=k(require("path"));var oo=Symbol("PrismaLibraryEngineCache");function pm(){let e=globalThis;return e[oo]===void 0&&(e[oo]={}),e[oo]}function dm(e){let t=pm();if(t[e]!==void 0)return t[e];let r=dl.default.toNamespacedPath(e),n={exports:{}},i=0;return process.platform!=="win32"&&(i=so.default.constants.dlopen.RTLD_LAZY|so.default.constants.dlopen.RTLD_DEEPBIND),process.dlopen(n,r,i),t[e]=n.exports,n.exports}var ml={async loadLibrary(e){let t=await Yn(),r=await za("library",e);try{return e.tracingHelper.runInChildSpan({name:"loadLibrary",internal:!0},()=>dm(r))}catch(n){let i=ui({e:n,platformInfo:t,id:r});throw new R(i,e.clientVersion)}}};var ao,fl={async loadLibrary(e){let{clientVersion:t,adapter:r,engineWasm:n}=e;if(r===void 0)throw new R(`The \`adapter\` option for \`PrismaClient\` is required in this context (${In().prettyName})`,t);if(n===void 0)throw new R("WASM engine was unexpectedly `undefined`",t);ao===void 0&&(ao=(async()=>{let o=n.getRuntime(),s=await n.getQueryEngineWasmModule();if(s==null)throw new R("The loaded wasm module was unexpectedly `undefined` or `null` once loaded",t);let a={"./query_engine_bg.js":o},l=new WebAssembly.Instance(s,a);return o.__wbg_set_wasm(l.exports),o.QueryEngine})());let i=await ao;return{debugPanic(){return Promise.reject("{}")},dmmf(){return Promise.resolve("{}")},version(){return{commit:"unknown",version:"unknown"}},QueryEngine:i}}};var mm="P2036",Ae=L("prisma:client:libraryEngine");function fm(e){return e.item_type==="query"&&"query"in e}function gm(e){return"level"in e?e.level==="error"&&e.message==="PANIC":!1}var gl=[...Jn,"native"],_r=class{constructor(t,r){this.name="LibraryEngine";this.libraryLoader=r??ml,t.engineWasm!==void 0&&(this.libraryLoader=r??fl),this.config=t,this.libraryStarted=!1,this.logQueries=t.logQueries??!1,this.logLevel=t.logLevel??"error",this.logEmitter=t.logEmitter,this.datamodel=t.inlineSchema,t.enableDebugLogs&&(this.logLevel="debug");let n=Object.keys(t.overrideDatasources)[0],i=t.overrideDatasources[n]?.url;n!==void 0&&i!==void 0&&(this.datasourceOverrides={[n]:i}),this.libraryInstantiationPromise=this.instantiateLibrary()}async applyPendingMigrations(){throw new Error("Cannot call this method from this type of engine instance")}async transaction(t,r,n){await this.start();let i=JSON.stringify(r),o;if(t==="start"){let a=JSON.stringify({max_wait:n.maxWait,timeout:n.timeout,isolation_level:n.isolationLevel});o=await this.engine?.startTransaction(a,i)}else t==="commit"?o=await this.engine?.commitTransaction(n.id,i):t==="rollback"&&(o=await this.engine?.rollbackTransaction(n.id,i));let s=this.parseEngineResponse(o);if(hm(s)){let a=this.getExternalAdapterError(s);throw a?a.error:new V(s.message,{code:s.error_code,clientVersion:this.config.clientVersion,meta:s.meta})}return s}async instantiateLibrary(){if(Ae("internalSetup"),this.libraryInstantiationPromise)return this.libraryInstantiationPromise;Qn(),this.binaryTarget=await this.getCurrentBinaryTarget(),await this.loadEngine(),this.version()}async getCurrentBinaryTarget(){{if(this.binaryTarget)return this.binaryTarget;let t=await nt();if(!gl.includes(t))throw new R(`Unknown ${ce("PRISMA_QUERY_ENGINE_LIBRARY")} ${ce(H(t))}. Possible binaryTargets: ${qe(gl.join(", "))} or a path to the query engine library.
+[2026-03-17T21:43:21.625078636Z] /app/node_modules/@prisma/client/runtime/library.js:111
+[2026-03-17T21:43:21.621130851Z] Please manually install OpenSSL and try installing Prisma again.
+[2026-03-17T21:43:21.621113121Z] prisma:warn Prisma failed to detect the libssl/openssl version to use, and may not work as expected. Defaulting to "openssl-1.1.x".
+[2026-03-17T21:43:21.567655195Z] Dashboard: http://localhost:10000/admin
+[2026-03-17T21:43:21.567460932Z] TraceLink server running on port 10000
+[2026-03-17T21:43:21.566893261Z] Loaded 3275050 city IPv4 ranges
+[2026-03-17T21:43:14Z] clientIP="91.108.5.73" requestID="04d5ee2d-50f0-4d0f" responseTimeMS=300 responseBytes=223158 userAgent=""
+[2026-03-17T21:43:12.793023067Z] Loading DB-IP city IPv4 database from npm package...
+[2026-03-17T21:43:12.792923965Z] Loaded 230443 IPv6 ranges
+[2026-03-17T21:43:12.487810791Z] Loading IPv6 CC0 database from npm package...
+[2026-03-17T21:43:12.487707358Z] Loaded 322198 IPv4 ranges
+[2026-03-17T21:43:12.072247439Z] Loading IPv4 CC0 database from npm package...
+[2026-03-17T21:43:12.067471728Z] Telegram bot webhook enabled
+[2026-03-17T21:42:26Z] clientIP="91.108.5.73" requestID="80de30b3-9a31-4102" responseTimeMS=18 responseBytes=223158 userAgent=""
+[2026-03-17T21:41:14Z] clientIP="91.108.5.73" requestID="1e6f4d16-dea8-41c7" responseTimeMS=341 responseBytes=223158 userAgent=""
+[2026-03-17T21:41:05Z] clientIP="91.108.5.73" requestID="748939a2-6b8e-4174" responseTimeMS=338 responseBytes=223158 userAgent=""
+[2026-03-17T21:39:44Z] clientIP="91.108.5.73" requestID="4f534dcf-7ef6-4990" responseTimeMS=336 responseBytes=223158 userAgent=""
+[2026-03-17T21:39:44Z] clientIP="91.108.5.73" requestID="d87ee423-bfc0-4919" responseTimeMS=18 responseBytes=223158 userAgent=""
+[2026-03-17T21:39:27Z] clientIP="18.188.150.52" requestID="e5b80dc9-59e4-487d" responseTimeMS=13 responseBytes=223158 userAgent="curl/8.16.0"
+[2026-03-17T21:39:11Z] clientIP="18.188.150.52" requestID="2d8865ad-7375-4e30" responseTimeMS=174 responseBytes=223158 userAgent="curl/8.16.0"
+[2026-03-17T21:38:16Z] clientIP="91.108.5.73" requestID="0fb63d2d-c943-4c5c" responseTimeMS=15 responseBytes=223158 userAgent=""
+[2026-03-17T21:38:00.531477269Z] Node.js v18.20.8
+[2026-03-17T21:38:00.531475119Z] 
+[2026-03-17T21:38:00.531473109Z] }
+[2026-03-17T21:38:00.531470989Z]   errorCode: undefined
+[2026-03-17T21:38:00.531468289Z]   clientVersion: '5.22.0',
+[2026-03-17T21:38:00.531465419Z]     at async _r.instantiateLibrary (/app/node_modules/@prisma/client/runtime/library.js:111:12599) {
+[2026-03-17T21:38:00.531462698Z]     at async _r.loadEngine (/app/node_modules/@prisma/client/runtime/library.js:112:448)
+[2026-03-17T21:38:00.531460229Z]     at Object.loadLibrary (/app/node_modules/@prisma/client/runtime/library.js:111:10243)
+[2026-03-17T21:38:00.531457358Z] Details: Error loading shared library libssl.so.1.1: No such file or directory (needed by /app/node_modules/.prisma/client/libquery_engine-linux-musl.so.node)
+[2026-03-17T21:38:00.531454598Z] 
+[2026-03-17T21:38:00.531452548Z] The Prisma engines do not seem to be compatible with your system. Please refer to the documentation about Prisma's system requirements: https://pris.ly/d/system-requirements
+[2026-03-17T21:38:00.531449818Z] PrismaClientInitializationError: Unable to require(`/app/node_modules/.prisma/client/libquery_engine-linux-musl.so.node`).
+[2026-03-17T21:38:00.531446188Z] 
+[2026-03-17T21:38:00.531442938Z]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+[2026-03-17T21:38:00.531390247Z] ${r}`,A(n,!0));this.name="RequestError";this.code="P5010"}};w(kr,"RequestError");async function ct(e,t,r=n=>n){let n=t.clientVersion;try{return typeof fetch=="function"?await r(fetch)(e,t):await r(to)(e,t)}catch(i){let o=i.message??"Unknown error";throw new kr(o,{clientVersion:n})}}function im(e){return{...e.headers,"Content-Type":"application/json"}}function om(e){return{method:e.method,headers:im(e)}}function sm(e,t){return{text:()=>Promise.resolve(Buffer.concat(e).toString()),json:()=>Promise.resolve().then(()=>JSON.parse(Buffer.concat(e).toString())),ok:t.statusCode>=200&&t.statusCode<=299,status:t.statusCode,url:t.url,headers:new ro(t.headers)}}async function to(e,t={}){let r=am("https"),n=om(t),i=[],{origin:o}=new URL(e);return new Promise((s,a)=>{let l=r.request(e,n,u=>{let{statusCode:c,headers:{location:p}}=u;c>=301&&c<=399&&p&&(p.startsWith("http")===!1?s(to(`${o}${p}`,t)):s(to(p,t))),u.on("data",d=>i.push(d)),u.on("end",()=>s(sm(i,u))),u.on("error",a)});l.on("error",a),l.end(t.body??"")})}var am=typeof require<"u"?require:()=>{},ro=class{constructor(t={}){this.headers=new Map;for(let[r,n]of Object.entries(t))if(typeof n=="string")this.headers.set(r,n);else if(Array.isArray(n))for(let i of n)this.headers.set(r,i)}append(t,r){this.headers.set(t,r)}delete(t){this.headers.delete(t)}get(t){return this.headers.get(t)??null}has(t){return this.headers.has(t)}set(t,r){this.headers.set(t,r)}forEach(t,r){for(let[n,i]of this.headers)t.call(r,i,n,this)}};var lm=/^[1-9][0-9]*\.[0-9]+\.[0-9]+$/,ll=L("prisma:client:dataproxyEngine");async function um(e,t){let r=al["@prisma/engines-version"],n=t.clientVersion??"unknown";if(process.env.PRISMA_CLIENT_DATA_PROXY_CLIENT_VERSION)return process.env.PRISMA_CLIENT_DATA_PROXY_CLIENT_VERSION;if(e.includes("accelerate")&&n!=="0.0.0"&&n!=="in-memory")return n;let[i,o]=n?.split("-")??[];if(o===void 0&&lm.test(i))return i;if(o!==void 0||n==="0.0.0"||n==="in-memory"){if(e.startsWith("localhost")||e.startsWith("127.0.0.1"))return"0.0.0";let[s]=r.split("-")??[],[a,l,u]=s.split("."),c=cm(`<=${a}.${l}.${u}`),p=await ct(c,{clientVersion:n});if(!p.ok)throw new Error(`Failed to fetch stable Prisma version, unpkg.com status ${p.status} ${p.statusText}, response body: ${await p.text()||"<empty body>"}`);let d=await p.text();ll("length of body fetched from unpkg.com",d.length);let f;try{f=JSON.parse(d)}catch(g){throw console.error("JSON.parse error: body fetched from unpkg.com: ",d),g}return f.version}throw new lt("Only `major.minor.patch` versions are supported by Accelerate.",{clientVersion:n})}async function ul(e,t){let r=await um(e,t);return ll("version",r),r}function cm(e){return encodeURI(`https://unpkg.com/prisma@${e}/package.json`)}var cl=3,no=L("prisma:client:dataproxyEngine"),io=class{constructor({apiKey:t,tracingHelper:r,logLevel:n,logQueries:i,engineHash:o}){this.apiKey=t,this.tracingHelper=r,this.logLevel=n,this.logQueries=i,this.engineHash=o}build({traceparent:t,interactiveTransaction:r}={}){let n={Authorization:`Bearer ${this.apiKey}`,"Prisma-Engine-Hash":this.engineHash};this.tracingHelper.isEnabled()&&(n.traceparent=t??this.tracingHelper.getTraceParent()),r&&(n["X-transaction-id"]=r.id);let i=this.buildCaptureSettings();return i.length>0&&(n["X-capture-telemetry"]=i.join(", ")),n}buildCaptureSettings(){let t=[];return this.tracingHelper.isEnabled()&&t.push("tracing"),this.logLevel&&t.push(this.logLevel),this.logQueries&&t.push("query"),t}},Dr=class{constructor(t){this.name="DataProxyEngine";ol(t),this.config=t,this.env={...t.env,...typeof process<"u"?process.env:{}},this.inlineSchema=il(t.inlineSchema),this.inlineDatasources=t.inlineDatasources,this.inlineSchemaHash=t.inlineSchemaHash,this.clientVersion=t.clientVersion,this.engineHash=t.engineVersion,this.logEmitter=t.logEmitter,this.tracingHelper=t.tracingHelper}apiKey(){return this.headerBuilder.apiKey}version(){return this.engineHash}async start(){this.startPromise!==void 0&&await this.startPromise,this.startPromise=(async()=>{let[t,r]=this.extractHostAndApiKey();this.host=t,this.headerBuilder=new io({apiKey:r,tracingHelper:this.tracingHelper,logLevel:this.config.logLevel,logQueries:this.config.logQueries,engineHash:this.engineHash}),this.remoteClientVersion=await ul(t,this.config),no("host",this.host)})(),await this.startPromise}async stop(){}propagateResponseExtensions(t){t?.logs?.length&&t.logs.forEach(r=>{switch(r.level){case"debug":case"error":case"trace":case"warn":case"info":break;case"query":{let n=typeof r.attributes.query=="string"?r.attributes.query:"";if(!this.tracingHelper.isEnabled()){let[i]=n.split("/* traceparent");n=i}this.logEmitter.emit("query",{query:n,timestamp:sl(r.timestamp),duration:Number(r.attributes.duration_ms),params:r.attributes.params,target:r.attributes.target})}}}),t?.traces?.length&&this.tracingHelper.createEngineSpan({span:!0,spans:t.traces})}onBeforeExit(){throw new Error('"beforeExit" hook is not applicable to the remote query engine')}async url(t){return await this.start(),`https://${this.host}/${this.remoteClientVersion}/${this.inlineSchemaHash}/${t}`}async uploadSchema(){let t={name:"schemaUpload",internal:!0};return this.tracingHelper.runInChildSpan(t,async()=>{let r=await ct(await this.url("schema"),{method:"PUT",headers:this.headerBuilder.build(),body:this.inlineSchema,clientVersion:this.clientVersion});r.ok||no("schema response status",r.status);let n=await Or(r,this.clientVersion);if(n)throw this.logEmitter.emit("warn",{message:`Error while uploading schema: ${n.message}`,timestamp:new Date,target:""}),n;this.logEmitter.emit("info",{message:`Schema (re)uploaded (hash: ${this.inlineSchemaHash})`,timestamp:new Date,target:""})})}request(t,{traceparent:r,interactiveTransaction:n,customDataProxyFetch:i}){return this.requestInternal({body:t,traceparent:r,interactiveTransaction:n,customDataProxyFetch:i})}async requestBatch(t,{traceparent:r,transaction:n,customDataProxyFetch:i}){let o=n?.kind==="itx"?n.options:void 0,s=Ft(t,n),{batchResult:a,elapsed:l}=await this.requestInternal({body:s,customDataProxyFetch:i,interactiveTransaction:o,traceparent:r});return a.map(u=>"errors"in u&&u.errors.length>0?st(u.errors[0],this.clientVersion,this.config.activeProvider):{data:u,elapsed:l})}requestInternal({body:t,traceparent:r,customDataProxyFetch:n,interactiveTransaction:i}){return this.withRetry({actionGerund:"querying",callback:async({logHttpCall:o})=>{let s=i?`${i.payload.endpoint}/graphql`:await this.url("graphql");o(s);let a=await ct(s,{method:"POST",headers:this.headerBuilder.build({traceparent:r,interactiveTransaction:i}),body:JSON.stringify(t),clientVersion:this.clientVersion},n);a.ok||no("graphql response status",a.status),await this.handleError(await Or(a,this.clientVersion));let l=await a.json(),u=l.extensions;if(u&&this.propagateResponseExtensions(u),l.errors)throw l.errors.length===1?st(l.errors[0],this.config.clientVersion,this.config.activeProvider):new B(l.errors,{clientVersion:this.config.clientVersion});return l}})}async transaction(t,r,n){let i={start:"starting",commit:"committing",rollback:"rolling back"};return this.withRetry({actionGerund:`${i[t]} transaction`,callback:async({logHttpCall:o})=>{if(t==="start"){let s=JSON.stringify({max_wait:n.maxWait,timeout:n.timeout,isolation_level:n.isolationLevel}),a=await this.url("transaction/start");o(a);let l=await ct(a,{method:"POST",headers:this.headerBuilder.build({traceparent:r.traceparent}),body:s,clientVersion:this.clientVersion});await this.handleError(await Or(l,this.clientVersion));let u=await l.json(),c=u.extensions;c&&this.propagateResponseExtensions(c);let p=u.id,d=u["data-proxy"].endpoint;return{id:p,payload:{endpoint:d}}}else{let s=`${n.payload.endpoint}/${t}`;o(s);let a=await ct(s,{method:"POST",headers:this.headerBuilder.build({traceparent:r.traceparent}),clientVersion:this.clientVersion});await this.handleError(await Or(a,this.clientVersion));let u=(await a.json()).extensions;u&&this.propagateResponseExtensions(u);return}}})}extractHostAndApiKey(){let t={clientVersion:this.clientVersion},r=Object.keys(this.inlineDatasources)[0],n=Nt({inlineDatasources:this.inlineDatasources,overrideDatasources:this.config.overrideDatasources,clientVersion:this.clientVersion,env:this.env}),i;try{i=new URL(n)}catch{throw new at(`Error validating datasource \`${r}\`: the URL must start with the protocol \`prisma://\``,t)}let{protocol:o,host:s,searchParams:a}=i;if(o!=="prisma:"&&o!=="prisma+postgres:")throw new at(`Error validating datasource \`${r}\`: the URL must start with the protocol \`prisma://\``,t);let l=a.get("api_key");if(l===null||l.length<1)throw new at(`Error validating datasource \`${r}\`: the URL must contain a valid API key`,t);return[s,l]}metrics(){throw new lt("Metrics are not yet supported for Accelerate",{clientVersion:this.clientVersion})}async withRetry(t){for(let r=0;;r++){let n=i=>{this.logEmitter.emit("info",{message:`Calling ${i} (n=${r})`,timestamp:new Date,target:""})};try{return await t.callback({logHttpCall:n})}catch(i){if(!(i instanceof se)||!i.isRetryable)throw i;if(r>=cl)throw i instanceof Mt?i.cause:i;this.logEmitter.emit("warn",{message:`Attempt ${r+1}/${cl} failed for ${t.actionGerund}: ${i.message??"(unknown)"}`,timestamp:new Date,target:""});let o=await nl(r);this.logEmitter.emit("warn",{message:`Retrying after ${o}ms`,timestamp:new Date,target:""})}}}async handleError(t){if(t instanceof ut)throw await this.uploadSchema(),new Mt({clientVersion:this.clientVersion,cause:t});if(t)throw t}applyPendingMigrations(){throw new Error("Method not implemented.")}};function pl(e){if(e?.kind==="itx")return e.options.id}var so=k(require("os")),dl=k(require("path"));var oo=Symbol("PrismaLibraryEngineCache");function pm(){let e=globalThis;return e[oo]===void 0&&(e[oo]={}),e[oo]}function dm(e){let t=pm();if(t[e]!==void 0)return t[e];let r=dl.default.toNamespacedPath(e),n={exports:{}},i=0;return process.platform!=="win32"&&(i=so.default.constants.dlopen.RTLD_LAZY|so.default.constants.dlopen.RTLD_DEEPBIND),process.dlopen(n,r,i),t[e]=n.exports,n.exports}var ml={async loadLibrary(e){let t=await Yn(),r=await za("library",e);try{return e.tracingHelper.runInChildSpan({name:"loadLibrary",internal:!0},()=>dm(r))}catch(n){let i=ui({e:n,platformInfo:t,id:r});throw new R(i,e.clientVersion)}}};var ao,fl={async loadLibrary(e){let{clientVersion:t,adapter:r,engineWasm:n}=e;if(r===void 0)throw new R(`The \`adapter\` option for \`PrismaClient\` is required in this context (${In().prettyName})`,t);if(n===void 0)throw new R("WASM engine was unexpectedly `undefined`",t);ao===void 0&&(ao=(async()=>{let o=n.getRuntime(),s=await n.getQueryEngineWasmModule();if(s==null)throw new R("The loaded wasm module was unexpectedly `undefined` or `null` once loaded",t);let a={"./query_engine_bg.js":o},l=new WebAssembly.Instance(s,a);return o.__wbg_set_wasm(l.exports),o.QueryEngine})());let i=await ao;return{debugPanic(){return Promise.reject("{}")},dmmf(){return Promise.resolve("{}")},version(){return{commit:"unknown",version:"unknown"}},QueryEngine:i}}};var mm="P2036",Ae=L("prisma:client:libraryEngine");function fm(e){return e.item_type==="query"&&"query"in e}function gm(e){return"level"in e?e.level==="error"&&e.message==="PANIC":!1}var gl=[...Jn,"native"],_r=class{constructor(t,r){this.name="LibraryEngine";this.libraryLoader=r??ml,t.engineWasm!==void 0&&(this.libraryLoader=r??fl),this.config=t,this.libraryStarted=!1,this.logQueries=t.logQueries??!1,this.logLevel=t.logLevel??"error",this.logEmitter=t.logEmitter,this.datamodel=t.inlineSchema,t.enableDebugLogs&&(this.logLevel="debug");let n=Object.keys(t.overrideDatasources)[0],i=t.overrideDatasources[n]?.url;n!==void 0&&i!==void 0&&(this.datasourceOverrides={[n]:i}),this.libraryInstantiationPromise=this.instantiateLibrary()}async applyPendingMigrations(){throw new Error("Cannot call this method from this type of engine instance")}async transaction(t,r,n){await this.start();let i=JSON.stringify(r),o;if(t==="start"){let a=JSON.stringify({max_wait:n.maxWait,timeout:n.timeout,isolation_level:n.isolationLevel});o=await this.engine?.startTransaction(a,i)}else t==="commit"?o=await this.engine?.commitTransaction(n.id,i):t==="rollback"&&(o=await this.engine?.rollbackTransaction(n.id,i));let s=this.parseEngineResponse(o);if(hm(s)){let a=this.getExternalAdapterError(s);throw a?a.error:new V(s.message,{code:s.error_code,clientVersion:this.config.clientVersion,meta:s.meta})}return s}async instantiateLibrary(){if(Ae("internalSetup"),this.libraryInstantiationPromise)return this.libraryInstantiationPromise;Qn(),this.binaryTarget=await this.getCurrentBinaryTarget(),await this.loadEngine(),this.version()}async getCurrentBinaryTarget(){{if(this.binaryTarget)return this.binaryTarget;let t=await nt();if(!gl.includes(t))throw new R(`Unknown ${ce("PRISMA_QUERY_ENGINE_LIBRARY")} ${ce(H(t))}. Possible binaryTargets: ${qe(gl.join(", "))} or a path to the query engine library.
+[2026-03-17T21:38:00.531342276Z] /app/node_modules/@prisma/client/runtime/library.js:111
+[2026-03-17T21:38:00.501661184Z] Please manually install OpenSSL and try installing Prisma again.
+[2026-03-17T21:38:00.501636044Z] prisma:warn Prisma failed to detect the libssl/openssl version to use, and may not work as expected. Defaulting to "openssl-1.1.x".
+[2026-03-17T21:38:00.444624394Z] Dashboard: http://localhost:10000/admin
+[2026-03-17T21:38:00.444614134Z] TraceLink server running on port 10000
+[2026-03-17T21:38:00.443021224Z] Loaded 3275050 city IPv4 ranges
+[2026-03-17T21:37:51.443559893Z] Loading DB-IP city IPv4 database from npm package...
+[2026-03-17T21:37:51.443487762Z] Loaded 230443 IPv6 ranges
+[2026-03-17T21:37:51.057816649Z] Loading IPv6 CC0 database from npm package...
+[2026-03-17T21:37:51.057790768Z] Loaded 322198 IPv4 ranges
+[2026-03-17T21:37:50.646612023Z] Loading IPv4 CC0 database from npm package...
+[2026-03-17T21:37:50.642589036Z] Telegram bot webhook enabled
+[2026-03-17T21:37:45Z] clientIP="91.108.5.73" requestID="d9b0fcd7-a931-4f4d" responseTimeMS=198 responseBytes=223158 userAgent=""
+[2026-03-17T21:37:04Z] clientIP="91.108.5.73" requestID="b243937d-a12a-4d1a" responseTimeMS=17 responseBytes=223158 userAgent=""
+[2026-03-17T21:36:07Z] clientIP="91.108.5.73" requestID="d3b2be9a-cc16-4ea4" responseTimeMS=16 responseBytes=223158 userAgent=""
+[2026-03-17T21:35:11Z] clientIP="91.108.5.73" requestID="42de2014-9006-49c7" responseTimeMS=197 responseBytes=223158 userAgent=""
+[2026-03-17T21:34:54Z] clientIP="91.108.5.73" requestID="10c59b2d-13e0-413a" responseTimeMS=183 responseBytes=223158 userAgent=""
+[2026-03-17T21:33:53Z] clientIP="91.108.5.73" requestID="90393275-241e-4193" responseTimeMS=16 responseBytes=223158 userAgent=""
+[2026-03-17T21:33:33Z] clientIP="91.108.5.73" requestID="3d42f3b7-51d7-4d30" responseTimeMS=17 responseBytes=223158 userAgent=""
+[2026-03-17T21:32:45Z] clientIP="91.108.5.73" requestID="0b2e5cd7-d8b4-4f60" responseTimeMS=310 responseBytes=223158 userAgent=""
+[2026-03-17T21:32:36.722777879Z] Node.js v18.20.8
+[2026-03-17T21:32:36.722774599Z] 
+[2026-03-17T21:32:36.722771549Z] }
+[2026-03-17T21:32:36.722768589Z]   errorCode: undefined
+[2026-03-17T21:32:36.722764849Z]   clientVersion: '5.22.0',
+[2026-03-17T21:32:36.722761059Z]     at async _r.instantiateLibrary (/app/node_modules/@prisma/client/runtime/library.js:111:12599) {
+[2026-03-17T21:32:36.722757189Z]     at async _r.loadEngine (/app/node_modules/@prisma/client/runtime/library.js:112:448)
+[2026-03-17T21:32:36.722754089Z]     at Object.loadLibrary (/app/node_modules/@prisma/client/runtime/library.js:111:10243)
+[2026-03-17T21:32:36.722749949Z] Details: Error loading shared library libssl.so.1.1: No such file or directory (needed by /app/node_modules/.prisma/client/libquery_engine-linux-musl.so.node)
+[2026-03-17T21:32:36.722745689Z] 
+[2026-03-17T21:32:36.722742678Z] The Prisma engines do not seem to be compatible with your system. Please refer to the documentation about Prisma's system requirements: https://pris.ly/d/system-requirements
+[2026-03-17T21:32:36.722738449Z] PrismaClientInitializationError: Unable to require(`/app/node_modules/.prisma/client/libquery_engine-linux-musl.so.node`).
+[2026-03-17T21:32:36.722734118Z] 
+[2026-03-17T21:32:36.722730488Z]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+[2026-03-17T21:32:36.722690028Z] ${r}`,A(n,!0));this.name="RequestError";this.code="P5010"}};w(kr,"RequestError");async function ct(e,t,r=n=>n){let n=t.clientVersion;try{return typeof fetch=="function"?await r(fetch)(e,t):await r(to)(e,t)}catch(i){let o=i.message??"Unknown error";throw new kr(o,{clientVersion:n})}}function im(e){return{...e.headers,"Content-Type":"application/json"}}function om(e){return{method:e.method,headers:im(e)}}function sm(e,t){return{text:()=>Promise.resolve(Buffer.concat(e).toString()),json:()=>Promise.resolve().then(()=>JSON.parse(Buffer.concat(e).toString())),ok:t.statusCode>=200&&t.statusCode<=299,status:t.statusCode,url:t.url,headers:new ro(t.headers)}}async function to(e,t={}){let r=am("https"),n=om(t),i=[],{origin:o}=new URL(e);return new Promise((s,a)=>{let l=r.request(e,n,u=>{let{statusCode:c,headers:{location:p}}=u;c>=301&&c<=399&&p&&(p.startsWith("http")===!1?s(to(`${o}${p}`,t)):s(to(p,t))),u.on("data",d=>i.push(d)),u.on("end",()=>s(sm(i,u))),u.on("error",a)});l.on("error",a),l.end(t.body??"")})}var am=typeof require<"u"?require:()=>{},ro=class{constructor(t={}){this.headers=new Map;for(let[r,n]of Object.entries(t))if(typeof n=="string")this.headers.set(r,n);else if(Array.isArray(n))for(let i of n)this.headers.set(r,i)}append(t,r){this.headers.set(t,r)}delete(t){this.headers.delete(t)}get(t){return this.headers.get(t)??null}has(t){return this.headers.has(t)}set(t,r){this.headers.set(t,r)}forEach(t,r){for(let[n,i]of this.headers)t.call(r,i,n,this)}};var lm=/^[1-9][0-9]*\.[0-9]+\.[0-9]+$/,ll=L("prisma:client:dataproxyEngine");async function um(e,t){let r=al["@prisma/engines-version"],n=t.clientVersion??"unknown";if(process.env.PRISMA_CLIENT_DATA_PROXY_CLIENT_VERSION)return process.env.PRISMA_CLIENT_DATA_PROXY_CLIENT_VERSION;if(e.includes("accelerate")&&n!=="0.0.0"&&n!=="in-memory")return n;let[i,o]=n?.split("-")??[];if(o===void 0&&lm.test(i))return i;if(o!==void 0||n==="0.0.0"||n==="in-memory"){if(e.startsWith("localhost")||e.startsWith("127.0.0.1"))return"0.0.0";let[s]=r.split("-")??[],[a,l,u]=s.split("."),c=cm(`<=${a}.${l}.${u}`),p=await ct(c,{clientVersion:n});if(!p.ok)throw new Error(`Failed to fetch stable Prisma version, unpkg.com status ${p.status} ${p.statusText}, response body: ${await p.text()||"<empty body>"}`);let d=await p.text();ll("length of body fetched from unpkg.com",d.length);let f;try{f=JSON.parse(d)}catch(g){throw console.error("JSON.parse error: body fetched from unpkg.com: ",d),g}return f.version}throw new lt("Only `major.minor.patch` versions are supported by Accelerate.",{clientVersion:n})}async function ul(e,t){let r=await um(e,t);return ll("version",r),r}function cm(e){return encodeURI(`https://unpkg.com/prisma@${e}/package.json`)}var cl=3,no=L("prisma:client:dataproxyEngine"),io=class{constructor({apiKey:t,tracingHelper:r,logLevel:n,logQueries:i,engineHash:o}){this.apiKey=t,this.tracingHelper=r,this.logLevel=n,this.logQueries=i,this.engineHash=o}build({traceparent:t,interactiveTransaction:r}={}){let n={Authorization:`Bearer ${this.apiKey}`,"Prisma-Engine-Hash":this.engineHash};this.tracingHelper.isEnabled()&&(n.traceparent=t??this.tracingHelper.getTraceParent()),r&&(n["X-transaction-id"]=r.id);let i=this.buildCaptureSettings();return i.length>0&&(n["X-capture-telemetry"]=i.join(", ")),n}buildCaptureSettings(){let t=[];return this.tracingHelper.isEnabled()&&t.push("tracing"),this.logLevel&&t.push(this.logLevel),this.logQueries&&t.push("query"),t}},Dr=class{constructor(t){this.name="DataProxyEngine";ol(t),this.config=t,this.env={...t.env,...typeof process<"u"?process.env:{}},this.inlineSchema=il(t.inlineSchema),this.inlineDatasources=t.inlineDatasources,this.inlineSchemaHash=t.inlineSchemaHash,this.clientVersion=t.clientVersion,this.engineHash=t.engineVersion,this.logEmitter=t.logEmitter,this.tracingHelper=t.tracingHelper}apiKey(){return this.headerBuilder.apiKey}version(){return this.engineHash}async start(){this.startPromise!==void 0&&await this.startPromise,this.startPromise=(async()=>{let[t,r]=this.extractHostAndApiKey();this.host=t,this.headerBuilder=new io({apiKey:r,tracingHelper:this.tracingHelper,logLevel:this.config.logLevel,logQueries:this.config.logQueries,engineHash:this.engineHash}),this.remoteClientVersion=await ul(t,this.config),no("host",this.host)})(),await this.startPromise}async stop(){}propagateResponseExtensions(t){t?.logs?.length&&t.logs.forEach(r=>{switch(r.level){case"debug":case"error":case"trace":case"warn":case"info":break;case"query":{let n=typeof r.attributes.query=="string"?r.attributes.query:"";if(!this.tracingHelper.isEnabled()){let[i]=n.split("/* traceparent");n=i}this.logEmitter.emit("query",{query:n,timestamp:sl(r.timestamp),duration:Number(r.attributes.duration_ms),params:r.attributes.params,target:r.attributes.target})}}}),t?.traces?.length&&this.tracingHelper.createEngineSpan({span:!0,spans:t.traces})}onBeforeExit(){throw new Error('"beforeExit" hook is not applicable to the remote query engine')}async url(t){return await this.start(),`https://${this.host}/${this.remoteClientVersion}/${this.inlineSchemaHash}/${t}`}async uploadSchema(){let t={name:"schemaUpload",internal:!0};return this.tracingHelper.runInChildSpan(t,async()=>{let r=await ct(await this.url("schema"),{method:"PUT",headers:this.headerBuilder.build(),body:this.inlineSchema,clientVersion:this.clientVersion});r.ok||no("schema response status",r.status);let n=await Or(r,this.clientVersion);if(n)throw this.logEmitter.emit("warn",{message:`Error while uploading schema: ${n.message}`,timestamp:new Date,target:""}),n;this.logEmitter.emit("info",{message:`Schema (re)uploaded (hash: ${this.inlineSchemaHash})`,timestamp:new Date,target:""})})}request(t,{traceparent:r,interactiveTransaction:n,customDataProxyFetch:i}){return this.requestInternal({body:t,traceparent:r,interactiveTransaction:n,customDataProxyFetch:i})}async requestBatch(t,{traceparent:r,transaction:n,customDataProxyFetch:i}){let o=n?.kind==="itx"?n.options:void 0,s=Ft(t,n),{batchResult:a,elapsed:l}=await this.requestInternal({body:s,customDataProxyFetch:i,interactiveTransaction:o,traceparent:r});return a.map(u=>"errors"in u&&u.errors.length>0?st(u.errors[0],this.clientVersion,this.config.activeProvider):{data:u,elapsed:l})}requestInternal({body:t,traceparent:r,customDataProxyFetch:n,interactiveTransaction:i}){return this.withRetry({actionGerund:"querying",callback:async({logHttpCall:o})=>{let s=i?`${i.payload.endpoint}/graphql`:await this.url("graphql");o(s);let a=await ct(s,{method:"POST",headers:this.headerBuilder.build({traceparent:r,interactiveTransaction:i}),body:JSON.stringify(t),clientVersion:this.clientVersion},n);a.ok||no("graphql response status",a.status),await this.handleError(await Or(a,this.clientVersion));let l=await a.json(),u=l.extensions;if(u&&this.propagateResponseExtensions(u),l.errors)throw l.errors.length===1?st(l.errors[0],this.config.clientVersion,this.config.activeProvider):new B(l.errors,{clientVersion:this.config.clientVersion});return l}})}async transaction(t,r,n){let i={start:"starting",commit:"committing",rollback:"rolling back"};return this.withRetry({actionGerund:`${i[t]} transaction`,callback:async({logHttpCall:o})=>{if(t==="start"){let s=JSON.stringify({max_wait:n.maxWait,timeout:n.timeout,isolation_level:n.isolationLevel}),a=await this.url("transaction/start");o(a);let l=await ct(a,{method:"POST",headers:this.headerBuilder.build({traceparent:r.traceparent}),body:s,clientVersion:this.clientVersion});await this.handleError(await Or(l,this.clientVersion));let u=await l.json(),c=u.extensions;c&&this.propagateResponseExtensions(c);let p=u.id,d=u["data-proxy"].endpoint;return{id:p,payload:{endpoint:d}}}else{let s=`${n.payload.endpoint}/${t}`;o(s);let a=await ct(s,{method:"POST",headers:this.headerBuilder.build({traceparent:r.traceparent}),clientVersion:this.clientVersion});await this.handleError(await Or(a,this.clientVersion));let u=(await a.json()).extensions;u&&this.propagateResponseExtensions(u);return}}})}extractHostAndApiKey(){let t={clientVersion:this.clientVersion},r=Object.keys(this.inlineDatasources)[0],n=Nt({inlineDatasources:this.inlineDatasources,overrideDatasources:this.config.overrideDatasources,clientVersion:this.clientVersion,env:this.env}),i;try{i=new URL(n)}catch{throw new at(`Error validating datasource \`${r}\`: the URL must start with the protocol \`prisma://\``,t)}let{protocol:o,host:s,searchParams:a}=i;if(o!=="prisma:"&&o!=="prisma+postgres:")throw new at(`Error validating datasource \`${r}\`: the URL must start with the protocol \`prisma://\``,t);let l=a.get("api_key");if(l===null||l.length<1)throw new at(`Error validating datasource \`${r}\`: the URL must contain a valid API key`,t);return[s,l]}metrics(){throw new lt("Metrics are not yet supported for Accelerate",{clientVersion:this.clientVersion})}async withRetry(t){for(let r=0;;r++){let n=i=>{this.logEmitter.emit("info",{message:`Calling ${i} (n=${r})`,timestamp:new Date,target:""})};try{return await t.callback({logHttpCall:n})}catch(i){if(!(i instanceof se)||!i.isRetryable)throw i;if(r>=cl)throw i instanceof Mt?i.cause:i;this.logEmitter.emit("warn",{message:`Attempt ${r+1}/${cl} failed for ${t.actionGerund}: ${i.message??"(unknown)"}`,timestamp:new Date,target:""});let o=await nl(r);this.logEmitter.emit("warn",{message:`Retrying after ${o}ms`,timestamp:new Date,target:""})}}}async handleError(t){if(t instanceof ut)throw await this.uploadSchema(),new Mt({clientVersion:this.clientVersion,cause:t});if(t)throw t}applyPendingMigrations(){throw new Error("Method not implemented.")}};function pl(e){if(e?.kind==="itx")return e.options.id}var so=k(require("os")),dl=k(require("path"));var oo=Symbol("PrismaLibraryEngineCache");function pm(){let e=globalThis;return e[oo]===void 0&&(e[oo]={}),e[oo]}function dm(e){let t=pm();if(t[e]!==void 0)return t[e];let r=dl.default.toNamespacedPath(e),n={exports:{}},i=0;return process.platform!=="win32"&&(i=so.default.constants.dlopen.RTLD_LAZY|so.default.constants.dlopen.RTLD_DEEPBIND),process.dlopen(n,r,i),t[e]=n.exports,n.exports}var ml={async loadLibrary(e){let t=await Yn(),r=await za("library",e);try{return e.tracingHelper.runInChildSpan({name:"loadLibrary",internal:!0},()=>dm(r))}catch(n){let i=ui({e:n,platformInfo:t,id:r});throw new R(i,e.clientVersion)}}};var ao,fl={async loadLibrary(e){let{clientVersion:t,adapter:r,engineWasm:n}=e;if(r===void 0)throw new R(`The \`adapter\` option for \`PrismaClient\` is required in this context (${In().prettyName})`,t);if(n===void 0)throw new R("WASM engine was unexpectedly `undefined`",t);ao===void 0&&(ao=(async()=>{let o=n.getRuntime(),s=await n.getQueryEngineWasmModule();if(s==null)throw new R("The loaded wasm module was unexpectedly `undefined` or `null` once loaded",t);let a={"./query_engine_bg.js":o},l=new WebAssembly.Instance(s,a);return o.__wbg_set_wasm(l.exports),o.QueryEngine})());let i=await ao;return{debugPanic(){return Promise.reject("{}")},dmmf(){return Promise.resolve("{}")},version(){return{commit:"unknown",version:"unknown"}},QueryEngine:i}}};var mm="P2036",Ae=L("prisma:client:libraryEngine");function fm(e){return e.item_type==="query"&&"query"in e}function gm(e){return"level"in e?e.level==="error"&&e.message==="PANIC":!1}var gl=[...Jn,"native"],_r=class{constructor(t,r){this.name="LibraryEngine";this.libraryLoader=r??ml,t.engineWasm!==void 0&&(this.libraryLoader=r??fl),this.config=t,this.libraryStarted=!1,this.logQueries=t.logQueries??!1,this.logLevel=t.logLevel??"error",this.logEmitter=t.logEmitter,this.datamodel=t.inlineSchema,t.enableDebugLogs&&(this.logLevel="debug");let n=Object.keys(t.overrideDatasources)[0],i=t.overrideDatasources[n]?.url;n!==void 0&&i!==void 0&&(this.datasourceOverrides={[n]:i}),this.libraryInstantiationPromise=this.instantiateLibrary()}async applyPendingMigrations(){throw new Error("Cannot call this method from this type of engine instance")}async transaction(t,r,n){await this.start();let i=JSON.stringify(r),o;if(t==="start"){let a=JSON.stringify({max_wait:n.maxWait,timeout:n.timeout,isolation_level:n.isolationLevel});o=await this.engine?.startTransaction(a,i)}else t==="commit"?o=await this.engine?.commitTransaction(n.id,i):t==="rollback"&&(o=await this.engine?.rollbackTransaction(n.id,i));let s=this.parseEngineResponse(o);if(hm(s)){let a=this.getExternalAdapterError(s);throw a?a.error:new V(s.message,{code:s.error_code,clientVersion:this.config.clientVersion,meta:s.meta})}return s}async instantiateLibrary(){if(Ae("internalSetup"),this.libraryInstantiationPromise)return this.libraryInstantiationPromise;Qn(),this.binaryTarget=await this.getCurrentBinaryTarget(),await this.loadEngine(),this.version()}async getCurrentBinaryTarget(){{if(this.binaryTarget)return this.binaryTarget;let t=await nt();if(!gl.includes(t))throw new R(`Unknown ${ce("PRISMA_QUERY_ENGINE_LIBRARY")} ${ce(H(t))}. Possible binaryTargets: ${qe(gl.join(", "))} or a path to the query engine library.
+[2026-03-17T21:32:36.722644927Z] /app/node_modules/@prisma/client/runtime/library.js:111
+[2026-03-17T21:32:36.722612966Z] Please manually install OpenSSL and try installing Prisma again.
+[2026-03-17T21:32:36.698345256Z] prisma:warn Prisma failed to detect the libssl/openssl version to use, and may not work as expected. Defaulting to "openssl-1.1.x".
+[2026-03-17T21:32:36.608094277Z] Dashboard: http://localhost:10000/admin
+[2026-03-17T21:32:36.60770327Z] TraceLink server running on port 10000
+[2026-03-17T21:32:36.606842083Z] Loaded 3275050 city IPv4 ranges
+[2026-03-17T21:32:26.949639811Z] Loading DB-IP city IPv4 database from npm package...
+[2026-03-17T21:32:26.949573189Z] Loaded 230443 IPv6 ranges
+[2026-03-17T21:32:26.625170205Z] Loading IPv6 CC0 database from npm package...
+[2026-03-17T21:32:26.625049273Z] Loaded 322198 IPv4 ranges
+[2026-03-17T21:32:26.025458807Z] Loading IPv4 CC0 database from npm package...
+[2026-03-17T21:32:26.018098898Z] Telegram bot webhook enabled
+[2026-03-17T21:32:16Z] clientIP="91.108.5.73" requestID="0fb83678-2b41-49f9" responseTimeMS=308 responseBytes=223158 userAgent=""
+[2026-03-17T21:30:45Z] clientIP="91.108.5.73" requestID="1da96bcd-ff20-47ba" responseTimeMS=16 responseBytes=223158 userAgent=""
+[2026-03-17T21:30:24Z] clientIP="91.108.5.73" requestID="9405614a-0ac7-4d21" responseTimeMS=320 responseBytes=223158 userAgent=""
