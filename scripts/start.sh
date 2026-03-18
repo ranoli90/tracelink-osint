@@ -19,16 +19,19 @@ fi
 install_tools() {
     echo "Starting background installation of OSINT tools..."
     
-    # Install SpiderFoot (use older version that supports SQLite)
+    # Install SpiderFoot
     if [ ! -d "/app/spiderfoot" ]; then
-        # Clone specific version that supports SQLite - use original SpiderFoot repo
-        git clone --depth 1 --branch 3.3.0 https://github.com/smicallef/spiderfoot.git /app/spiderfoot || \
-        git clone --depth 1 --branch 3.4.0 https://github.com/smicallef/spiderfoot.git /app/spiderfoot || \
+        # Clone SpiderFoot - use version 3.3.0 which has simpler structure
+        git clone --depth 1 --branch 3.3.0 https://github.com/smicallef/spiderfoot.git /app/spiderfoot 2>/dev/null || \
         git clone --depth 1 https://github.com/smicallef/spiderfoot.git /app/spiderfoot
         cd /app/spiderfoot
+        # Install requirements without editable install
         pip3 install --no-cache-dir --break-system-packages -r requirements.txt
-        pip3 install --no-cache-dir --break-system-packages -e .
+        # Add spiderfoot to Python path so modules can be imported
+        export PYTHONPATH="/app/spiderfoot:$PYTHONPATH"
         cd /app
+    else
+        export PYTHONPATH="/app/spiderfoot:$PYTHONPATH"
     fi
     
     # Install Sherlock if not already available
