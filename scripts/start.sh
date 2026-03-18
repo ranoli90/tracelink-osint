@@ -15,11 +15,6 @@ install_tools() {
         cd /app/spiderfoot
         pip3 install --no-cache-dir --break-system-packages -r requirements.txt
         pip3 install --no-cache-dir --break-system-packages -e .
-        
-        # Patch SpiderFoot to use SQLite by default when no PostgreSQL is configured
-        # This fixes the bug where it tries to use PostgreSQL with a SQLite path
-        sed -i "s/_db_type = 'postgresql'/_db_type = 'sqlite'/g" /app/spiderfoot/spiderfoot/api/dependencies.py
-        
         cd /app
     fi
 
@@ -31,11 +26,17 @@ install_tools() {
     echo "Background tool installation complete."
     
     # Start SpiderFoot API after installation
-    # Note: SpiderFoot uses SQLite by default for its own data
-    # This keeps it independent from the main app's PostgreSQL
+    # SpiderFoot now requires PostgreSQL - configure with SSL for Render
     if [ -f "/app/spiderfoot/sfapi.py" ]; then
-        # Unset SF_POSTGRES_DSN to let SpiderFoot use SQLite
-        unset SF_POSTGRES_DSN
+        # Use DATABASE_URL from environment and add sslmode=require
+        if [ -n "$DATABASE_URL" ]; then
+            # Add sslmode=require if not already present
+            if echo "$DATABASE_URL" | grep -qv 'sslmode='; then
+                export SF_POSTGRES_DSN="${DATABASE_URL}?sslmode=require"
+            else
+                export SF_POSTGRES_DSN="$DATABASE_URL"
+            fi
+        fi
         python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
         echo "SpiderFoot API started on port 5001"
     fi
