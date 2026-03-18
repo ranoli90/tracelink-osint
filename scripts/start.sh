@@ -9,8 +9,10 @@ npx prisma migrate deploy
 install_tools() {
     echo "Starting background installation of OSINT tools..."
     
-    # Install SpiderFoot
+    # Install SpiderFoot (use older version that supports SQLite)
     if [ ! -d "/app/spiderfoot" ]; then
+        # Clone specific version that supports SQLite
+        git clone --depth 1 --branch 3.5.0 https://github.com/poppopjmp/spiderfoot.git /app/spiderfoot || \
         git clone --depth 1 https://github.com/poppopjmp/spiderfoot.git /app/spiderfoot
         cd /app/spiderfoot
         pip3 install --no-cache-dir --break-system-packages -r requirements.txt
@@ -26,13 +28,11 @@ install_tools() {
     echo "Background tool installation complete."
     
     # Start SpiderFoot API after installation
-    # Temporarily disabled - SpiderFoot has PostgreSQL SSL issues
-    # TODO: Fix SpiderFoot PostgreSQL configuration
-    # if [ -f "/app/spiderfoot/sfapi.py" ]; then
-    #     python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
-    #     echo "SpiderFoot API started on port 5001"
-    # fi
-    echo "SpiderFoot API disabled - needs PostgreSQL configuration"
+    # SpiderFoot uses SQLite for local data storage
+    if [ -f "/app/spiderfoot/sfapi.py" ]; then
+        python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
+        echo "SpiderFoot API started on port 5001"
+    fi
 }
 
 # Start background installation

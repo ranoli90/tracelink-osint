@@ -1,0 +1,49 @@
+  Cloning https://github.com/sherlock-project/sherlock.git to /tmp/pip-req-build-zaegexku
+  Running command git clone --filter=blob:none --quiet https://github.com/sherlock-project/sherlock.git /tmp/pip-req-build-zaegexku
+  Resolved https://github.com/sherlock-project/sherlock.git to commit 574aeb4ac527b80c432fd04dd4411eddf3b54471
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: PySocks<2.0.0,>=1.7.0 in /usr/lib/python3.12/site-packages (from sherlock-project==0.16.0) (1.7.1)
+Requirement already satisfied: certifi>=2019.6.16 in /usr/lib/python3.12/site-packages (from sherlock-project==0.16.0) (2025.11.12)
+Requirement already satisfied: colorama<0.5.0,>=0.4.1 in /usr/lib/python3.12/site-packages (from sherlock-project==0.16.0) (0.4.6)
+Requirement already satisfied: openpyxl<4.0.0,>=3.0.10 in /usr/lib/python3.12/site-packages (from sherlock-project==0.16.0) (3.1.5)
+Collecting pandas<3.0.0,>=2.2.1 (from sherlock-project==0.16.0)
+  Downloading pandas-2.3.3-cp312-cp312-musllinux_1_2_x86_64.whl.metadata (91 kB)
+Requirement already satisfied: requests<3.0.0,>=2.22.0 in /usr/lib/python3.12/site-packages (from sherlock-project==0.16.0) (2.32.5)
+Requirement already satisfied: requests-futures<2.0.0,>=1.0.0 in /usr/lib/python3.12/site-packages (from sherlock-project==0.16.0) (1.0.2)
+Requirement already satisfied: stem<2.0.0,>=1.8.0 in /usr/lib/python3.12/site-packages (from sherlock-project==0.16.0) (1.8.2)
+Collecting tomli<3.0.0,>=2.2.1 (from sherlock-project==0.16.0)
+  Downloading tomli-2.4.0-cp312-cp312-musllinux_1_2_x86_64.whl.metadata (10 kB)
+Requirement already satisfied: et-xmlfile in /usr/lib/python3.12/site-packages (from openpyxl<4.0.0,>=3.0.10->sherlock-project==0.16.0) (2.0.0)
+Collecting numpy>=1.26.0 (from pandas<3.0.0,>=2.2.1->sherlock-project==0.16.0)
+  Downloading numpy-2.4.3-cp312-cp312-musllinux_1_2_x86_64.whl.metadata (6.6 kB)
+Requirement already satisfied: python-dateutil>=2.8.2 in /usr/lib/python3.12/site-packages (from pandas<3.0.0,>=2.2.1->sherlock-project==0.16.0) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /usr/lib/python3.12/site-packages (from pandas<3.0.0,>=2.2.1->sherlock-project==0.16.0) (2026.1.post1)
+Requirement already satisfied: tzdata>=2022.7 in /usr/lib/python3.12/site-packages (from pandas<3.0.0,>=2.2.1->sherlock-project==0.16.0) (2025.3)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/lib/python3.12/site-packages (from requests<3.0.0,>=2.22.0->sherlock-project==0.16.0) (3.4.6)
+Requirement already satisfied: idna<4,>=2.5 in /usr/lib/python3.12/site-packages (from requests<3.0.0,>=2.22.0->sherlock-project==0.16.0) (3.11)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/lib/python3.12/site-packages (from requests<3.0.0,>=2.22.0->sherlock-project==0.16.0) (2.6.3)
+Requirement already satisfied: six>=1.5 in /usr/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas<3.0.0,>=2.2.1->sherlock-project==0.16.0) (1.17.0)
+Downloading pandas-2.3.3-cp312-cp312-musllinux_1_2_x86_64.whl (13.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.5/13.5 MB 142.8 MB/s eta 0:00:00
+Downloading tomli-2.4.0-cp312-cp312-musllinux_1_2_x86_64.whl (251 kB)
+Downloading numpy-2.4.3-cp312-cp312-musllinux_1_2_x86_64.whl (18.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.3/18.3 MB 139.2 MB/s eta 0:00:00
+Building wheels for collected packages: sherlock-project
+  Building wheel for sherlock-project (pyproject.toml): started
+  Building wheel for sherlock-project (pyproject.toml): finished with status 'done'
+  Created wheel for sherlock-project: filename=sherlock_project-0.16.0-py3-none-any.whl size=38621 sha256=298363fb2ccc191c3f5316b155b70033cb9a59ccb9cc854cbf96a52d445d0b0a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-613mnmyh/wheels/c4/40/ca/fc0cb47cc78335e2002c28055e87d9ac4e31b7589d083cda00
+Successfully built sherlock-project
+Installing collected packages: tomli, numpy, pandas, sherlock-project
+Successfully installed numpy-2.4.3 pandas-2.3.3 sherlock-project-0.16.0 tomli-2.4.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Background tool installation complete.
+SpiderFoot API disabled - needs PostgreSQL configuration
+clientIP="91.108.5.73" requestID="2742bf64-5be1-459f" responseTimeMS=4 responseBytes=310 userAgent=""
+clientIP="91.108.5.73" requestID="54106c6d-69bd-40dd" responseTimeMS=4 responseBytes=310 userAgent=""
+clientIP="91.108.5.73" requestID="00aa47f2-8650-439e" responseTimeMS=2 responseBytes=310 userAgent=""
