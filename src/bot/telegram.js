@@ -162,6 +162,19 @@ export function createBot() {
 
     const bot = new Telegraf(botToken);
 
+    // Automatically set the main Chat Menu Button (the blue button in the bottom-left)
+    // to open the Mini App for all users by default.
+    const webAppUrl = getWebAppUrl();
+    bot.telegram.setChatMenuButton({
+        type: 'web_app',
+        text: 'Dashboard',
+        web_app: { url: webAppUrl }
+    }).then(() => {
+        console.log(`Telegram Chat Menu Button (bot menu) set to open Mini App: ${webAppUrl}`);
+    }).catch(err => {
+        console.error('Failed to set global chat menu button:', err.message);
+    });
+
     // /start command handler
     bot.start(async (ctx) => {
         try {
@@ -173,9 +186,20 @@ export function createBot() {
 
             const webAppUrl = getWebAppUrl();
 
+            // Configure the main Chat Menu Button to open the Web App
+            try {
+                await ctx.setChatMenuButton({
+                    type: 'web_app',
+                    text: 'Dashboard',
+                    web_app: { url: webAppUrl }
+                });
+            } catch (err) {
+                console.error('Failed to set chat menu button:', err.message);
+            }
+
             // Send welcome message with Web App button
             await ctx.reply(
-                'Welcome to TraceLink! Click the button below to access your personalized dashboard.',
+                'Welcome to TraceLink! Click the "Dashboard" button in the bottom-left menu or the button below to access your personalized experience.',
                 Markup.inlineKeyboard([
                     [Markup.button.webApp('Open Dashboard', webAppUrl)]
                 ])
