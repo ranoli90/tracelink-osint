@@ -1,16 +1,18 @@
-# TraceLink OSINT - Dockerfile for Render.com
-FROM node:22-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
-# Install system dependencies needed by Prisma/OpenSSL and Python tools
-RUN apk add --no-cache openssl g++ make python3 py3-pip git
+# Set node options to limit memory use during build
+ENV NODE_OPTIONS="--max-old-space-size=400"
+
+# Install system dependencies
+RUN apk add --no-cache openssl g++ make python3 py3-pip git wget
 
 # Install Node dependencies
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm ci --only=production && npm cache clean --force
 
-# Install Maigret, Holehe, and Sherlock (pip version handles dependencies)
+# Install OSINT tools
 RUN pip3 install --no-cache-dir --break-system-packages maigret holehe git+https://github.com/sherlock-project/sherlock.git
 
 # Install PhoneInfoga (Go-based tool)
