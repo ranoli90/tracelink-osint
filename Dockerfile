@@ -2,8 +2,8 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Set node options to limit memory use during build
-ENV NODE_OPTIONS="--max-old-space-size=400"
+# Increase memory limit to utilize the upgraded Pro tier resources (2GB+ recommended)
+ENV NODE_OPTIONS="--max-old-space-size=1536"
 
 # Install system dependencies
 RUN apk add --no-cache openssl g++ make python3 py3-pip git wget
