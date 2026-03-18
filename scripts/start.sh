@@ -26,20 +26,13 @@ install_tools() {
     echo "Background tool installation complete."
     
     # Start SpiderFoot API after installation
-    # SpiderFoot now requires PostgreSQL - configure with SSL for Render
-    if [ -f "/app/spiderfoot/sfapi.py" ]; then
-        # Use DATABASE_URL from environment and add sslmode=require
-        if [ -n "$DATABASE_URL" ]; then
-            # Add sslmode=require if not already present
-            if echo "$DATABASE_URL" | grep -qv 'sslmode='; then
-                export SF_POSTGRES_DSN="${DATABASE_URL}?sslmode=require"
-            else
-                export SF_POSTGRES_DSN="$DATABASE_URL"
-            fi
-        fi
-        python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
-        echo "SpiderFoot API started on port 5001"
-    fi
+    # Temporarily disabled - SpiderFoot has PostgreSQL SSL issues
+    # TODO: Fix SpiderFoot PostgreSQL configuration
+    # if [ -f "/app/spiderfoot/sfapi.py" ]; then
+    #     python3 /app/spiderfoot/sfapi.py -l 0.0.0.0:5001 &
+    #     echo "SpiderFoot API started on port 5001"
+    # fi
+    echo "SpiderFoot API disabled - needs PostgreSQL configuration"
 }
 
 # Start background installation
